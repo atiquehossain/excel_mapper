@@ -1,177 +1,150 @@
-import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
 import pandas as pd
 import re
+from ExcelProcessor import ExcelProcessor 
+from DartCodeGenerator import DartCodeGenerator
 
+# Helper functions
+def clean_column_name(name):
+    """Clean column names by replacing non-alphanumeric characters with underscores."""
+    return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
 
-def generate_dart_files(file_path, sheet_name):
+def clean_data_type(data_type):
+    """Clean data type names by replacing non-alphanumeric characters with underscores."""
+    if isinstance(data_type, str):
+        return re.sub(r'[^0-9a-zA-Z]+', '_', data_type.strip()).lower()
+    return data_type
+
+def sanitize_key(name):
+    """Sanitize keys to ensure they are valid Dart identifiers."""
+    return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
+
+def write_dart_file(file_path, content):
+    """Write Dart code to a file."""
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+
+# Main processing
+def process_combined_projects(file_path, sheet_name):
+    # Load data into a single DataFrame
+    df = pd.read_excel(file_path, sheet_name=sheet_name)
+
+    # Clean column names
+    df.columns = [clean_column_name(col) for col in df.columns]
+
+    # -------------------- Project 1: Widgets and Models --------------------
+    required_columns_project_1 = ['questions_in_english', 'labels_in_english', 'data_type', 'database']
+    missing_columns_1 = [col for col in required_columns_project_1 if col not in df.columns]
+    if missing_columns_1:
+        raise ValueError(f"Missing columns for Project 1: {', '.join(missing_columns_1)}")
+
+    class_name = re.sub(r'[^\w]+', '_', sheet_name).title().replace("_", "")
+    dart_code_project_1 = f"class {class_name} {{\n"
+
+    for _, row in df.iterrows():
+        question = str(row['questions_in_english']) if not pd.isnull(row['questions_in_english']) else "Missing question"
+        label = str(row['labels_in_english']) if not pd.isnull(row['labels_in_english']) else "missing_label"
+        dart_code_project_1 += f"  // {question}\n"
+        dart_code_project_1 += f"  final String {sanitize_key(label)};\n"
+
+    dart_code_project_1 += "}\n"
+    write_dart_file("project1_widgets.dart", dart_code_project_1)
+
+    # -------------------- Project 2: Localization and Fields --------------------
+    required_columns_project_2 = [
+        'field_names_in_english',
+        'field_names_in_tamil',
+        'field_names_in_sinhala',
+        'data_type',
+        'database'
+    ]
+    missing_columns_2 = [col for col in required_columns_project_2 if col not in df.columns]
+    if missing_columns_2:
+        raise ValueError(f"Missing columns for Project 2: {', '.join(missing_columns_2)}")
+
+    # Fill missing data in `data_type` and `database`
+    df['data_type'] = df['data_type'].ffill()
+    df['database'] = df['database'].ffill()
+
+    # Filter rows for dropdown or multicheck data types
+    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multicheck'])].copy()
+
+    # Ensure all relevant columns are strings and clean
+    for col in ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala']:
+        filtered_data[col] = filtered_data[col].apply(lambda x: str(x).strip() if not pd.isnull(x) else '')
+
+    # Flatten field names in English
+    filtered_data['field_names_in_english'] = filtered_data['field_names_in_english'].apply(lambda x: [i.strip() for i in x.split(',')])
+    flattened_data = filtered_data.explode('field_names_in_english').reset_index(drop=True)
+
+    grouped_data = flattened_data.groupby('database')['field_names_in_english'].apply(list).to_dict()
+    localization_data = {lang: {} for lang in ['English', 'Tamil', 'Sinhala']}
+
+    for _, row in flattened_data.iterrows():
+        english_name = row['field_names_in_english']
+        tamil_name = row['field_names_in_tamil']
+        sinhala_name = row['field_names_in_sinhala']
+        sanitized_key = sanitize_key(english_name)
+        localization_data['English'][sanitized_key] = english_name
+        localization_data['Tamil'][sanitized_key] = tamil_name
+        localization_data['Sinhala'][sanitized_key] = sinhala_name
+
+    # Generate localization files
+    for lang, file_path in {'English': 'en.dart', 'Tamil': 'ta.dart', 'Sinhala': 'si.dart'}.items():
+        content = '// Auto-generated localization file\n\n'
+        content += 'class Languages {\n'
+        for key, value in localization_data[lang].items():
+            content += f'  String get {key} => "{value}";\n'
+        content += '}\n'
+        write_dart_file(file_path, content)
+
+    # Generate grouped data Dart code
+    dart_code_project_2 = ""
+    for database, fields in grouped_data.items():
+        dart_code_project_2 += f"if (modelName == '{database}') {{\n"
+        for index, field in enumerate(fields, start=1):
+            sanitized_field = sanitize_key(field)
+            dart_code_project_2 += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
+        dart_code_project_2 += "}\n\n"
+
+    write_dart_file("project2_fields.dart", dart_code_project_2)
+
+    print("Both projects have been processed successfully!")
+    print("Files generated: project1_widgets.dart, en.dart, ta.dart, si.dart, project2_fields.dart")
+
+# Main execution
+if __name__ == "__main__":
     try:
-        # Read the specified sheet
-        df = pd.read_excel(file_path, sheet_name=sheet_name)
+        # Specify the file path and sheet name
+        process_combined_projects(
+            file_path='atique.xlsx',
+            sheet_name='IncomeInfo'  # Update this to your actual sheet name
+        )
+                # Initialize and load Excel data
+        processor = ExcelProcessor(file_path='atique.xlsx', sheet_name='IncomeInfo')
+        processor.load_sheet()
 
-        # Clean column names
-        df.columns = df.columns.str.strip()
+        # Validate columns
+        required_columns = ['questions_in_english', 'labels_in_english', 'data_type', 'database']
+        df = processor.get_dataframe()
+        # Validate columns and identify missing ones
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            raise ValueError(f"Missing required columns in the sheet: {', '.join(missing_columns)}")
 
-        # Convert the sheet name to a valid Dart class name
-        class_name = re.sub(r'[^\w]+', '_', sheet_name).title().replace("_", "")
+        if not all(col in df.columns for col in required_columns):
+            raise ValueError(f"Missing required columns in the sheet.")
 
-        # Dart code template for the stateful widget
-        dart_template = f"""
-import 'package:flutter/material.dart';
-import 'languages.dart';
+        # Initialize Dart generator
+        class_name = re.sub(r'[^\w]+', '_', processor.sheet_name).title().replace("_", "")
+        dart_generator = DartCodeGenerator(class_name, df)
+        print(dart_generator.DART_WIDGET_TEMPLATE)
 
-class {class_name}Widget extends StatefulWidget {{
-  @override
-  _{class_name}WidgetState createState() => _{class_name}WidgetState();
-}}
-
-class _{class_name}WidgetState extends State<{class_name}Widget> {{
-  @override
-  Widget build(BuildContext context) {{
-    return Column(
-      children: [
-        {{widgets}}
-      ],
-    );
-  }}
-}}
-"""
-
-        # Dart model class template
-        model_template = f"""
-class {class_name}Model {{
-  {{fields}}
-
-  {class_name}Model({{
-    {{constructor_params}}
-  }});
-
-  factory {class_name}Model.fromJson(Map<String, dynamic> json) {{
-    return {class_name}Model(
-      {{from_json}}
-    );
-  }}
-
-  Map<String, dynamic> toJson() {{
-    return {{
-      {{to_json}}
-    }};
-  }}
-}}
-"""
-
-        # Initialize Dart widget code and model fields
-        dart_widgets = []
-        model_fields = []
-        constructor_params = []
-        from_json = []
-        to_json = []
-
-        # Process each row in the sheet
+        # Process rows
         for _, row in df.iterrows():
-            data_type = row.get('Data type', None)
-            model = row.get('Database', None)
+            dart_generator.process_row(row, processor.clean_data_type)
 
-            # Ensure required fields are present
-            if pd.isna(data_type) or pd.isna(model):
-                continue
-
-            dart_type = "String"  # Default data type
-
-            # Add to Dart model fields
-            model_fields.append(f"final {dart_type} {model};")
-            constructor_params.append(f"this.{model},")
-            from_json.append(f"{model}: json['{model}'],")
-            to_json.append(f"'{model}': {model},")
-
-        # Combine widgets into Dart class
-        dart_code = dart_template.replace("{widgets}", "\n".join(dart_widgets))
-
-        # Combine fields into Dart model class
-        model_code = model_template.replace("{fields}", "\n  ".join(model_fields))
-        model_code = model_code.replace("{constructor_params}", "\n    ".join(constructor_params))
-        model_code = model_code.replace("{from_json}", "\n      ".join(from_json))
-        model_code = model_code.replace("{to_json}", "\n      ".join(to_json))
-
-        # Save Dart files
-        widget_filename = f"{sheet_name.lower()}_ui_widget.dart"
-        with open(widget_filename, "w", encoding="utf-8") as f:
-            f.write(dart_code)
-
-        model_filename = f"{sheet_name.lower()}_model.dart"
-        with open(model_filename, "w", encoding="utf-8") as f:
-            f.write(model_code)
-
-        messagebox.showinfo("Success", "Dart files generated successfully!")
+        # Generate files
+        dart_generator.generate_files()
+        
     except Exception as e:
-        messagebox.showerror("Error", f"Failed to generate files: {e}")
-
-
-def upload_file():
-    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
-    if file_path:
-        try:
-            sheets = pd.ExcelFile(file_path).sheet_names
-            sheet_selector["values"] = sheets
-            sheet_selector.file_path = file_path
-            messagebox.showinfo("File Uploaded", "File uploaded successfully!")
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to read Excel file: {e}")
-
-
-def generate_files():
-    file_path = getattr(sheet_selector, "file_path", None)
-    sheet_name = sheet_selector.get()
-    if not file_path or not sheet_name:
-        messagebox.showerror("Error", "Please upload a file and select a sheet.")
-        return
-
-    generate_dart_files(file_path, sheet_name)
-
-
-# Tkinter GUI setup
-root = tk.Tk()
-root.title("Dart File Generator")
-root.geometry("500x300")
-
-# Styles
-style = ttk.Style()
-style.configure("TFrame", background="#f7f7f7")
-style.configure("TLabel", background="#f7f7f7", font=("Arial", 12))
-style.configure("TButton", font=("Arial", 12))
-style.configure("TCombobox", font=("Arial", 12))
-
-# Main frame
-main_frame = ttk.Frame(root, padding=20)
-main_frame.pack(fill=tk.BOTH, expand=True)
-
-# File upload section
-upload_frame = ttk.Frame(main_frame)
-upload_frame.pack(fill=tk.X, pady=10)
-
-upload_label = ttk.Label(upload_frame, text="Step 1: Upload an Excel File")
-upload_label.pack(side=tk.LEFT, padx=10)
-
-upload_btn = ttk.Button(upload_frame, text="Upload", command=upload_file)
-upload_btn.pack(side=tk.RIGHT, padx=10)
-
-# Sheet selection section
-sheet_frame = ttk.Frame(main_frame)
-sheet_frame.pack(fill=tk.X, pady=10)
-
-sheet_label = ttk.Label(sheet_frame, text="Step 2: Select a Sheet")
-sheet_label.pack(side=tk.LEFT, padx=10)
-
-sheet_selector = ttk.Combobox(sheet_frame, state="readonly")
-sheet_selector.pack(side=tk.RIGHT, padx=10)
-
-# Generate button
-generate_btn = ttk.Button(main_frame, text="Generate Dart Files", command=generate_files)
-generate_btn.pack(pady=20)
-
-# Footer
-footer = ttk.Label(main_frame, text="Developed by [Your Name]", font=("Arial", 10), anchor=tk.CENTER)
-footer.pack(side=tk.BOTTOM, pady=10)
-
-# Run the application
-root.mainloop()
+        print(f"Error: {e}")
