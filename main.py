@@ -31,23 +31,7 @@ def process_combined_projects(file_path, sheet_name):
     # Clean column names
     df.columns = [clean_column_name(col) for col in df.columns]
 
-    # -------------------- Project 1: Widgets and Models --------------------
-    required_columns_project_1 = ['questions_in_english', 'labels_in_english', 'data_type', 'database']
-    missing_columns_1 = [col for col in required_columns_project_1 if col not in df.columns]
-    if missing_columns_1:
-        raise ValueError(f"Missing columns for Project 1: {', '.join(missing_columns_1)}")
 
-    class_name = re.sub(r'[^\w]+', '_', sheet_name).title().replace("_", "")
-    dart_code_project_1 = f"class {class_name} {{\n"
-
-    for _, row in df.iterrows():
-        question = str(row['questions_in_english']) if not pd.isnull(row['questions_in_english']) else "Missing question"
-        label = str(row['labels_in_english']) if not pd.isnull(row['labels_in_english']) else "missing_label"
-        dart_code_project_1 += f"  // {question}\n"
-        dart_code_project_1 += f"  final String {sanitize_key(label)};\n"
-
-    dart_code_project_1 += "}\n"
-    write_dart_file("project1_widgets.dart", dart_code_project_1)
 
     # -------------------- Project 2: Localization and Fields --------------------
     required_columns_project_2 = [
@@ -96,6 +80,7 @@ def process_combined_projects(file_path, sheet_name):
             content += f'  String get {key} => "{value}";\n'
         content += '}\n'
         write_dart_file(file_path, content)
+        
 
     # Generate grouped data Dart code
     dart_code_project_2 = ""
@@ -148,3 +133,4 @@ if __name__ == "__main__":
         
     except Exception as e:
         print(f"Error: {e}")
+        
