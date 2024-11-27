@@ -67,6 +67,13 @@ class Languages {{
         self.from_json = []
         self.to_json = []
 
+    def _get_data_list_conditionally(self, field_type, model):
+        if field_type == 'AppConstant.FieldType_multiple_choice':
+            return f"SetupData.getCheklistItems(context, SetupConstant.{model})"
+        elif field_type == 'AppConstant.FieldType_dropdown':
+            return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
+        else:
+            return "null"  # Or handle any other field types as needed
 
     def process_row(self, row, clean_data_type):
       """Processes a single row of data to generate widget and model information."""
@@ -109,7 +116,8 @@ class Languages {{
         question: {(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")},
         fieldType: {field_type},
         model: {self.class_name.lower()}.{model},
-        dataList: null,
+        
+          dataList: {self._get_data_list_conditionally(field_type, model)},
         onChanged: (value) {{
             {self.class_name.lower()}.{model} = value;
             selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")}] = dataList + AppConstant.SEPERATOR + value;

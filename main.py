@@ -73,7 +73,7 @@ def process_combined_projects(file_path, sheet_name):
         localization_data['Sinhala'][sanitized_key] = sinhala_name
 
     # Generate localization files
-    for lang, file_path in {'English': 'en.dart', 'Tamil': 'ta.dart', 'Sinhala': 'si.dart'}.items():
+    for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
         content = '// Auto-generated localization file\n\n'
         content += 'class Languages {\n'
         for key, value in localization_data[lang].items():
