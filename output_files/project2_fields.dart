@@ -1,8 +1,8 @@
-if (modelName == ' monthly_fuel_amount') {
+else if (modelName == SetupConstant. monthly_fuel_amount) {
   items.add(SetupModel(Languages.getText(context)!., "1"));
 }
 
-if (modelName == 'department_of_job') {
+else if (modelName == SetupConstant.department_of_job) {
   items.add(SetupModel(Languages.getText(context)!.farming, "1"));
   items.add(SetupModel(Languages.getText(context)!.fisheries, "2"));
   items.add(SetupModel(Languages.getText(context)!.livestack, "3"));
@@ -24,7 +24,7 @@ if (modelName == 'department_of_job') {
   items.add(SetupModel(Languages.getText(context)!.small_business, "19"));
 }
 
-if (modelName == 'nature_of_job') {
+else if (modelName == SetupConstant.nature_of_job) {
   items.add(SetupModel(Languages.getText(context)!.no_economic_activities, "1"));
   items.add(SetupModel(Languages.getText(context)!.government_employee, "2"));
   items.add(SetupModel(Languages.getText(context)!.semi_government_employee, "3"));
@@ -38,7 +38,7 @@ if (modelName == 'nature_of_job') {
   items.add(SetupModel(Languages.getText(context)!.migrant_worker, "11"));
 }
 
-if (modelName == 'professional_level') {
+else if (modelName == SetupConstant.professional_level) {
   items.add(SetupModel(Languages.getText(context)!.nvq_3_g_c_e_o_l_conformity_status_, "1"));
   items.add(SetupModel(Languages.getText(context)!.nvq_3_g_c_e_a_l_conformity_status_, "2"));
   items.add(SetupModel(Languages.getText(context)!.nvq_5_diploma_level_, "3"));
@@ -48,11 +48,11 @@ if (modelName == 'professional_level') {
   items.add(SetupModel(Languages.getText(context)!.unknown, "7"));
 }
 
-if (modelName == 'required_fuel_type') {
+else if (modelName == SetupConstant.required_fuel_type) {
   items.add(SetupModel(Languages.getText(context)!.no, "1"));
 }
 
-if (modelName == 'walfare_type') {
+else if (modelName == SetupConstant.walfare_type) {
   items.add(SetupModel(Languages.getText(context)!.samurdhi, "1"));
   items.add(SetupModel(Languages.getText(context)!.allowances_for_elders, "2"));
   items.add(SetupModel(Languages.getText(context)!.allowances_for_disables, "3"));

@@ -2,6 +2,7 @@ import pandas as pd
 import re
 from ExcelProcessor import ExcelProcessor 
 from DartCodeGenerator import DartCodeGenerator
+import os
 
 
 # Helper functions
@@ -20,7 +21,10 @@ def sanitize_key(name):
     return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
 
 def write_dart_file(file_path, content):
+    folder_path = 'output_files'
     """Write Dart code to a file."""
+    os.makedirs(folder_path, exist_ok=True)  # Ensure the output folder exists
+    file_path = os.path.join(folder_path, file_path)
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
 
@@ -86,7 +90,7 @@ def process_combined_projects(file_path, sheet_name):
     # Generate grouped data Dart code
     dart_code_project_2 = ""
     for database, fields in grouped_data.items():
-        dart_code_project_2 += f"if (modelName == '{database}') {{\n"
+        dart_code_project_2 += f"else if (modelName == SetupConstant.{database}) {{\n"
         for index, field in enumerate(fields, start=1):
             sanitized_field = sanitize_key(field)
             dart_code_project_2 += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
@@ -103,10 +107,10 @@ if __name__ == "__main__":
         # Specify the file path and sheet name
         process_combined_projects(
             file_path='atique.xlsx',
-            sheet_name='IncomeInfo'  # Update this to your actual sheet name
+            sheet_name='Income'  # Update this to your actual sheet name
         )
                 # Initialize and load Excel data
-        processor = ExcelProcessor(file_path='atique.xlsx', sheet_name='IncomeInfo')
+        processor = ExcelProcessor(file_path='atique.xlsx', sheet_name='Income')
         processor.load_sheet()
 
         # Validate columns

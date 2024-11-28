@@ -1,0 +1,54 @@
+// Auto-generated localization file
+
+class Languages {
+  String get nvq_3_g_c_e_o_l_conformity_status_ => "NVQ 3 (G.C.E (O/L) (අනුකූලතා තත්වය)";
+  String get nvq_3_g_c_e_a_l_conformity_status_ => "NVQ 3 (G.C.E (A/L) (අනුකූලතා තත්වය)";
+  String get nvq_5_diploma_level_ => "NVQ 5 (ඩිප්ලෝමා මට්ටම)";
+  String get nvq_6_higher_diploma_level_ => "NVQ 6 (උසස් ඩිප්ලෝමා මට්ටම)";
+  String get nvq_7_degree_level_ => "NVQ 7 (පොදු උපාධිය)";
+  String get non_nvq => "නොකියනු ලැබුණු NVQ";
+  String get unknown => "අනියම්";
+  String get no_economic_activities => "ආර්ථික ක්‍රියකාරකම් නොමැත";
+  String get government_employee => "රජයේ සේවක";
+  String get semi_government_employee => "අර්ධ රාජ්‍ය සේවක";
+  String get employer => "සේවා යෝජකයා";
+  String get engages_in_his_own_economic_activity => "තමා‌ගේ ආර්ථික කටයුත්තක නිරතවන්නා";
+  String get laborer => "කම්කරුවා";
+  String get contributing_to_a_family_business => "පවුලේ ව්‍යාපාරයකට දායකවන";
+  String get private_sector_employee => "පුද්ගලික අංශයේ සේවක";
+  String get retired_employee => "විශ්‍රාමික සේවකයා";
+  String get expecting_a_job => "රැකියා අපේක්ෂිත";
+  String get migrant_worker => "ප්‍රවසී සේකම්";
+  String get farming => "කෘෂිකර්මය";
+  String get fisheries => "මීගැනුම්";
+  String get livestack => "පැළඳුම් සතුන්";
+  String get handicrafts => "හතිකර්ම";
+  String get textile_industry => "නූල් කර්මාන්තය";
+  String get plantation => "පැලෑව";
+  String get mining_and_excavation => "මැණිකම සහ හුදෙකලා කිරීම";
+  String get labourer => "ශ्रमිකයා";
+  String get minor_export_crops => "කුඩා අතිරේක වගාවන්";
+  String get construction => "සැකසුම";
+  String get carpentry => "හසුරුවාම්";
+  String get trading => "වාණිජිකය";
+  String get transport => "මහවැද්දා";
+  String get technical => "තාක්ෂණිකය";
+  String get retired => "අවශේෂකරු";
+  String get government_employer => "රජයේ රැකියා කාර්යය";
+  String get student => "සිසුන්";
+  String get other => "අනෙකුත්";
+  String get small_business => "කුඩා වාණිජිකය";
+  String get samurdhi => "සමුර්ධි";
+  String get allowances_for_elders => "ජීවිතාබාදකයන් සඳහා වත්මන්";
+  String get allowances_for_disables => "මැදිහිටියන් සඳහා වත්මන්";
+  String get allowances_for_kidney => "කුඩු ප්‍රතිකාර සඳහා වත්මන්";
+  String get allowances_for_thalassemia_patients => "තලාසේමියා රෝගීන් සඳහා වත්මන්";
+  String get allowances_for_cancer_patients => "කැන්සර් රෝගීන් සඳහා වත්මන්";
+  String get mahapola => "මහපොල";
+  String get scholarship_year_5_ => "ආර්ථික වාසිය (වසර 5)";
+  String get public_aids => "පොදු ආධාර";
+  String get aswesuma => "අසවේශුමා";
+  String get non_govermental_assistance => "අරමුදල් නොලැබූ ආධාර";
+  String get no => "නැත";
+  String get  => "";
+}

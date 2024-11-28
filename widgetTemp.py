@@ -14,22 +14,33 @@ class DartWidgetGenerator:
         """
         dart_widget_template = f"""
 import 'package:flutter/material.dart';
-import 'languages.dart';
 
-class {class_name}Widget extends StatefulWidget {{
+class {class_name}Screen extends StatefulWidget {{
   @override
-  _{class_name}WidgetState createState() => _{class_name}WidgetState();
+  _{class_name}ScreenState createState() => _{class_name}ScreenState();
 }}
 
-class _{class_name}WidgetState extends State<{class_name}Widget> {{
+class _{class_name}ScreenState extends State<{class_name}Screen> {{
   {class_name}Model {model_instance} = {class_name}Model();
+  
+    Map<String, dynamic> selectedOptions = ;
+      late AppColor appColor;
+
+  @override
+  void didChangeDependencies() {{
+    super.didChangeDependencies();
+  }}
+  appColor = AppColor();
 
   @override
   Widget build(BuildContext context) {{
-    return Column(
-      children: [
-        {widgets}
-      ],
+    return PageUF(
+      backgroundColor: appColor.Background,
+      body: Column(
+        children: [
+          {widgets}
+        ],
+      ),
     );
   }}
 }}
@@ -53,9 +64,12 @@ class {class_name}UI extends StatelessWidget {{
     this.appColor,
   }});
 
+    AppColor appColor = AppColor();
+
+
   @override
   Widget build(BuildContext context) {{
-    appColor ??= AppColor();
+    appColor = AppColor();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
