@@ -45,11 +45,11 @@ class DartCodeGenerator:
 
     def _get_data_list_conditionally(self, field_type, model):
         if field_type == 'AppConstant.FieldType_multiple_choice':
-            return f"SetupData.getCheklistItems(context, SetupConstant.{model})"
+            return f"SetupConstant.{model}"
         elif field_type == 'AppConstant.FieldType_dropdown':
-            return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
+            return f"SetupConstant.{model}"
         elif field_type == 'AppConstant.FieldType_radio':
-            return f"SetupData.getDropDownItems(context, SetupConstant.yes_no)"
+            return f"SetupConstant.yes_no"
         else:
             return "null"  # Or handle any other field types as needed
 
@@ -89,7 +89,7 @@ class DartCodeGenerator:
           question: {(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")},
           fieldType: {field_type},
           model: {self.class_name.lower()}.{model},
-          dataList: {self._get_data_list_conditionally(field_type, model)},
+          dataList: SetupData.getDropDownItems(context,{self._get_data_list_conditionally(field_type, model)}),
           onChanged: (value) {{
               {self.class_name.lower()}.{model} = value;
               selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally(field_type, model)} + AppConstant.SEPERATOR + value;

@@ -4,6 +4,21 @@ from ExcelProcessor import ExcelProcessor
 from DartCodeGenerator import DartCodeGenerator
 import os
 from datetime import datetime
+from num2words import num2words
+
+
+def convert_number_to_text(value):
+    """Convert numeric values to text."""
+    try:
+        # Only convert numeric values
+        if isinstance(value, (int, float)):
+            print(f" onverting done")
+
+            return num2words(value)
+        return value  # Return non-numeric values as-is
+    except Exception as e:
+        print(f"Error converting {value}: {e}")
+        return value
 
 
 # Helper functions
@@ -33,6 +48,13 @@ def write_dart_file(file_path, content):
 def process_combined_projects(file_path, sheet_name):
     # Load data into a single DataFrame
     df = pd.read_excel(file_path, sheet_name=sheet_name)
+
+        # Convert numbers to text in all columns
+    for col in df.columns:
+        df[col] = df[col].apply(convert_number_to_text)
+
+    # Clean column names
+    df.columns = [clean_column_name(col) for col in df.columns]
 
     # Clean column names
     df.columns = [clean_column_name(col) for col in df.columns]

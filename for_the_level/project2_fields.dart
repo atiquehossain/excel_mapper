@@ -52,6 +52,16 @@ else if (modelName == SetupConstant.required_fuel_type) {
   items.add(SetupModel(Languages.getText(context)!.no, "1"));
 }
 
+else if (modelName == SetupConstant.samurdhi_benefit_value) {
+  items.add(SetupModel(Languages.getText(context)!.four_hundred_and_twenty, "1"));
+  items.add(SetupModel(Languages.getText(context)!.one_thousand, "2"));
+  items.add(SetupModel(Languages.getText(context)!.nine_hundred, "3"));
+  items.add(SetupModel(Languages.getText(context)!.three_thousand, "4"));
+  items.add(SetupModel(Languages.getText(context)!.two_hundred, "5"));
+  items.add(SetupModel(Languages.getText(context)!.four_thousand, "6"));
+  items.add(SetupModel(Languages.getText(context)!.five_hundred, "7"));
+}
+
 else if (modelName == SetupConstant.walfare_type) {
   items.add(SetupModel(Languages.getText(context)!.samurdhi, "1"));
   items.add(SetupModel(Languages.getText(context)!.allowances_for_elders, "2"));

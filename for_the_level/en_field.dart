@@ -1,4 +1,4 @@
-// Auto-generated localization file
+// Auto-generated localization file - 2024-11-30
 
 class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_ => "NVQ 3(G.C.E (O/L) (Conformity Status)";
@@ -49,6 +49,13 @@ class Languages {
   String get public_aids => "Public aids";
   String get aswesuma => "Aswesuma";
   String get non_govermental_assistance => "Non Govermental Assistance";
+  String get four_hundred_and_twenty => "four hundred and twenty";
+  String get one_thousand => "one thousand";
+  String get nine_hundred => "nine hundred";
+  String get three_thousand => "three thousand";
+  String get two_hundred => "two hundred";
+  String get four_thousand => "four thousand";
+  String get five_hundred => "five hundred";
   String get no => "No";
   String get  => "";
 }
