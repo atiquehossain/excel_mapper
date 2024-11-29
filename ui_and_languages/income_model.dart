@@ -7,16 +7,14 @@ class IncomeModel {
   final int walfare_type;
   final int samurdhi_beneficiary_type;
   final String samurdhi_benefit_value;
-  final double expenses_category;
+  final int expenses_category;
   final int has_electricity;
-  final String fuel_cooking;
+  final int fuel_cooking;
   final double electricity_unit;
   final double electricity_account_number;
   final int loss_of_livelihood;
   final int loss_of_livelihood_type;
   final int required_fuel_type;
-  final String  monthly_fuel_amount;
-  final String cooking_fuel_type;
 
   IncomeModel({
     this.professional_level,
@@ -34,8 +32,6 @@ class IncomeModel {
     this.loss_of_livelihood,
     this.loss_of_livelihood_type,
     this.required_fuel_type,
-    this. monthly_fuel_amount,
-    this.cooking_fuel_type,
   });
 
   factory IncomeModel.fromJson(Map<String, dynamic> json) {
@@ -55,8 +51,6 @@ class IncomeModel {
       loss_of_livelihood: json['loss_of_livelihood'],;
       loss_of_livelihood_type: json['loss_of_livelihood_type'],;
       required_fuel_type: json['required_fuel_type'],;
-      monthly_fuel_amount: json[' monthly_fuel_amount'],;
-      cooking_fuel_type: json['cooking_fuel_type'],;
     );
   }
 
@@ -77,13 +71,11 @@ class IncomeModel {
       'loss_of_livelihood': loss_of_livelihood,
       'loss_of_livelihood_type': loss_of_livelihood_type,
       'required_fuel_type': required_fuel_type,
-      ' monthly_fuel_amount':  monthly_fuel_amount,
-      'cooking_fuel_type': cooking_fuel_type,
     };
   }
 
   @override
   String toString() {
-    return 'IncomeModel(professional_level: ${professional_level}, nature_of_job: ${nature_of_job}, department_of_job: ${department_of_job}, received_walfare_assistance: ${received_walfare_assistance}, walfare_type: ${walfare_type}, samurdhi_beneficiary_type: ${samurdhi_beneficiary_type}, samurdhi_benefit_value: ${samurdhi_benefit_value}, expenses_category: ${expenses_category}, has_electricity: ${has_electricity}, fuel_cooking: ${fuel_cooking}, electricity_unit: ${electricity_unit}, electricity_account_number: ${electricity_account_number}, loss_of_livelihood: ${loss_of_livelihood}, loss_of_livelihood_type: ${loss_of_livelihood_type}, required_fuel_type: ${required_fuel_type},  monthly_fuel_amount: ${ monthly_fuel_amount}, cooking_fuel_type: ${cooking_fuel_type})';
+    return 'IncomeModel(professional_level: ${professional_level}, nature_of_job: ${nature_of_job}, department_of_job: ${department_of_job}, received_walfare_assistance: ${received_walfare_assistance}, walfare_type: ${walfare_type}, samurdhi_beneficiary_type: ${samurdhi_beneficiary_type}, samurdhi_benefit_value: ${samurdhi_benefit_value}, expenses_category: ${expenses_category}, has_electricity: ${has_electricity}, fuel_cooking: ${fuel_cooking}, electricity_unit: ${electricity_unit}, electricity_account_number: ${electricity_account_number}, loss_of_livelihood: ${loss_of_livelihood}, loss_of_livelihood_type: ${loss_of_livelihood_type}, required_fuel_type: ${required_fuel_type})';
   }
 }

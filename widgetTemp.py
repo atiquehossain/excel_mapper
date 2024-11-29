@@ -23,7 +23,7 @@ class {class_name}Screen extends StatefulWidget {{
 class _{class_name}ScreenState extends State<{class_name}Screen> {{
   {class_name}Model {model_instance} = {class_name}Model();
   
-    Map<String, dynamic> selectedOptions = ;
+    Map<String, dynamic> selectedOptions = {{}};
       late AppColor appColor;
 
   @override

@@ -30,6 +30,4 @@ class Languages {
   String get If_the_member_has_faced_a_loss_of_livelihood_in_the_past_6_months_please_select_and_specify_what_type_of_livelihood_has_been_lost => "கடந்த ஐந்தாண்டுகளில் மேற்கூறிய இயற்கைப் பேரழிவுகளால் வீட்டு வசதி பாதிக்கப்பட்டிருந்தால் சரியான தெரிவைத்  தேர்ந்தெடுக்கவும்.";
   String get Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption => "குடும்பத்தின் போக்குவரத்து, பொருளாதாரம், வீட்டுச் செயல்பாடுகளுக்குத் தேவையான மாதாந்த எரிபொருள் அளவு பற்றிய தகவல்களை இந்தப் பகுதியில்  குறிப்பிடவும்";
   String get Information_on_the_family_s_monthly_fuel_consumption => "வாழ்வாதார இழப்பு பற்றிய தகவல்";
-  String get Specify_the_main_fuel_used_for_cooking_food => "குடும்பத்தின் போக்குவரத்து, பொருளாதாரம், வீட்டுச் செயல்பாடுகளுக்குத் தேவையான ";
-  String get Fuel_used_during_cooking => "குடும்பத்தின் மாதாந்த எரிபொருள் பயன்பாடு பற்றிய தகவல்";
 }

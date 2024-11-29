@@ -5,6 +5,7 @@ from DartCodeGenerator import DartCodeGenerator
 import os
 from datetime import datetime
 from num2words import num2words
+from openpyxl import load_workbook
 
 
 def convert_number_to_text(value):
@@ -44,10 +45,27 @@ def write_dart_file(file_path, content):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
 
+def load_excel_skip_hidden_rows(file_path, sheet_name):
+    """Load Excel file while skipping hidden rows."""
+    # Load the workbook and sheet
+    workbook = load_workbook(file_path, data_only=True)
+    sheet = workbook[sheet_name]
+
+    # Identify hidden rows
+    hidden_rows = [row for row in sheet.row_dimensions if sheet.row_dimensions[row].hidden]
+
+    # Read the Excel file with pandas
+    df = pd.read_excel(file_path, sheet_name=sheet_name)
+
+    # Drop hidden rows by their index (Excel row numbers are 1-based)
+    df = df.drop(index=[row - 1 for row in hidden_rows if row <= len(df)])
+
+    return df
+
 # Main processing
 def process_combined_projects(file_path, sheet_name):
     # Load data into a single DataFrame
-    df = pd.read_excel(file_path, sheet_name=sheet_name)
+    df = load_excel_skip_hidden_rows(file_path, sheet_name)
 
         # Convert numbers to text in all columns
     for col in df.columns:
@@ -78,7 +96,7 @@ def process_combined_projects(file_path, sheet_name):
     df['database'] = df['database'].ffill()
 
     # Filter rows for dropdown or multicheck data types
-    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multicheck'])].copy()
+    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple_choice'])].copy()
 
     # Ensure all relevant columns are strings and clean
     for col in ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala']:

@@ -33,7 +33,4 @@ class Languages {
   String get If_the_member_has_faced_a_loss_of_livelihood_in_the_past_6_months_please_select_and_specify_what_type_of_livelihood_has_been_lost => "If the member has faced a loss of livelihood in the past 6 months, please select and specify what type of livelihood has been lost.";
   String get Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption => "Please provide details about the type of fuel required for family transportation, economic activities, and household tasks, along with the monthly fuel consumption";
   String get Information_on_the_family_s_monthly_fuel_consumption => "Information on the family's monthly fuel consumption";
-  String get Monthly_Amount_of_Fuel_Required => "Monthly Amount of Fuel Required";
-  String get Specify_the_main_fuel_used_for_cooking_food => "Specify the main fuel  used for cooking food.
-";
 }

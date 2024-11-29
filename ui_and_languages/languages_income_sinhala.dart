@@ -37,6 +37,4 @@ class Languages {
   String get If_the_member_has_faced_a_loss_of_livelihood_in_the_past_6_months_please_select_and_specify_what_type_of_livelihood_has_been_lost => "පසුගිය මාස 6 තුල සාමාජිකයා ජීවනෝපාය අහිමි වීමකට මුහුණ දී ඇත්නම් එලෙස අහිමි වූ ජීවනෝපාය කුමක්ද යන්න තෝරා ඇතුලත් කරන්න.";
   String get Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption => "පවුලේ ප්‍රවාහන, ආර්ථික, ගෘහ කටයුතු සඳහා අවශ්‍ය ඉන්ධන වර්ගය සහ මාසික ඉන්ධන ප්‍රමාණය පිළිබඳ තොරතුරු ඉහත තීරුවේ සඳහන් කරන්න";
   String get Information_on_the_family_s_monthly_fuel_consumption => "පවුලේ මාසික ඉන්ධන භාවිතය පිළිබඳ තොරතුරු";
-  String get Specify_the_main_fuel_used_for_cooking_food => "නිවසේ ආහාර පිසීමට භාවිතා කරන ප්‍රධාන ද්‍රව්‍ය කුමක්ද යන්න සඳහන් කරන්න.";
-  String get Fuel_used_during_cooking => "ආහාර පිසීමේදී භාවිතා කරන අමුද්‍රව්‍ය";
 }
