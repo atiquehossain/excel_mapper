@@ -3,6 +3,7 @@ import re
 from ExcelProcessor import ExcelProcessor 
 from DartCodeGenerator import DartCodeGenerator
 import os
+from datetime import datetime
 
 
 # Helper functions
@@ -21,7 +22,7 @@ def sanitize_key(name):
     return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
 
 def write_dart_file(file_path, content):
-    folder_path = 'output_files'
+    folder_path = 'for_the_level'
     """Write Dart code to a file."""
     os.makedirs(folder_path, exist_ok=True)  # Ensure the output folder exists
     file_path = os.path.join(folder_path, file_path)
@@ -67,6 +68,7 @@ def process_combined_projects(file_path, sheet_name):
 
     grouped_data = flattened_data.groupby('database')['field_names_in_english'].apply(list).to_dict()
     localization_data = {lang: {} for lang in ['English', 'Tamil', 'Sinhala']}
+    today_date = datetime.now().strftime('%Y-%m-%d')
 
     for _, row in flattened_data.iterrows():
         english_name = row['field_names_in_english']
@@ -79,7 +81,7 @@ def process_combined_projects(file_path, sheet_name):
 
     # Generate localization files
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
-        content = '// Auto-generated localization file\n\n'
+        content = f'// Auto-generated localization file - {today_date}\n\n'
         content += 'class Languages {\n'
         for key, value in localization_data[lang].items():
             content += f'  String get {key} => "{value}";\n'
@@ -104,13 +106,29 @@ def process_combined_projects(file_path, sheet_name):
 # Main execution
 if __name__ == "__main__":
     try:
+        file_path='atique.xlsx'
+        sheet_name='Income' 
+        
+        #column name
+        data_type = 'data_type'
+        questions_in_english='questions_in_english'
+        labels_in_english= 'labels_in_english'
+        database = 'database'
+
+        #field name
+        field_names_in_english = 'field_names_in_english'
+        field_names_in_tamil = 'field_names_in_tamil'
+        field_names_in_sinhala ='field_names_in_sinhala'
+
+
+
         # Specify the file path and sheet name
         process_combined_projects(
-            file_path='atique.xlsx',
-            sheet_name='Income'  # Update this to your actual sheet name
+            file_path=file_path,
+            sheet_name=sheet_name  # Update this to your actual sheet name
         )
                 # Initialize and load Excel data
-        processor = ExcelProcessor(file_path='atique.xlsx', sheet_name='Income')
+        processor = ExcelProcessor(file_path=file_path, sheet_name=sheet_name)
         processor.load_sheet()
 
         # Validate columns
