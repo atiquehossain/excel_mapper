@@ -8,22 +8,23 @@ class IncomeScreen extends StatefulWidget {
 class _IncomeScreenState extends State<IncomeScreen> {
   IncomeModel income = IncomeModel();
   
-    Map<String, dynamic> selectedOptions = {};
-      late AppColor appColor;
+  Map<String, dynamic> selectedOptions = {}; 
+  late AppColor appColor;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    appColor = AppColor();
   }
-  appColor = AppColor();
 
   @override
   Widget build(BuildContext context) {
     return PageUF(
       backgroundColor: appColor.Background,
-      body: Column(
-        children: [
-          
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            
         IncomeUI(
           label: Languages.getText(context)!.Professional_level_attained_by_the_member,
           question: Languages.getText(context)!.which_welfare_program_that_government_assistance_is_received_by_the_respective_member,
@@ -217,11 +218,70 @@ class _IncomeScreenState extends State<IncomeScreen> {
               selectedOptions[Languages.getText(context)!.Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption] = SetupConstant.required_fuel_type + AppConstant.SEPERATOR + value;
           },
         ),
-        
-        ],
+        ,
+            EqualDividerAAP(
+              direction: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppBlueButton(
+                    function: () {
+                      Navigator.pop(context);
+                    },
+                    buttonText: Languages.getText(context)!.cancel,
+                    showArrow: false,
+                    buttonRadius: 12,
+                    buttonColor: appColor.Disabled_Background,
+                    appColor: appColor,
+                    textStyle: TextStyleAAP.getTextStyle(
+                      color: appColor.H1_Title_Text as Color, 
+                      textSizeType: TextSizeType.normal
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppBlueButton(
+                    function: save,
+                    buttonText: Languages.getText(context)!.save_preview,
+                    showArrow: false,
+                    buttonRadius: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  save() {
+    if (selectedOptions.isEmpty) {
+      CustomSnackBar.showErrorSnackBar(
+        Languages.getText(context)!.Select_Item_to_update, context, appColor
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PreviewScreen(
+            onCallBack: () {
+              Future.delayed(const Duration(milliseconds: 500)).then((val) {
+                Navigator.pop(context);
+              });
+            },
+            selectedOptionsMap: selectedOptions,
+            previewScreenType: AppConstant.DISASTER,
+            model: IncomeModel(),
+            modelData: income,
+            liveData: widget.liveData,
+          ),
+        ),
+      );
+    }
+  }
+
 }
 
 class IncomeUI extends StatelessWidget {
@@ -242,9 +302,6 @@ class IncomeUI extends StatelessWidget {
     required this.model,
     this.appColor,
   });
-
-    AppColor appColor = AppColor();
-
 
   @override
   Widget build(BuildContext context) {
@@ -303,7 +360,9 @@ class IncomeUI extends StatelessWidget {
                 }
                 return null;
               },
-              onChanged: onChanged,
+              onChanged: (value) {
+                onChanged(value);
+              },
             ),
         ],
       ),

@@ -23,26 +23,86 @@ class {class_name}Screen extends StatefulWidget {{
 class _{class_name}ScreenState extends State<{class_name}Screen> {{
   {class_name}Model {model_instance} = {class_name}Model();
   
-    Map<String, dynamic> selectedOptions = {{}};
-      late AppColor appColor;
+  Map<String, dynamic> selectedOptions = {{}}; 
+  late AppColor appColor;
 
   @override
   void didChangeDependencies() {{
     super.didChangeDependencies();
+    appColor = AppColor();
   }}
-  appColor = AppColor();
 
   @override
   Widget build(BuildContext context) {{
     return PageUF(
       backgroundColor: appColor.Background,
-      body: Column(
-        children: [
-          {widgets}
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            {widgets},
+            EqualDividerAAP(
+              direction: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppBlueButton(
+                    function: () {{
+                      Navigator.pop(context);
+                    }},
+                    buttonText: Languages.getText(context)!.cancel,
+                    showArrow: false,
+                    buttonRadius: 12,
+                    buttonColor: appColor.Disabled_Background,
+                    appColor: appColor,
+                    textStyle: TextStyleAAP.getTextStyle(
+                      color: appColor.H1_Title_Text as Color, 
+                      textSizeType: TextSizeType.normal
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppBlueButton(
+                    function: save,
+                    buttonText: Languages.getText(context)!.save_preview,
+                    showArrow: false,
+                    buttonRadius: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }}
+
+  save() {{
+    if (selectedOptions.isEmpty) {{
+      CustomSnackBar.showErrorSnackBar(
+        Languages.getText(context)!.Select_Item_to_update, context, appColor
+      );
+    }} else {{
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PreviewScreen(
+            onCallBack: () {{
+              Future.delayed(const Duration(milliseconds: 500)).then((val) {{
+                Navigator.pop(context);
+              }});
+            }},
+            selectedOptionsMap: selectedOptions,
+            previewScreenType: AppConstant.DISASTER,
+            model: {class_name}Model(),
+            modelData: {model_instance},
+            liveData: widget.liveData,
+          ),
+        ),
+      );
+    }}
+  }}
+
 }}
 
 class {class_name}UI extends StatelessWidget {{
@@ -63,9 +123,6 @@ class {class_name}UI extends StatelessWidget {{
     required this.model,
     this.appColor,
   }});
-
-    AppColor appColor = AppColor();
-
 
   @override
   Widget build(BuildContext context) {{
@@ -124,7 +181,9 @@ class {class_name}UI extends StatelessWidget {{
                 }}
                 return null;
               }},
-              onChanged: onChanged,
+              onChanged: (value) {{
+                onChanged(value);
+              }},
             ),
         ],
       ),
