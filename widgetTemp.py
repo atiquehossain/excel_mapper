@@ -16,6 +16,12 @@ class DartWidgetGenerator:
 import 'package:flutter/material.dart';
 
 class {class_name}Screen extends StatefulWidget {{
+
+  final Map<String, dynamic>? liveData;
+  final Map<String, dynamic>? peddingData;
+
+   {class_name}Screen({"super.key, this.liveData, this.peddingData"});
+   
   @override
   _{class_name}ScreenState createState() => _{class_name}ScreenState();
 }}

@@ -68,8 +68,8 @@ def process_combined_projects(file_path, sheet_name):
     df = load_excel_skip_hidden_rows(file_path, sheet_name)
 
         # Convert numbers to text in all columns
-    for col in df.columns:
-        df[col] = df[col].apply(convert_number_to_text)
+  #  for col in df.columns:
+   #     df[col] = df[col].apply(convert_number_to_text)
 
     # Clean column names
     df.columns = [clean_column_name(col) for col in df.columns]
@@ -188,8 +188,8 @@ if __name__ == "__main__":
         print(dart_generator.DART_WIDGET_TEMPLATE)
 
         # Process rows
-        for _, row in df.iterrows():
-            dart_generator.process_row(row, processor.clean_data_type)
+        for index, row in df.iterrows():
+            dart_generator.process_row(row, processor.clean_data_type, index)
 
         # Generate files
         dart_generator.generate_files()

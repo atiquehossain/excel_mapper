@@ -47,6 +47,7 @@ class ExcelProcessor:
                         .str.replace(r'\s+', '_', regex=True)
                         .str.replace(r'[^\w]', '', regex=True)
         )
+        
 
     def clean_data_type(self, value):
         """Cleans and normalizes the 'Data type' column values."""

@@ -63,7 +63,7 @@ class DartCodeGenerator:
         else:
             return "null" 
 
-    def process_row(self, row, clean_data_type):
+    def process_row(self, row, clean_data_type, row_number):
         """Processes a single row of data to generate widget and model information."""
         question_en = row.get('questions_in_english', None)
         label_en = row.get('labels_in_english', None)
@@ -71,7 +71,7 @@ class DartCodeGenerator:
         model = row.get('database', None)
 
         if not pd.notna(model) or str(model).strip() == "":
-            print(f"Skipping row due to missing or invalid 'database' field: {row}")
+         #   print(f"Skipping row due to missing or invalid 'database' field: {row}")
             return
 
         question_en = question_en if pd.notna(question_en) else "Missing value in excel"
@@ -94,6 +94,7 @@ class DartCodeGenerator:
                 self.localization_data[lang][label_key] = label_value
 
         self.dart_widgets.append(f"""
+        /// Question number  = {row_number + 2}
         {self.class_name}UI(
           label: {(f'"{label_en}"' if label_en == "Missing value in excel" else f"Languages.getText(context)!.{label_key}")},
           question: {(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")},
