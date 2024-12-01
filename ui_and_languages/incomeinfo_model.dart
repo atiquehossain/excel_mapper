@@ -1,5 +1,5 @@
 
-class IncomeModel {
+class IncomeinfoModel {
   final int professional_level;
   final int nature_of_job;
   final int department_of_job;
@@ -7,16 +7,16 @@ class IncomeModel {
   final int walfare_type;
   final int samurdhi_beneficiary_type;
   final String samurdhi_benefit_value;
-  final int expenses_category;
+  final double expenses_category;
   final int has_electricity;
-  final int fuel_cooking;
+  final String fuel_cooking;
   final double electricity_unit;
   final double electricity_account_number;
   final int loss_of_livelihood;
   final int loss_of_livelihood_type;
   final int required_fuel_type;
 
-  IncomeModel({
+  IncomeinfoModel({
     this.professional_level,
     this.nature_of_job,
     this.department_of_job,
@@ -34,8 +34,8 @@ class IncomeModel {
     this.required_fuel_type,
   });
 
-  factory IncomeModel.fromJson(Map<String, dynamic> json) {
-    return IncomeModel(
+  factory IncomeinfoModel.fromJson(Map<String, dynamic> json) {
+    return IncomeinfoModel(
       professional_level: json['professional_level'],;
       nature_of_job: json['nature_of_job'],;
       department_of_job: json['department_of_job'],;
@@ -76,6 +76,6 @@ class IncomeModel {
 
   @override
   String toString() {
-    return 'IncomeModel(professional_level: ${professional_level}, nature_of_job: ${nature_of_job}, department_of_job: ${department_of_job}, received_walfare_assistance: ${received_walfare_assistance}, walfare_type: ${walfare_type}, samurdhi_beneficiary_type: ${samurdhi_beneficiary_type}, samurdhi_benefit_value: ${samurdhi_benefit_value}, expenses_category: ${expenses_category}, has_electricity: ${has_electricity}, fuel_cooking: ${fuel_cooking}, electricity_unit: ${electricity_unit}, electricity_account_number: ${electricity_account_number}, loss_of_livelihood: ${loss_of_livelihood}, loss_of_livelihood_type: ${loss_of_livelihood_type}, required_fuel_type: ${required_fuel_type})';
+    return 'IncomeinfoModel(professional_level: ${professional_level}, nature_of_job: ${nature_of_job}, department_of_job: ${department_of_job}, received_walfare_assistance: ${received_walfare_assistance}, walfare_type: ${walfare_type}, samurdhi_beneficiary_type: ${samurdhi_beneficiary_type}, samurdhi_benefit_value: ${samurdhi_benefit_value}, expenses_category: ${expenses_category}, has_electricity: ${has_electricity}, fuel_cooking: ${fuel_cooking}, electricity_unit: ${electricity_unit}, electricity_account_number: ${electricity_account_number}, loss_of_livelihood: ${loss_of_livelihood}, loss_of_livelihood_type: ${loss_of_livelihood_type}, required_fuel_type: ${required_fuel_type})';
   }
 }

@@ -20,7 +20,7 @@ class {class_name}Screen extends StatefulWidget {{
   final Map<String, dynamic>? liveData;
   final Map<String, dynamic>? peddingData;
 
-   {class_name}Screen({"super.key, this.liveData, this.peddingData"});
+  {class_name}Screen({{this.liveData, this.peddingData}});
    
   @override
   _{class_name}ScreenState createState() => _{class_name}ScreenState();
@@ -39,13 +39,24 @@ class _{class_name}ScreenState extends State<{class_name}Screen> {{
   }}
 
   @override
+  void initState() {{
+    if (widget.peddingData != null) {{
+      {model_instance} = {class_name}.fromJson(widget.peddingData as Map<String, dynamic>);
+    }} else {{
+      {model_instance} = {class_name}.fromJson(widget.liveData as Map<String, dynamic>);
+    }}
+    super.initState();
+  }}
+
+  @override
   Widget build(BuildContext context) {{
     return PageUF(
+      appBar: appBarGeneral(context, appColor, title: Languages.getText(context)!.{class_name}),
       backgroundColor: appColor.Background,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            {widgets},
+            {widgets}
             EqualDividerAAP(
               direction: Axis.horizontal,
               children: [
@@ -83,7 +94,19 @@ class _{class_name}ScreenState extends State<{class_name}Screen> {{
     );
   }}
 
-  save() {{
+  Widget buildQuestion({{
+    required int number,
+    required bool condition,
+    required Widget widget,
+  }}) {{
+    if (condition) {{
+      return widget;
+    }} else {{
+      return SizedBox.shrink();
+    }}
+  }}
+
+  void save() {{
     if (selectedOptions.isEmpty) {{
       CustomSnackBar.showErrorSnackBar(
         Languages.getText(context)!.Select_Item_to_update, context, appColor
@@ -108,7 +131,6 @@ class _{class_name}ScreenState extends State<{class_name}Screen> {{
       );
     }}
   }}
-
 }}
 
 class {class_name}UI extends StatelessWidget {{

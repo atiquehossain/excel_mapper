@@ -51,7 +51,7 @@ class DartCodeGenerator:
         elif field_type == 'AppConstant.FieldType_radio':
             return f" SetupConstant.yes_no"
         else:
-            return "null"  # Or handle any other field types as needed
+            return "null"  
         
     def _get_data_list_conditionally_type_and_model(self, field_type, model):
         if field_type == 'AppConstant.FieldType_multiple_choice':
@@ -94,19 +94,24 @@ class DartCodeGenerator:
                 self.localization_data[lang][label_key] = label_value
 
         self.dart_widgets.append(f"""
-        /// Question number  = {row_number + 2}
-        {self.class_name}UI(
-          label: {(f'"{label_en}"' if label_en == "Missing value in excel" else f"Languages.getText(context)!.{label_key}")},
-          question: {(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")},
-          fieldType: {field_type},
-          model: {self.class_name.lower()}.{model},
-          dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
-          onChanged: (value) {{
-              {self.class_name.lower()}.{model} = value;
-              selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel" else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
-          }},
-        ),
+            /// Question number  = {row_number + 2}
+            buildQuestion(
+            number: {row_number + 2},
+            condition: true, 
+            widget: {self.class_name}UI(
+                label: {(f'"{label_en}"' if label_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{label_key}")},
+                question: {(f'"{question_en}"' if question_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{question_key}")},
+                fieldType: {field_type},
+                model: {self.class_name.lower()}.{model},
+                dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
+                onChanged: (value) {{
+                    {self.class_name.lower()}.{model} = value;
+                    selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
+                }},
+            ),
+            ),
         """)
+
 
         self.model_fields.append(f"final {dart_type} {model};")
         self.constructor_params.append(f"this.{model},")

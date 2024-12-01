@@ -20,31 +20,6 @@ else if (modelName == SetupConstant.department_of_job) {
   items.add(SetupModel(Languages.getText(context)!.small_business, "19"));
 }
 
-else if (modelName == SetupConstant.expenses_category) {
-  items.add(SetupModel(Languages.getText(context)!.food_and_drinks, "1"));
-  items.add(SetupModel(Languages.getText(context)!.water, "2"));
-  items.add(SetupModel(Languages.getText(context)!.cloths, "3"));
-  items.add(SetupModel(Languages.getText(context)!.medicine_for_health, "4"));
-  items.add(SetupModel(Languages.getText(context)!.housing_if_stay_in_rented_house_, "5"));
-  items.add(SetupModel(Languages.getText(context)!.personal_needs, "6"));
-  items.add(SetupModel(Languages.getText(context)!.transport_travelling_expenses, "7"));
-  items.add(SetupModel(Languages.getText(context)!.electricity, "8"));
-  items.add(SetupModel(Languages.getText(context)!.fuel_including_gas_kerosene, "9"));
-  items.add(SetupModel(Languages.getText(context)!.telephone_mobile_and_fixed_line_expenses, "10"));
-  items.add(SetupModel(Languages.getText(context)!.education_expenses, "11"));
-  items.add(SetupModel(Languages.getText(context)!.for_sports, "12"));
-  items.add(SetupModel(Languages.getText(context)!.entertainment_and_religious_activities, "13"));
-  items.add(SetupModel(Languages.getText(context)!.other_expenses_including_loan_lease_mortgage_, "14"));
-}
-
-else if (modelName == SetupConstant.fuel_cooking) {
-  items.add(SetupModel(Languages.getText(context)!.firewood, "1"));
-  items.add(SetupModel(Languages.getText(context)!.kerosene_oil, "2"));
-  items.add(SetupModel(Languages.getText(context)!.gas, "3"));
-  items.add(SetupModel(Languages.getText(context)!.electricity, "4"));
-  items.add(SetupModel(Languages.getText(context)!.other, "5"));
-}
-
 else if (modelName == SetupConstant.nature_of_job) {
   items.add(SetupModel(Languages.getText(context)!.no_economic_activities, "1"));
   items.add(SetupModel(Languages.getText(context)!.government_employee, "2"));

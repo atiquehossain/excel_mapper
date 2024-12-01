@@ -1,4 +1,4 @@
-// Auto-generated localization file - 2024-11-30
+// Auto-generated localization file - 2024-12-01
 
 class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_ => "NVQ 3 (G.C.E (O/L) (ஒற்றுமை நிலை)";
@@ -49,22 +49,5 @@ class Languages {
   String get public_aids => "பொது உதவிகள்";
   String get aswesuma => "அஸ்வேசுமா";
   String get non_govermental_assistance => "அரசுக்கொடுக்கப்பட்ட உதவிகள்";
-  String get food_and_drinks => "தண்ணீர்";
-  String get water => "ஆடை";
-  String get cloths => "மருந்துகள் / சுகாதாரம்";
-  String get medicine_for_health => "வசதி (வாடகை வீடு இருப்பின்)";
-  String get housing_if_stay_in_rented_house_ => "தனிப்பட்ட தேவைகள்";
-  String get personal_needs => "போக்குவரத்து / பயண செலவுகள்";
-  String get transport_travelling_expenses => "மின்சாரம்";
-  String get electricity => "எலக்ட்ரிசிட்டி";
-  String get fuel_including_gas_kerosene => "தொலைபேசி (மொபைல் மற்றும் நிலையான வரி) செலவுகள்";
-  String get telephone_mobile_and_fixed_line_expenses => "கல்வி செலவுகள்";
-  String get education_expenses => "விளையாட்டு, பொழுதுபோக்கு மற்றும் மத செயல்பாடுகள்";
-  String get for_sports => "மற்ற செலவுகள் (கடன்/லீசிங்/வாங்கிய கடன் உள்ளிட்டவை)";
-  String get entertainment_and_religious_activities => "மற்ற செலவுகள் (கடன்/லீசிங்/வாங்கிய கடன் உள்ளிட்டவை)";
-  String get other_expenses_including_loan_lease_mortgage_ => "";
-  String get firewood => "மாலை";
-  String get kerosene_oil => "கேரோசீன் எண்ணெய்";
-  String get gas => "கேஸ்";
   String get no => "இல்லை";
 }
