@@ -1,0 +1,1 @@
+// Dart code for column 'labels_in_sinhala' with key 'si'
