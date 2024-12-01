@@ -127,7 +127,20 @@ def process_combined_projects(file_path, sheet_name):
             content += f'  String get {key} => "{value}";\n'
         content += '}\n'
         write_dart_file(file_path, content)
+
+
+    for lang, file_path in {'English': 'field_keys.dart'}.items():
+        content = f'// Auto-generated localization file - {today_date}\n\n'
+        content += 'class Languages {\n'
+        for key, value in localization_data[lang].items():
+            content += f'  String get {key} ;\n'
+        content += '}\n'
+        write_dart_file(file_path, content)
+
         
+        
+
+
 
     # Generate grouped data Dart code
     dart_code_project_2 = ""
@@ -138,7 +151,7 @@ def process_combined_projects(file_path, sheet_name):
             dart_code_project_2 += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
         dart_code_project_2 += "}\n\n"
 
-    write_dart_file("project2_fields.dart", dart_code_project_2)
+    write_dart_file("setupData.dart", dart_code_project_2)
 
     print("Both projects have been processed successfully!")
     print("Files generated: project1_widgets.dart, en.dart, ta.dart, si.dart, project2_fields.dart")

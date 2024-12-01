@@ -1,0 +1,53 @@
+// Auto-generated localization file - 2024-12-01
+
+class Languages {
+  String get nvq_3_g_c_e_o_l_conformity_status_ ;
+  String get nvq_3_g_c_e_a_l_conformity_status_ ;
+  String get nvq_5_diploma_level_ ;
+  String get nvq_6_higher_diploma_level_ ;
+  String get nvq_7_degree_level_ ;
+  String get non_nvq ;
+  String get unknown ;
+  String get no_economic_activities ;
+  String get government_employee ;
+  String get semi_government_employee ;
+  String get employer ;
+  String get engages_in_his_own_economic_activity ;
+  String get laborer ;
+  String get contributing_to_a_family_business ;
+  String get private_sector_employee ;
+  String get retired_employee ;
+  String get expecting_a_job ;
+  String get migrant_worker ;
+  String get farming ;
+  String get fisheries ;
+  String get livestack ;
+  String get handicrafts ;
+  String get textile_industry ;
+  String get plantation ;
+  String get mining_and_excavation ;
+  String get labourer ;
+  String get minor_export_crops ;
+  String get construction ;
+  String get carpentry ;
+  String get trading ;
+  String get transport ;
+  String get technical ;
+  String get retired ;
+  String get government_employer ;
+  String get student ;
+  String get other ;
+  String get small_business ;
+  String get samurdhi ;
+  String get allowances_for_elders ;
+  String get allowances_for_disables ;
+  String get allowances_for_kidney ;
+  String get allowances_for_thalassemia_patients ;
+  String get allowances_for_cancer_patients ;
+  String get mahapola ;
+  String get scholarship_year_5_ ;
+  String get public_aids ;
+  String get aswesuma ;
+  String get non_govermental_assistance ;
+  String get no ;
+}

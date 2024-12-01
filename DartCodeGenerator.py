@@ -148,5 +148,11 @@ class DartCodeGenerator:
             localization_code = TemplateProvider.get_localization_template().format(fields="\n  ".join(localization_fields))
             with open(os.path.join(self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart"), 'w', encoding='utf-8') as f:
                 f.write(localization_code)
+        
+        for lang, translations in self.localization_data.items():
+            localization_fields = [f'String get {key} ;' for key, value in translations.items()]
+            localization_code = TemplateProvider.get_localization_template().format(fields="\n  ".join(localization_fields))
+            with open(os.path.join(self.output_folder, f"keys.dart"), 'w', encoding='utf-8') as f:
+                f.write(localization_code)
 
         print(f"Dart files generated for class: {self.class_name} in {self.output_folder}")
