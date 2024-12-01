@@ -212,7 +212,16 @@ class {class_name}UI extends StatelessWidget {{
               onChanged: (value) {{
                 onChanged(value);
               }},
-            ),
+            )
+          else if (fieldType == AppConstant.FieldType_radio)
+          RadioGroupAAP(
+          radioGroupType: RadioGroupType.simple,
+          direction: Axis.vertical,
+          selectedOptionValue: model,
+          list: dataList,
+          borderColor: AppColor.border_color,
+          onChange: onChanged,
+    )
         ],
       ),
     );

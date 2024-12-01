@@ -59,7 +59,7 @@ class DartCodeGenerator:
         elif field_type == 'AppConstant.FieldType_dropdown':
             return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_radio':
-            return f"SetupData.getDropDownItems(context, SetupConstant.yes_no)"
+            return f"SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no)"
         else:
             return "null" 
 
