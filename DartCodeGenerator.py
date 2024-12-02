@@ -144,10 +144,20 @@ class DartCodeGenerator:
             f.write(dart_model_code)
 
         for lang, translations in self.localization_data.items():
-            localization_fields = [f'String get {key} => "{value}";' for key, value in translations.items()]
-            localization_code = TemplateProvider.get_localization_template().format(fields="\n  ".join(localization_fields))
-            with open(os.path.join(self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart"), 'w', encoding='utf-8') as f:
+            # Ensure missing values are replaced
+            localization_fields = [
+                f'String get {key} => "{value if value else "target tuly di"}";'
+                for key, value in translations.items()
+            ]
+            localization_code = TemplateProvider.get_localization_template().format(
+                fields="\n  ".join(localization_fields)
+            )
+            output_file = os.path.join(
+                self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart"
+            )
+            with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(localization_code)
+
         
         for lang, translations in self.localization_data.items():
             localization_fields = [f'String get {key} ;' for key, value in translations.items()]

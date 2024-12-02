@@ -138,7 +138,7 @@ def process_combined_projects(file_path, sheet_name):
         content = f'// Auto-generated localization file - {today_date}\n\n'
         content += 'class Languages {\n'
         for key, value in localization_data[lang].items():
-            content += f'  String get {key} ;\n'
+            content += f'  String get {key};\n'
         content += '}\n'
         write_dart_file(file_path, content)
 
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='atique.xlsx'
-        sheet_name='IncomeInfo' 
+        sheet_name='AssetInfo' 
         
         #column name
         data_type = 'data_type'
