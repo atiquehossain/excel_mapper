@@ -48,13 +48,13 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             condition: true, 
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Professional_level_attained_by_the_member,
-                question: Languages.getText(context)!.which_welfare_program_that_government_assistance_is_received_by_the_respective_member,
+                question: Languages.getText(context)!.The_highest_professional_qualification_level_of_the_respective_member_select_the_relevant_item_and_click_on_its_button_If_it_doesn_t_know_about_it_click_on_the_Unknown_item,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: incomeinfo.professional_level,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.professional_level),
                 onChanged: (value) {
                     incomeinfo.professional_level = value;
-                    selectedOptions[Languages.getText(context)!.which_welfare_program_that_government_assistance_is_received_by_the_respective_member] = SetupConstant.professional_level + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.The_highest_professional_qualification_level_of_the_respective_member_select_the_relevant_item_and_click_on_its_button_If_it_doesn_t_know_about_it_click_on_the_Unknown_item] = SetupConstant.professional_level + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -85,9 +85,9 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Area_of_the_main_economic_activity_of_the_member,
                 question: Languages.getText(context)!.Select_the_field_department_related_to_the_main_economic_activity_that_is_currently_engaged_in,
-                fieldType: AppConstant.FieldType_dropdown,
+                fieldType: AppConstant.FieldType_multiple_choice,
                 model: incomeinfo.department_of_job,
-                dataList: SetupData.getDropDownItems(context, SetupConstant.department_of_job),
+                dataList: SetupData.getCheklistItems(context, SetupConstant.department_of_job),
                 onChanged: (value) {
                     incomeinfo.department_of_job = value;
                     selectedOptions[Languages.getText(context)!.Select_the_field_department_related_to_the_main_economic_activity_that_is_currently_engaged_in] = SetupConstant.department_of_job + AppConstant.SEPERATOR + value;
@@ -137,14 +137,14 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             number: 57,
             condition: true, 
             widget: IncomeinfoUI(
-                label: Languages.getText(context)!.Details_of_Samrudhi_beneficiaries,
-                question: Languages.getText(context)!.Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not,
+                label: Languages.getText(context)!.Value_of_samurdhi_benefit,
+                question: Languages.getText(context)!.Do_you_recieve_samurdhi,
                 fieldType: AppConstant.FieldType_radio,
-                model: incomeinfo.samurdhi_beneficiary_type,
+                model: incomeinfo.samurdhi_benefit_value,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
-                    incomeinfo.samurdhi_beneficiary_type = value;
-                    selectedOptions[Languages.getText(context)!.Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    incomeinfo.samurdhi_benefit_value = value;
+                    selectedOptions[Languages.getText(context)!.Do_you_recieve_samurdhi] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -155,14 +155,14 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             number: 59,
             condition: true, 
             widget: IncomeinfoUI(
-                label: Languages.getText(context)!.Value_of_samurdhi_benefit,
-                question: Languages.getText(context)!.Do_you_recieve_samurdhi,
-                fieldType: AppConstant.FieldType_multiple_choice,
-                model: incomeinfo.samurdhi_benefit_value,
-                dataList: SetupData.getCheklistItems(context, SetupConstant.samurdhi_benefit_value),
+                label: Languages.getText(context)!.Details_of_Samrudhi_beneficiaries,
+                question: Languages.getText(context)!.Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect,
+                fieldType: AppConstant.FieldType_dropdown,
+                model: incomeinfo.samurdhi_beneficiary_type,
+                dataList: SetupData.getDropDownItems(context, SetupConstant.samurdhi_beneficiary_type),
                 onChanged: (value) {
-                    incomeinfo.samurdhi_benefit_value = value;
-                    selectedOptions[Languages.getText(context)!.Do_you_recieve_samurdhi] = SetupConstant.samurdhi_benefit_value + AppConstant.SEPERATOR + value;
+                    incomeinfo.samurdhi_beneficiary_type = value;
+                    selectedOptions[Languages.getText(context)!.Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect] = SetupConstant.samurdhi_beneficiary_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -175,12 +175,12 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Details_of_monthly_expenses_of_the_family,
                 question: Languages.getText(context)!.Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories,
-                fieldType: AppConstant.FieldType_EditText,
+                fieldType: AppConstant.FieldType_multiple_choice,
                 model: incomeinfo.expenses_category,
-                dataList: null,
+                dataList: SetupData.getCheklistItems(context, SetupConstant.expenses_category),
                 onChanged: (value) {
                     incomeinfo.expenses_category = value;
-                    selectedOptions[Languages.getText(context)!.Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories] = SetupConstant.expenses_category + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -209,24 +209,6 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             number: 78,
             condition: true, 
             widget: IncomeinfoUI(
-                label: Languages.getText(context)!.Fuel_used_during_cooking,
-                question: Languages.getText(context)!.Missing_value_in_excel,
-                fieldType: AppConstant.FieldType_EditText,
-                model: incomeinfo.fuel_cooking,
-                dataList: null,
-                onChanged: (value) {
-                    incomeinfo.fuel_cooking = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
-                },
-            ),
-            ),
-        
-
-            /// Question number  = 83
-            buildQuestion(
-            number: 83,
-            condition: true, 
-            widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Details_about_the_number_of_electricity_units_consumed_monthly,
                 question: Languages.getText(context)!.Please_enter_the_number_of_electricity_units_consumed_monthly,
                 fieldType: AppConstant.FieldType_EditText,
@@ -240,9 +222,9 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             ),
         
 
-            /// Question number  = 84
+            /// Question number  = 79
             buildQuestion(
-            number: 84,
+            number: 79,
             condition: true, 
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Details_about_the_account_number_on_the_electricity_bill,
@@ -258,9 +240,9 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             ),
         
 
-            /// Question number  = 85
+            /// Question number  = 80
             buildQuestion(
-            number: 85,
+            number: 80,
             condition: true, 
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Information_regarding_loss_of_livelihood,
@@ -276,9 +258,9 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             ),
         
 
-            /// Question number  = 87
+            /// Question number  = 82
             buildQuestion(
-            number: 87,
+            number: 82,
             condition: true, 
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Missing_value_in_excel,
@@ -294,19 +276,55 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             ),
         
 
-            /// Question number  = 88
+            /// Question number  = 84
             buildQuestion(
-            number: 88,
+            number: 84,
             condition: true, 
             widget: IncomeinfoUI(
                 label: Languages.getText(context)!.Information_on_the_family_s_monthly_fuel_consumption,
                 question: Languages.getText(context)!.Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption,
-                fieldType: AppConstant.FieldType_dropdown,
+                fieldType: AppConstant.FieldType_EditText,
                 model: incomeinfo.required_fuel_type,
-                dataList: SetupData.getDropDownItems(context, SetupConstant.required_fuel_type),
+                dataList: null,
                 onChanged: (value) {
                     incomeinfo.required_fuel_type = value;
-                    selectedOptions[Languages.getText(context)!.Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption] = SetupConstant.required_fuel_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Please_provide_details_about_the_type_of_fuel_required_for_family_transportation_economic_activities_and_household_tasks_along_with_the_monthly_fuel_consumption] = null + AppConstant.SEPERATOR + value;
+                },
+            ),
+            ),
+        
+
+            /// Question number  = 85
+            buildQuestion(
+            number: 85,
+            condition: true, 
+            widget: IncomeinfoUI(
+                label: Languages.getText(context)!.Monthly_Amount_of_Fuel_Required,
+                question: Languages.getText(context)!.Specify_monthly_fuel_amount_below,
+                fieldType: AppConstant.FieldType_EditText,
+                model: incomeinfo. monthly_fuel_amount,
+                dataList: null,
+                onChanged: (value) {
+                    incomeinfo. monthly_fuel_amount = value;
+                    selectedOptions[Languages.getText(context)!.Specify_monthly_fuel_amount_below] = null + AppConstant.SEPERATOR + value;
+                },
+            ),
+            ),
+        
+
+            /// Question number  = 86
+            buildQuestion(
+            number: 86,
+            condition: true, 
+            widget: IncomeinfoUI(
+                label: Languages.getText(context)!.Fuel_used_during_cooking,
+                question: Languages.getText(context)!.Specify_the_main_fuel_used_for_cooking_food,
+                fieldType: AppConstant.FieldType_multiple_choice,
+                model: incomeinfo.cooking_fuel_type,
+                dataList: SetupData.getCheklistItems(context, SetupConstant.cooking_fuel_type),
+                onChanged: (value) {
+                    incomeinfo.cooking_fuel_type = value;
+                    selectedOptions[Languages.getText(context)!.Specify_the_main_fuel_used_for_cooking_food] = SetupConstant.cooking_fuel_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),

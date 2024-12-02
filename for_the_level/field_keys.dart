@@ -1,4 +1,4 @@
-// Auto-generated localization file - 2024-12-01
+// Auto-generated localization file - 2024-12-02
 
 class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_ ;
@@ -21,7 +21,7 @@ class Languages {
   String get migrant_worker ;
   String get farming ;
   String get fisheries ;
-  String get livestack ;
+  String get livestock ;
   String get handicrafts ;
   String get textile_industry ;
   String get plantation ;
@@ -49,5 +49,25 @@ class Languages {
   String get public_aids ;
   String get aswesuma ;
   String get non_govermental_assistance ;
-  String get no ;
+  String get 420 ;
+  String get 1900 ;
+  String get 3200 ;
+  String get 4500 ;
+  String get food_and_drinks ;
+  String get water ;
+  String get cloths ;
+  String get medicine_for_health ;
+  String get housing_if_stay_in_rented_house_ ;
+  String get personal_needs ;
+  String get transport_travelling_expenses ;
+  String get electricity ;
+  String get fuel_including_gas_kerosene ;
+  String get telephone_mobile_and_fixed_line_expenses ;
+  String get education_expenses ;
+  String get for_sports ;
+  String get entertainment_and_religious_activities ;
+  String get other_expenses_including_loan_lease_mortgage_ ;
+  String get firewood ;
+  String get kerosene_oil ;
+  String get gas ;
 }

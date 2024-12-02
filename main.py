@@ -66,6 +66,10 @@ def load_excel_skip_hidden_rows(file_path, sheet_name):
 def process_combined_projects(file_path, sheet_name):
     # Load data into a single DataFrame
     df = load_excel_skip_hidden_rows(file_path, sheet_name)
+    count, columns = count_dropdown_and_multiple_choice_columns(df, threshold=10)
+    print(f"Number of dropdown/multiple-choice columns: {count}")
+    print("Columns identified as dropdown/multiple-choice:")
+    print(columns)
 
         # Convert numbers to text in all columns
   #  for col in df.columns:
@@ -96,7 +100,8 @@ def process_combined_projects(file_path, sheet_name):
     df['database'] = df['database'].ffill()
 
     # Filter rows for dropdown or multicheck data types
-    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple_choice'])].copy()
+    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple choice'])].copy()
+    print(filtered_data)
 
     # Ensure all relevant columns are strings and clean
     for col in ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala']:
@@ -137,6 +142,7 @@ def process_combined_projects(file_path, sheet_name):
         content += '}\n'
         write_dart_file(file_path, content)
 
+
         
         
 
@@ -156,9 +162,29 @@ def process_combined_projects(file_path, sheet_name):
     print("Both projects have been processed successfully!")
     print("Files generated: project1_widgets.dart, en.dart, ta.dart, si.dart, project2_fields.dart")
 
+
+def count_dropdown_and_multiple_choice_columns(df, threshold=10):
+    """
+    Count the number of dropdown and multiple-choice columns in a DataFrame.
+    
+    Args:
+        df (pd.DataFrame): The DataFrame to analyze.
+        threshold (int): The maximum number of unique values to consider as dropdown/multiple-choice.
+    
+    Returns:
+        int: The number of dropdown/multiple-choice columns.
+    """
+    dropdown_columns = [
+        col for col in df.columns if df[col].nunique() <= threshold
+    ]
+    return len(dropdown_columns), dropdown_columns
+
+    
+
 # Main execution
 if __name__ == "__main__":
-    try:
+    try:   
+
         file_path='atique.xlsx'
         sheet_name='IncomeInfo' 
         
@@ -180,9 +206,11 @@ if __name__ == "__main__":
             file_path=file_path,
             sheet_name=sheet_name  # Update this to your actual sheet name
         )
+
                 # Initialize and load Excel data
         processor = ExcelProcessor(file_path=file_path, sheet_name=sheet_name)
         processor.load_sheet()
+        
 
         # Validate columns
         required_columns = ['questions_in_english', 'labels_in_english', 'data_type', 'database']

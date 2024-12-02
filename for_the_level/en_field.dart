@@ -1,4 +1,4 @@
-// Auto-generated localization file - 2024-12-01
+// Auto-generated localization file - 2024-12-02
 
 class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_ => "NVQ 3(G.C.E (O/L) (Conformity Status)";
@@ -21,7 +21,7 @@ class Languages {
   String get migrant_worker => "Migrant Worker";
   String get farming => "Farming";
   String get fisheries => "Fisheries";
-  String get livestack => "Livestack";
+  String get livestock => "Livestock";
   String get handicrafts => "Handicrafts";
   String get textile_industry => "Textile  Industry";
   String get plantation => "Plantation";
@@ -49,5 +49,25 @@ class Languages {
   String get public_aids => "Public aids";
   String get aswesuma => "Aswesuma";
   String get non_govermental_assistance => "Non Govermental Assistance";
-  String get no => "No";
+  String get 420 => "420";
+  String get 1900 => "1900";
+  String get 3200 => "3200";
+  String get 4500 => "4500";
+  String get food_and_drinks => "Food and Drinks";
+  String get water => "Water";
+  String get cloths => "Cloths";
+  String get medicine_for_health => "Medicine/for health";
+  String get housing_if_stay_in_rented_house_ => "Housing (If stay in rented house)";
+  String get personal_needs => "Personal needs";
+  String get transport_travelling_expenses => "Transport / Travelling expenses";
+  String get electricity => "Electricity";
+  String get fuel_including_gas_kerosene => "Fuel including gas/Kerosene";
+  String get telephone_mobile_and_fixed_line_expenses => "Telephone (mobile and fixed line) Expenses";
+  String get education_expenses => "Education expenses";
+  String get for_sports => "For sports";
+  String get entertainment_and_religious_activities => "entertainment and religious activities";
+  String get other_expenses_including_loan_lease_mortgage_ => "Other expenses (including loan/lease/mortgage)";
+  String get firewood => "Firewood";
+  String get kerosene_oil => "kerosene oil";
+  String get gas => "Gas";
 }

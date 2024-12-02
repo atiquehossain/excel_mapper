@@ -55,7 +55,7 @@ class DartCodeGenerator:
         
     def _get_data_list_conditionally_type_and_model(self, field_type, model):
         if field_type == 'AppConstant.FieldType_multiple_choice':
-            return f"SetupData.getCheklistItems(context, SetupConstant.{model})"
+            return f"SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_dropdown':
             return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_radio':

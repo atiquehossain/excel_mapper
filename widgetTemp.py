@@ -222,6 +222,19 @@ class {class_name}UI extends StatelessWidget {{
           borderColor: AppColor.border_color,
           onChange: onChanged,
     )
+     else if (fieldType ==  AppConstant.FieldType_multiple_choice)
+                 MultipleChoiceAAP(
+                  checkList: dataList,
+                  textColor: appColor?.H1_Title_Text,
+                  checkBoxColor: appColor?.Warning_Text,
+                  borderColor: appColor?.H1_Title_Text,
+                  backgroundColor: appColor?.Disabled_Background,
+                  appColor: appColor,
+                  selectedOptionValues: model,
+                  onChange: (value) => onChanged.call(value),
+                  fontSize: AppDimens.getTextSize(
+                      textSizeType: TextSizeType.normal),
+                )
         ],
       ),
     );
