@@ -94,7 +94,7 @@ class _{class_name}ScreenState extends State<{class_name}Screen> {{
     );
   }}
 
-  Widget buildQuestion({{
+  Widget build{class_name}Question({{
     required int number,
     required bool condition,
     required Widget widget,

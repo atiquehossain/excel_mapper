@@ -43,7 +43,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
           children: [
             
             /// Question number  = 2
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 2,
             condition: true, 
             widget: AssetinfoUI(
@@ -61,7 +61,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 5
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 5,
             condition: true, 
             widget: AssetinfoUI(
@@ -79,7 +79,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 6
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 6,
             condition: true, 
             widget: AssetinfoUI(
@@ -97,7 +97,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 13
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 13,
             condition: true, 
             widget: AssetinfoUI(
@@ -115,7 +115,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 16
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 16,
             condition: true, 
             widget: AssetinfoUI(
@@ -133,7 +133,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 17
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 17,
             condition: true, 
             widget: AssetinfoUI(
@@ -151,7 +151,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 19
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 19,
             condition: true, 
             widget: AssetinfoUI(
@@ -169,7 +169,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 26
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 26,
             condition: true, 
             widget: AssetinfoUI(
@@ -187,7 +187,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 28
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 28,
             condition: true, 
             widget: AssetinfoUI(
@@ -205,7 +205,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 34
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 34,
             condition: true, 
             widget: AssetinfoUI(
@@ -223,7 +223,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 36
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 36,
             condition: true, 
             widget: AssetinfoUI(
@@ -241,7 +241,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 42
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 42,
             condition: true, 
             widget: AssetinfoUI(
@@ -259,7 +259,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 52
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 52,
             condition: true, 
             widget: AssetinfoUI(
@@ -277,7 +277,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 59
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 59,
             condition: true, 
             widget: AssetinfoUI(
@@ -295,7 +295,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 60
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 60,
             condition: true, 
             widget: AssetinfoUI(
@@ -313,7 +313,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 67
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 67,
             condition: true, 
             widget: AssetinfoUI(
@@ -331,7 +331,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 75
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 75,
             condition: true, 
             widget: AssetinfoUI(
@@ -349,7 +349,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 76
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 76,
             condition: true, 
             widget: AssetinfoUI(
@@ -367,7 +367,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 78
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 78,
             condition: true, 
             widget: AssetinfoUI(
@@ -385,7 +385,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 80
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 80,
             condition: true, 
             widget: AssetinfoUI(
@@ -403,7 +403,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 81
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 81,
             condition: true, 
             widget: AssetinfoUI(
@@ -421,7 +421,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 92
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 92,
             condition: true, 
             widget: AssetinfoUI(
@@ -439,7 +439,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 94
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 94,
             condition: true, 
             widget: AssetinfoUI(
@@ -457,7 +457,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 100
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 100,
             condition: true, 
             widget: AssetinfoUI(
@@ -475,7 +475,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 113
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 113,
             condition: true, 
             widget: AssetinfoUI(
@@ -493,7 +493,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 118
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 118,
             condition: true, 
             widget: AssetinfoUI(
@@ -511,7 +511,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 126
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 126,
             condition: true, 
             widget: AssetinfoUI(
@@ -529,7 +529,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 138
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 138,
             condition: true, 
             widget: AssetinfoUI(
@@ -547,7 +547,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 139
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 139,
             condition: true, 
             widget: AssetinfoUI(
@@ -565,7 +565,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 140
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 140,
             condition: true, 
             widget: AssetinfoUI(
@@ -583,7 +583,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 141
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 141,
             condition: true, 
             widget: AssetinfoUI(
@@ -601,7 +601,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 142
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 142,
             condition: true, 
             widget: AssetinfoUI(
@@ -619,7 +619,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 143
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 143,
             condition: true, 
             widget: AssetinfoUI(
@@ -637,7 +637,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 144
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 144,
             condition: true, 
             widget: AssetinfoUI(
@@ -655,7 +655,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 159
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 159,
             condition: true, 
             widget: AssetinfoUI(
@@ -673,7 +673,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
         
 
             /// Question number  = 160
-            buildQuestion(
+            buildAssetinfoQuestion(
             number: 160,
             condition: true, 
             widget: AssetinfoUI(
@@ -726,7 +726,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
     );
   }
 
-  Widget buildQuestion({
+  Widget buildAssetinfoQuestion({
     required int number,
     required bool condition,
     required Widget widget,

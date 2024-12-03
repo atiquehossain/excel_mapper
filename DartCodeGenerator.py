@@ -17,7 +17,7 @@ class DartCodeGenerator:
     }
 
     DATA_TYPE_TO_DART_TYPE = {
-        "Dropdown": "int",
+        "Dropdown": "String",
         "Multiple choice": "String",
         "YES/NO": "int",
         "Number": "double",
@@ -95,7 +95,7 @@ class DartCodeGenerator:
 
         self.dart_widgets.append(f"""
             /// Question number  = {row_number + 2}
-            buildQuestion(
+            build{self.class_name}Question(
             number: {row_number + 2},
             condition: true, 
             widget: {self.class_name}UI(
