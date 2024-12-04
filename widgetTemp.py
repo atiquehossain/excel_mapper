@@ -14,6 +14,7 @@ class DartWidgetGenerator:
         """
         dart_widget_template = f"""
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class {class_name}Screen extends StatefulWidget {{
 
@@ -21,7 +22,7 @@ class {class_name}Screen extends StatefulWidget {{
   final Map<String, dynamic>? peddingData;
 
   {class_name}Screen({{this.liveData, this.peddingData}});
-   
+
   @override
   _{class_name}ScreenState createState() => _{class_name}ScreenState();
 }}
@@ -173,14 +174,23 @@ class {class_name}UI extends StatelessWidget {{
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-            child: Text(
-              question,
-              style: TextStyle(
-                fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
-                letterSpacing: AppDimens.getTextLetterSpacing(),
-                color: appColor!.H1_Title_Text,
+          GestureDetector(
+            onLongPress: () {{
+              // Copy the question to clipboard
+              Clipboard.setData(ClipboardData(text: question));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Question copied to clipboard!')),
+              );
+            }},
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+              child: Text(
+                question,
+                style: TextStyle(
+                  fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
+                  letterSpacing: AppDimens.getTextLetterSpacing(),
+                  color: appColor!.H1_Title_Text,
+                ),
               ),
             ),
           ),
@@ -214,27 +224,27 @@ class {class_name}UI extends StatelessWidget {{
               }},
             )
           else if (fieldType == AppConstant.FieldType_radio)
-          RadioGroupAAP(
-          radioGroupType: RadioGroupType.simple,
-          direction: Axis.vertical,
-          selectedOptionValue: model,
-          list: dataList,
-          borderColor: AppColor.border_color,
-          onChange: onChanged,
-    )
-     else if (fieldType ==  AppConstant.FieldType_multiple_choice)
-                 MultipleChoiceAAP(
-                  checkList: dataList,
-                  textColor: appColor?.H1_Title_Text,
-                  checkBoxColor: appColor?.Warning_Text,
-                  borderColor: appColor?.H1_Title_Text,
-                  backgroundColor: appColor?.Disabled_Background,
-                  appColor: appColor,
-                  selectedOptionValues: model,
-                  onChange: (value) => onChanged.call(value),
-                  fontSize: AppDimens.getTextSize(
-                      textSizeType: TextSizeType.normal),
-                )
+            RadioGroupAAP(
+              radioGroupType: RadioGroupType.simple,
+              direction: Axis.vertical,
+              selectedOptionValue: model,
+              list: dataList,
+              borderColor: AppColor.border_color,
+              onChange: onChanged,
+            )
+          else if (fieldType == AppConstant.FieldType_multiple_choice)
+            MultipleChoiceAAP(
+              checkList: dataList,
+              textColor: appColor?.H1_Title_Text,
+              checkBoxColor: appColor?.Warning_Text,
+              borderColor: appColor?.H1_Title_Text,
+              backgroundColor: appColor?.Disabled_Background,
+              appColor: appColor,
+              selectedOptionValues: model,
+              onChange: (value) => onChanged.call(value),
+              fontSize: AppDimens.getTextSize(
+                  textSizeType: TextSizeType.normal),
+            ),
         ],
       ),
     );
