@@ -1,0 +1,214 @@
+﻿Switch,Labels in English ,Database,Labels in Sinhala,Labels in Tamil ,Questions in English ,Questions in Sinhala,Questions in Tamil,Data type,Skip Logics,Field Names in English,Field Names in Sinhala,Field Names in Tamil
+Land,Details of the plot of lands owned to the family,have_land,පවුල සතු ගොඩ ඉඩම් පිළිබද විස්තර,குடும்பத்திற்குச் சொந்தமான நிலத்தின் விவரங்கள்,Is there land owned by the applicant or a family   member? Does the applicant or a family member have any plot of land? ,"අයදුම්කරුට හෝ පවුලේ සාමාජිකයෙකුට අයත් ගොඩ ඉඩම්    තිබේද? 
+",விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினருக்குச் சொந்தமான நிலம் உள்ளதா?,YES/NO,If the answer is yes then select the correct item related to the amount of land.,No,නැත,இல்லை
+,,,,,,,,,,"Yes, Less than 0.5 Acres (less than 80 Perches)","ඔව්, අක්කර 0.5කට වඩා අඩු (80 පර්චස්  වලට වඩා අඩු)","ஆம், 0.5 ஏக்கர் க்கும் குறைவாக (80 பேர்ச்க்கும்  குறைவாக)"
+,,,,,,,,,,"Yes, equal or more than 0.5 Acres (equal or more than 80 Perches)","ඔව්, අක්කර 0.5කට සමාන හෝ වඩා (80 පර්චස්  වලට සමාන හෝ වඩා)","ஆம், 0.5 ஏக்கர்க்கும் சமமாக அல்லது அதிகமாக (80 பேர்ச்க்கும் சமமாக அல்லது அதிகமாக)"
+,Details of the extent of dry land owned by the family ,total_cultivable_land,පවුල සතු ගොඩ ඉඩම් ප්‍රමාණය පිළිබද විස්තර,குடும்பத்திற்குச் சொந்தமான மேட்டு நிலத்தின் விவரங்கள்.,Indicate the total cultivable land in acres (in digits) for the applicant and family members,අයඳුම්කරුට සහ පවුලේ සාමාජියන්ට වගා කළ හැකි මුළු ගොඩ ඉඩම් ප්‍රමාණය අක්කරවලින් (ඉලක්කමෙන්) දක්වන්න.,விண்ணப்பதாரர் மற்றும் குடும்ப உறுப்பினர்களுக்கு மொத்த பயிர்  நிலத்தை ஏக்கரில் (இலக்கங்களில்) குறிப்பிடவும்,Number,"If such lands are not available, this question is not applicable.",,,
+,Crops grown on the land ,crops_grown_land,ඉඩමේ වගා කරන ලද බෝග වර්ග,நிலத்தில் பயிரிடப்பட்டுள்ள  பயிர் வகைகள்.,Select and mark the items about the crops grown on the land owned by the applicant. ,අයදුම්කරු සතු ඉඩමේ වගා කරන භෝග පිළිබඳ අයිතම තෝරා ලකුණු කරන්න.,விண்ணப்பதாரருக்குச் சொந்தமான நிலத்தில் விளையும் பயிர்களைப் பற்றிய விபரங்களைத் தேர்ந்தெடுத்து அடையாளமிடவும்,Dropdown,,Cocunut,පොල්,தேங்காய் 
+,,,,,,,,,,Tea,තේ,தேயிலை
+,,,,,,,,,,Rubber,රබර්,ரப்பர்
+,,,,,,,,,,Export crops,අපනයන භෝග,ஏற்றுமதி பயிர்கள்
+,,,,,,,,,,Vegetables,එළවළු,காய்கறிகள்
+,,,,,,,,,,Other crops used for food,ආහාර සඳහා භාවිතා කරන අනෙකුත් වගා,உணவுக்கு பயன்படுத்தப்படும் ஏனைய பயிர்கள்
+,,,,,,,,,,Other crops,අනෙකුත් වගා,ஏனைய பயிர்கள்
+,Details of paddy land owned by the family ,have_cultivable_paddy_land,පවුල සතු කුඹුරු ඉඩම් පිළිබද විස්තර,குடும்பத்திற்குச் சொந்தமான நெல் நிலத்தின் விவரங்கள்,If the applicant or family members have cultivable paddy land then select Yes. Otherwise select No.,අයඳුම්කරු සතුව හෝ පවුලේ සාමාජිකයන් සතුව වගා කළ හැකි කුඹුරු ඉඩම් ති‌බේනම් ඔව් අයිතමය තෝරන්න. නැත්නම් නැත යන්න තෝරන්න.,"விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினர்கள் பயிர் செய்யக்கூடிய நெல் நிலம் இருந்தால் ""ஆம்"" என்பதைத் தேர்ந்தெடுக்கவும். இல்லையெனில் ""இல்லை"" என்பதைத் தேர்ந்தெடுக்கவும்.",YES/NO,If the applicant or family members have cultivable paddy land then select Yes. Otherwise select No.,No,නැත,இல்லை
+,,,,,,,,,,Yes (Less than 1 Acre or less than 160 Perches),ඔව් (අක්කර 1කට වඩා අඩු හෝ 160 පර්ච් වලට වඩා අඩු),ஆம் (1 ஏக்கருக்குக் குறைவானது அல்லது 160 பேர்ச்க்கும் குறைவானது)
+,,,,,,,,,,Yes (More than 1 Acre or More than 160 Perches),ඔව් (අක්කර 1කට වඩා වැඩි හෝ 160 පර්ච් වලට වඩා) ,ஆம் (1 ஏக்கருக்கு மேலாக அல்லது 160 பேர்ச்க்கும் மேலாக)
+,Details of extent of paddy land owned by the family ,total_cultivable_paddy_land,පවුල සතු කුඹුරු ඉඩම් ප්‍රමාණය පිළිබඳ විස්තර,குடும்பத்திற்குச் சொந்தமான நெல் நிலத்தின் அளவு விவரங்கள்,,,,,,,,
+Vehicle,Details of vehicles used  by the family for transportation owned ,have_owns_vehicles,පවුල සතු ගමනාගමනය සඳහා වූ වාහන පිළිබද විස්තර,குடும்பத்திற்குச் சொந்தமான போக்குவரத்துக்கான வாகனங்களின் விவரங்கள்,"If the applicant or family owns vehicles for transportation, select Yes or otherwise No.","අයදුම්කරු සතුව හෝ පවුල සතු ගමනාගමනය සඳහා වාහන තිබේනම්, ඔව් යන්නද නැත්නම් නැත යන්නද තෝරන්න.","விண்ணப்பதாரர் அல்லது குடும்பத்தினர் போக்குவரத்துக்கான வாகனங்களை வைத்திருந்தால், ஆம் அல்லது இல்லை என்பதைத் தேர்ந்தெடுக்கவும்.",YES/NO,"If the applicant or family owns vehicles for transportation, select Yes or otherwise No.",yes,ඔව්,ஆம்
+,,,,,,,,,,no,නැත,இல்லை
+,Details of the type of vehicle and number of vehicles owned by the family,vehicles_type,පවුල සතු වාහන වර්ගය සහ ප්‍රමාණය පිළිබද විස්තර,குடும்பத்திற்குச் சொந்தமான வாகனங்களின் வகை மற்றும் எண்ணிக்கைகளில்   விவரங்கள்.,"If the applicant or family members have vehicles, click in front of the respective vehicle types. ","අයදුම්කරුට හෝ පවුලේ සාමාජිකයින්ට වාහන තිබේ නම්, අදාළ වාහන වර්ග ඉදිරියෙන් ක්ලික් කරන්න.","விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினர்களிடம் வாகனங்கள் இருந்தால், உரிய வாகன வகைகளின் முன்  கிளிக் செய்யவும்.",Dropdown,Question is only applicable if family owns vehicles.,Motor bicycle (engine capacity 125 or more than),මෝටර් බයිසිකලය (එන්ජින් ධාරිතාව 125 හෝ ඊට වැඩි),மோட்டார் சைக்கிள் (எஞ்சின் திறன் 125 அல்லது அதற்கு மேல்)
+,,,,,,,,,,Threewheeler,ත්‍රීවිල් රථය,முச்சக்கர வண்டி
+,,,,,,,,,,Motor vehicles,මෝටර් රථ,மோட்டர் வாகனங்கள்
+,,,,,,,,,,Van/Jeep,වෑන්/ජීප්,வேன் /ஜீப்
+,,,,,,,,,,Bus,බස්,பஸ்
+,,,,,,,,,,Lorry/tipper,ලොරි/ටිපර්,லொரி /டிப்பர்
+,,,,,Specify the number of the vehichles owned by the family,පවුල සතු වාහන ගණන සඳහන් කරන්න,குடும்பத்திற்குச் சொந்தமான வாகனங்களின் வகை மற்றும் எண்ணிக்கைகளின்  விவரங்கள்.,Number,Only show the number field for the selected vehicles. ,,,
+Machinery,Details of machinery owned by the family  ,have_economic_machinery,පවුල සතු යන්ත්‍ර සූත්‍ර පිළිබද විස්තර,"குடும்பத்திற்குச் சொந்தமான இயந்திர உபகரணங்களின்   விவரங்கள்.
+
+
+
+","If the applicant or the family has any forms of machinery related to economic activity, select Yes otherwise select No. 
+
+","අයදුම්කරු සතුව හෝ පවුල සතුව ආර්ථික ක්‍රියාකාරකමකට අදාල යන්ත්‍රසූත්‍ර තිබේනම්, ඔව් යන්නද නැත්නම් නැත යන්නද තෝරන්න.","விண்ணப்பதாரர் அல்லது குடும்பத்தினரிடம் பொருளாதார நடவடிக்கை தொடர்பான இயந்திரங்கள் ஏதேனும் இருந்தால், ""ஆம்"" என்பதைத் தேர்ந்தெடுக்கவும் இல்லையெனில் ""இல்லை"" என்பதைத் தேர்ந்தெடுக்கவும்.",YES/NO,"If the applicant or the family has any forms of machinery related to economic activity, select Yes otherwise select No. 
+
+",yes,ඔව්,ஆம்
+,,,,,,,,,,no,නැත,இல்லை
+,Details of the type and amount of machinery owned by the family ,machinery_type,"පවුලේ හිමිකම් ඇති යන්ත්‍ර වර්ග සහ ප්‍රමාණ පිළිබඳ විස්තර.
+
+",குடும்பத்திற்குச் சொந்தமான இயந்திர உபகரணங்களின் வகை மற்றும் எண்ணிக்கை பற்றிய விவரங்கள்.,"If the applicant or family members have machinery, select the type of machinery the family member own","අයදුම්කරු හෝ පවුලේ සාමාජිකයන්ට යන්ත්‍ර තිබේ නම්, පවුලේ සාමාජිකයන් සතු යන්ත්‍ර වර්ගය තෝරන්න.
+","விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினர்களிடம் இயந்திரங்கள் இருந்தால், குடும்ப உறுப்பினர்கள் உடைய இயந்திர வகையைத் தேர்ந்தெடுக்கவும்.
+
+
+
+",Dropdown,,Non-Mechanized Fishing Vessels,යාන්ත්‍රික නොවන ධීවර යාත්‍රා,இயந்திரமில்லாத மீன்பிடி படகுகள்
+,,,,,,,,,,Combined Harvesterrs,සංයුක්ත අස්වැන්න නෙලීමේ යන්ත්‍ර,ஒருங்கிணைந்த அறுவடை இயந்திரங்கள்
+,,,,,,,,,,Cultivator/threshing machines,ගොයම් කපන/පාහින යන්ත්‍ර,பயிர்/கதிரடிக்கும் இயந்திரங்கள்
+,,,,,,,,,,Other fishing/Agri machineries,වෙනත් ධීවර/කෘෂි උපකරණ,ஏனைய மீன்பிடி/விவசாய இயந்திரங்கள்
+,,,,,,,,,,Other self -employed machineries,වෙනත් ස්වයං රැකියා උපකරණ,ஏனைய சுய தொழில்  இயந்திரங்கள்
+,,,,,Image of the machinary owned by the family,පවුල සතු යන්ත්‍රෝපකරණ වල පින්තූර ,குடும்பத்திற்குச் சொந்தமான இயந்திரத்தின் படத்தை அளிக்கவும்.,Image,,,,
+Livestock,Details of family owned livestock,have_animal_husbandry_livestock,පවුල සතු පශු සම්පත් පිළිබද විස්තර,குடும்பத்திற்கு சொந்தமான கால்நடைகள்   தொடர்பான விவரங்கள்,Select Yes or otherwise No if the applicant or family members are involved in animal husbandry,අයදුම්කරු හෝ පවුලේ සාමාජිකයින් සත්ව පාලන කටයුතු වල නිරත වේ නම් ඔව් යන්නද නැත්නම් නැත යන්නද තෝරන්න.,"விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினர்கள் கால்நடை வளர்ப்பில் ஈடுபட்டிருந்தால் ""ஆம்"" அல்லது ""இல்லை"" என்பதைத் தேர்ந்தெடுக்கவும்",Number,Select Yes or otherwise No if the applicant or family members are involved in animal husbandry,yes,ඔව්,ஆம்
+,,,,,,,,,,no,නැත,இல்லை
+,Details of the type and amount of livestock owned by the family ,animal_husbandry_livestock_type,පවුල සතු පශු සම්පත් වර්ගය සහ ප්‍රමාණය පිළිබද විස්තර,குடும்பத்திற்கு சொந்தமான கால்நடைகளின் வகை மற்றும் அளவு பற்றிய விவரங்கள்,Write down the number of the livestock the family owns,පවුල සතු පශු සම්පත් සංඛ්‍යාව සඳහන් කරන්න,குடும்பத்தினர் வைத்துள்ள கால்நடைகளின் எண்ணிக்கையை எழுதுங்கள்,Dropdown,Question is only applicable If the applicant or family members are engaged in animal husbandry,Cow/Cows,ගවයා/ගවයින්,மாடு/மாடுகள்
+,,,,,,,,,,Goats,එළුවන්,ஆடுகள்
+,,,,,,,,,,Pigs,ඌරන්,பன்றி
+,,,,,,,,,,Cock,කුකුළන්,கோழி
+,,,,,,,,,,Duck,තාරාවන්,வாத்து 
+,,,,,,,,,,Other,වෙනත්,ஏனைய
+Housiing info,The nature of the residential house,house_type,ජීවත්වන නිවසේ ස්වභාවය,தற்போது வசிக்கும் வீட்டின் தன்மை,"Select the nature/type of the residence where the applicant and family live from the colors above.
+",ඉහත වර්ණවලින් අයදුම්කරු සහ පවුල ජීවත් වන වාසස්ථානයේ ස්වභාවය/වර්ගය තෝරන්න,விண்ணப்பதாரர் மற்றும் குடும்பத்தினர் வசிக்கும் வீட்டின் சரியான தன்மை / வகையை மேற்கண்ட தெரிவுகளிலிருந்து இருந்து தேர்ந்தெடுக்கவும்.,Dropdown,,house -Single story,තනි නිවාස - තනි මහල,வீடு - ஒற்றை மாடி
+,,,,,,,,,,Single house 2 story,තනි නිවාස - මහල් 2,ஒற்றை வீடு 2 மாடி
+,,,,,,,,,,single house – more than 2 story,තනි නිවාස මහල් 2ට වඩා වැඩි,ஒற்றை வீடு - 2 மாடிகளுக்கு மேல்
+,,,,,,,,,,Adjoining House/Annex house,යාබද නිවාස / ඇනෙක්සිය,பக்கத்து வீடு/இணைப்பு வீடு
+,,,,,,,,,,Luxury house,සුපිරි නිවාස,ஆடம்பர வீடு
+,,,,,,,,,,Flat House,තට්ටු නිවාස,ஃப்ளாட் வீடு / தொடர் மாடி 
+,,,,,,,,,,Leased house,කුලී නිවස,கூலிவீடு
+,,,,,,,,,,Line house/line,ලයින් නිවාස / ලයින් කාමර,லயன் வீடுகள்  / வரிசை 
+,,,,,,,,,,Shanty house,පැල්පත් නිවස,குடிசை வீடு
+,,,,,,,,,,Slums / Shanty,මුඩුක්කු/මඩු,சேரி / குடிசை
+,The nature of the house's floor,house_floor_type,නිවසේ ගෙබිමේ ස්වභාවය,வீட்டின் உள் தரையின் தன்மை,"If more than one material has been used to construct the floor, please select the primary material used",ගෙබිම සකස් කිරීම සඳහා එක් අමුද්‍රව්‍යයකට වඩා යොදාගෙන ඇත්නම් මූලිකව යොදාගෙන ඇති අමුද්‍රව්‍ය තෝරන්න.,"வீட்டின் தரையினை  ஒன்றுக்கு மேற்பட்ட மூலப்பொருள்கள் பயன்படுத்தப்பட்டால், முதன்மையாகப் பயன்படுத்தப்படும் மூலப்பொருளைத் தேர்ந்தெடுக்கவும்.",Dropdown,,Cement,සිමෙන්ති,சிமெண்ட்
+,,,,,,,,,,Terrazzo/tiles/wood,ටෙරාසෝ/පිඟන් ගඩොල් (ටයිල්) / සකස් කරන ලද ලී යනාදිය,தெரசோ/டைல்ஸ்/மரம்
+,,,,,,,,,,Concrete,කොන්ක්‍රීට්,கான்கிரீட்
+,,,,,,,,,,Clay,මැටි,மண்
+,,,,,,,,,,Plank,ලෑලි,பலகை
+,,,,,,,,,,Sand,වැලි,மணல்
+,,,,,,,,,,Other poor status,වෙනත් දිළිඳු තත්ත්වයේ,வேறு  மோசமான நிலை
+,,image_floor,,தரையின் நிழற்படம் ,,පින්තූරයක් ඇතුළත් කරන්න,தளத்தின் படத்தை அளிக்கவும்.,Image,,,,
+,"Materials used for the roofing of the house
+
+",house_roof_type,නිවසේ වහල සෙවිලි කර ඇති ද්‍රව්‍ය,வீட்டின் கூரை அமைக்கப்பட்டுள்ள மூலப் பொருட்கள்,"If more than one material has been used to construct the roof, please select the primary material used",වහලය සකස් කිරීමට එක අමුද්‍රව්‍යයකට වඩා යොදාගෙන ඇත්නම් යොදාගෙන ඇති මූලික අමුද්‍රව්‍ය  තෝරන්න.,"கூரையைத் தயாரிக்க ஒன்றுக்கு மேற்பட்ட பொருட்கள் பயன்படுத்தப்பட்டால், பயன்படுத்தப்படும் முதன்மைப் பொருளைத் தேர்ந்தெடுக்கவும்",Dropdown,,Roof tile,උළු,கூரை ஓடு
+,,,,,"Within this criterion, applicants who select thatch and other items under poor conditions are determined to be at risk of poverty",මෙම නිර්ණායකය තුළ දුප්පත්වීමේ අවධානමට ලක් විය හැකි යැයි තීරණය කරනු ලබන්නේ ටකරන් හා වෙනත් දිළිදු තත්වයේ අයිතමයන් තෝරාගන්නා අයදුම්කරුවන්ය.,"இந்த அளவுகோலில், வறுமையின் அபாயத்தில் இருப்பதாக தீர்மானிக்க தகரம் காணப்படுகிறது மேலும் அதன் கீழே உள்ள தெரிவுகளை தேர்ந்தெடுக்கும் விண்ணப்பதாரர்களும் இதில் அடங்கும்.",,,Asbestos Sheet,ඇස්බැස්ටෝස්,அஸ்பெஸ்டாஸ் சீட் 
+,,,,,,,,,,Concrete,කොන්ක්‍රීට්,கான்கிரீட்
+,,,,,,,,,,Alluminium sheet (Amano),ඇලූමිනියම් ශීට් (අමානෝ),அலுமினியம் சீட்  (அமனோ)
+,,,,,,,,,,Tin sheet,ටකරන්,தகரம் 
+,,,,,,,,,,"Coconut Leaf,Palm leaf, Straw etc.","පොල් අතු/ තල් අතු , පිදුරු ආදිය","தென்னை ஓலை , பனை ஓலை, வைக்கோல் போன்றவை."
+,,,,,,,,,,other poor material ,අනෙකුත් දුර්වල වර්ග ,வேறு  மோசமான பொருட்கள்  
+,Main materials used for the walls of the house,house_wall_type,නිවසේ බිත්ති සකස් කර ඇති ප්‍රධාන ද්‍රව්‍ය,வீட்டின் சுவர்கள் அமைக்கப்பட்டிருக்கும் மூலப்  பொருட்கள்,"If more than one material has been used to construct the walls, please select the primary material used",බිත්ති සකස් කිරීමට එක අමුද්‍රව්‍යයකට වඩා යොදාගෙන ඇත්නම් යොදාගෙන ඇති මූලික අමුද්‍රව්‍ය  තෝරන්න.,"சுவர்களைக் கட்டுவதற்கு ஒன்றுக்கு மேற்பட்ட பொருட்கள் பயன்படுத்தப்பட்டிருந்தால், பயன்படுத்தப்படும் முதன்மைப் பொருளைத் தேர்ந்தெடுக்கவும்",Dropdown,,Bricks,ගඩොල්,செங்கற்கள்
+,,,,,,,,,,Shell stone,කබොක්,பொட்டுகல்
+,,,,,,,,,,Cement/Rubble ,සිමෙන්ති /කළුගල්,சிமெண்ட்/கருங்கல்
+,,,,,,,,,,Clay block,මැටිගල්,களிமண் தொகுதி
+,,,,,,,,,,Clay,මැටි,மண்
+,,,,,,,,,,Plank/Tin etc.,ලෑලි /ටකරන් ආදී,பலகை/தகரம்  மற்றும் பிற
+,,,,,,,,,,Coconut leaf/Palm leaf ,පොල් අතු/ තල් අතු ආදිය,தென்னை ஓலை / பனை ஓலை
+,,,,,,,,,,Other poor status,අනෙකුත් දුර්වල වර්ග,வேறு  மோசமான நிலை
+,,house_roof_img,,,"Image of the roof of the house
+",නිවසේ වහලයේ පින්තූරයක් ලබාදෙන්න.,வீட்டின் கூரையின் படம்,Image,,,,
+,The square footage of the house's floor,house_floor_area,නිවසේ ගෙබිමේ වර්ග අඩි ප්‍රමාණය,வீட்டின் தரைப்பரப்பு சதுர அடியில்,Select the number of the square foot below,වර්ග අඩි ප්‍රමාණය තෝරන්න,கீழே உள்ள சதுர அடியின் எண்ணைத் தேர்ந்தெடுக்கவும்,Dropdown,,Less than 500Sq. feet,වර්ග අඩි 500 ට අඩු,500 சதுர அடிகளுக்கு குறைவானது
+,,,,,,,,,,More than 500Sq. Feet,වර්ග අඩි 500 ට වැඩි,500 சதுர அடிகளை மிஞ்சியது
+,Details about the doors and windows of the house,has_secure_door_windows,නිවසේ දොර ජනෙල් පිළිබද විස්තර,வீட்டின் கதவுகள் மற்றும் ஜன்னல்கள் பற்றிய விவரங்கள்,"If the residence where the applicant lives has secure doors/windows, select 'yes'; if not, select 'no.'""",අයදුම්කරු ජීවත් වන නිවසේ  ආරක්ෂිත දොර /ජනෙල් තිබේ නම් ඔව් යන අයිතමය ද එසේ නොමැති නම් නැත යන අයිතමය තෝරන්න.,"விண்ணப்பதாரர் வசிக்கும் வீட்டில் பாதுகாப்பான கதவு /யன்னல்கள் இருந்தால் ""ஆம்"" என்பதைத் தேர்ந்தெடுக்கவும். இல்லையெனில் ""இல்லை"" என்பதைத் தேர்ந்தெடுக்கவும்.",Text,"If the residence where the applicant lives has secure doors/windows, select 'yes'; if not, select 'no.'""",yes,ඔව්,ஆம்
+,,,,,,,,,,no,නැත,இல்லை
+,The nature of the residential house ,residential_nature,ජීවත්වන නිවාස ඒකකයේ ස්වභාවය,தற்போது வசிக்கும் வீட்டின் தன்மை,Write down below in the text field.,පහතින් පෙළ කේතය තුළ ලියන්න,கீழே உள்ள உரை பெட்டியில் எழுதுங்கள்,Text,,"Permanent 
+Semi-permanent
+Temporary","ස්ථිර                                                                                                                             අර්ධ ස්ථිර
+තාවකාලික","நிரந்தரம்                                                                                                                       அரை-நிரந்தரம்
+தற்காலிகமானது"
+,Ownership of the residential house ,residential_ownership,ජීවත්වන නිවසේ හිමිකාරත්වය,வசிக்கும் வீட்டின் உரிமை,"Select the appropriate answer to indicate whether the residence belongs to the applicant or a family member
+
+	Select the relevant item from the options provided in the box regarding the ownership of the applicant's residence.","අයදුම්කරුගේ නේවාසික වාසස්ථානය අයදුම්කරුගේම එකක්ද, නැත්නම් පවුලේ සාමාජිකයෙකුගේද යන්න නිවේදනය කිරීමට පහත සපයා ඇති විකල්ප වලින් වලංගු  පිළිතුර තෝරන්න.",வசிப்பிடம் விண்ணப்பதாரருக்குச் சொந்தமானதா அல்லது குடும்ப உறுப்பினருக்குச் சொந்தமானதா என்பதை குறிக்க பெட்டியில் கொடுக்கப்பட்டுள்ள விருப்பங்களில் பொருத்தமானதைக் கிளிக் செய்யவும்.,Text,,Built or purchased by family members,පවුලේ සාමාජිකයින් විසින් ගොඩ නගන ලද / මිලට ගත්,குடும்ப உறுப்பினர்களால் கட்டப்பட்டது அல்லது வாங்கியது
+,,,,,,,,,,Inherited by family members,පවුලේ සාමාජිකයින්ට උරුමයෙන් අයිති වූ,குடும்ப உறுப்பினர்களால் பாரம்பரியமாகப் பெற்றது
+,,,,,,,,,,Received as a gift or free of charge,ත්‍යාග වශයෙන් හෝ නොමිලේ ලද,பரிசாக அல்லது இலவசமாகப் பெற்றது
+,,,,,,,,,,Received as compensation,වන්දි වශයෙන් ලද,இழப்பீடாகப் பெற்றது
+,,,,,,,,,,Rented,කුලියට,கூலிக்குக் கிடைத்தது
+,,,,,,,,,,Unauthorized,අනවසර,அங்கீகரிக்கப்படாதது
+,,,,,,,,,,Without rent (provided by employer/others),කුලියක් නොමැතිව(සේවායෝජකයා/ වෙනත්),கூலியின்றி (வேலைக்காரர்/மற்றவர்களால் வழங்கப்பட்டது)
+,,,,,,,,,,Concessional rent (provided by employer/others),සහන කුලියට (සේවායෝජකයා/ වෙනත්),சலுகை கூலி (வேலைக்காரர்/மற்றவர்களால் வழங்கப்பட்டது)
+,,,,,,,,,,"No ownership, living with others",අයිති නැත අන් අය සමග ජීවත් වීම,"உரிமையின்றி, மற்றவர்களுடன் வாழ்கிறது"
+,,,,,,,,,,Leased,බද්දට,குத்தகைக்கு பெற்றது
+,,,,,,,,,,Other (without ownership),වෙනත් (අයිතියක් නැති),மற்றவை (உரிமையின்றி)
+,Information regarding ownership of any other house or building,has_other_house,වෙනත් නිවසක හෝ ගොඩනැගිල්ලක අයිතිය පිළිබද තොරතුරු,வேறொரு  வீடு அல்லது கட்டிடத்தின் உரிமை பற்றிய தகவல்,"If the applicant or a family member owns another house or building, select 'yes'; if not, select 'no.",අයදුම්කරුට හෝ පවුලේ සාමාජිකයෙකුට වෙනත් නිවසක් හෝ ගොඩනැගිල්ලක් අයත්ව තිබේනම් ඔව් යන්නද නැත්නම් නැත යන අයිතමයද තෝරන්න.,"விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினர் வேறொரு வீடு அல்லது கட்டிடத்தை உரிமையாக வைத்திருந்தால், ""ஆம்"" அல்லது ""இல்லை""என்பதைத் தேர்ந்தெடுக்கவும்.",YES/NO,"If the applicant or a family member owns another house or building, select 'yes'; if not, select 'no.",yes,ඔව්,ஆம்
+,,,,,,,,,,no   ,නැත,இல்லை
+,The main source of light ,light_source,ආලෝකය ලබා ගන්නා ප්‍රධාන ප්‍රභවය,வெளிச்சத்தினைப் பெற்றுக்கொள்ளும் முக்கிய ஆதாரம்.,"click infront of the main source of light that the applicant/family members use.
+If there are several sources of light for the house, include only the main source that is primarily used","අයදුම්කරු/ පවුලේ සාමාජිකයන් ආලෝකය ලබාගන්නා ප්‍රධාන ප්‍රභවය ඉදිරියේ Click කරන්න.
+නිවසට ආලෝකය ලබාගන්නා ප්‍රභවයන් කිහිපයක් ඇත්නම්  මූලිකව භාවිතා කරන ප්‍රධාන ප්‍රභවය පමණක් ඇතුලත් කරන්න.","விண்ணப்பதாரர்/குடும்ப உறுப்பினர்கள் வெளிச்சத்தினைப் பெற்றுக்கொள்ளும்  மூலத்தின் முன் Click செய்யவும். வீட்டில் பல வெளிச்சத்தினைப் பெறும் மூலங்கள் இருந்தால், முதன்மையாகப் பயன்படுத்தப்படும் முக்கிய மூலத்தை உள்ளிடவும்.",Dropdown,,Electricity,විදුලිය,மின்சாரம்
+,,,,,,,,,,Solar power,සූර්ය බලය,சூரிய சக்தி
+,,,,,,,,,,by Generator/battery,ජෙනරේටරය/බැටරි මඟින්,ஜெனரேட்டர்/பேட்டரி மூலம்
+,,,,,,,,,,Biogas,ජීව ගෑස්,உயிர்வாயு (பயோகாஸ்)
+,,,,,,,,,,Kerosene,භූමිතෙල්,மண்ணெண்ணெய்
+,,,,,,,,,,Other lighting Source,අනෙකුත් ආලෝකන සම්පත්,பிற ஒளி மூலங்கள்
+,Information regarding the main source of drinking water,drinking_water_source,බීමට ජලය ලබා ගන්නා ප්‍රධාන මාර්ගය පිළිබඳ තොරතුරු,குடிநீர் கிடைக்க பெறும் முக்கிய ஆதாரம் பற்றிய தகவல்கள்,"Click in front of the main source of drinking water that the applicant/family members use
+If there are several sources of drinking water, include only the main source that is primarily used.","අයදුම්කරු/ පවුලේ සාමාජිකයන් බිමට ජලය ලබාගන්නා ප්‍රධාන ප්‍රභවය ඉදිරියේ Click කරන්න.
+බීමට ජලය  ලබාගන්නා ප්‍රභවයන් කිහිපයක් ඇත්නම්  මූලිකව භාවිත කරන ප්‍රධාන ප්‍රභවය ඇතුලත් කරන්න.
+","விண்ணப்பதாரர்/குடும்ப உறுப்பினர்கள் நிலத்தில் தண்ணீர் பெறும் ஆதாரத்தின் முன் Click செய்யவும்.
+வீட்டில் பல குடிநீர் ஆதாரங்கள் இருந்தால், முதன்மையாகப் பயன்படுத்தப்படும் முக்கிய ஆதாரத்தை உள்ளிடவும்.",dropdown,,Protective well,ආරක්ෂිත ළිඳ,பாதுகாப்பான கிணறு
+,,,,,,,,,,Tubewell,නල ළිඳ,குழாய்க் கிணறு
+,,,,,,,,,,Pipewater (Water supply Borad),නල ජලය ( ජල සම්පාදන මණ්ඩලය ),குழாய் நீர் (நீர் வழங்கும் வாரியம்)
+,,,,,,,,,,Pipewater ( Project),නල ජලය (ව්‍යාපෘතිය),குழாய் நீர் (திட்டம்)
+,,,,,,,,,,Pipewater (Provincial Counsil),නල ජලය (පළාත් සභා),குழாய் நீர் (மாகாண சபை )
+,,,,,,,,,,Pipewater (Private),නල ජලය (පුද්ගලික),குழாய் நீர் (தனியார்)
+,,,,,,,,,,Bottled water,බෝතල් කල ජලය,போத்தல் நீர்
+,,,,,,,,,,RO Filter water,ප්‍රති ආශෘත ජලය ( RO filter water),RO வடிகட்டி நீர்
+,,,,,,,,,,Non Ro filter water,බවුසරය ( non RO filter water),RO வடிகட்டப்படாத நீர்
+,,,,,,,,,,Tank/river/ stream/pond/ /fountain,ටැංකි/ ගංගා/ ඇළ/ දොළ/ බුබුල,தொட்டியால்/ஆறு/ஓடை/குளம்/நீரூற்று 
+,,,,,,,,,,Rain water,වැසි ජලය,மழை நீர்
+,,,,,,,,,,unprotective well (public),අනාරක්ෂිත ළිඳ - පොදු,பாதுகாப்பற்ற கிணறு (பொது)
+,,,,,,,,,,Other unprotective source,වෙනත් අනාරක්ෂිත මූලාශ්‍ර,வேறு பாதுகாப்பற்ற மூலங்கள்
+,Information regarding the nature of the sanitation facilities used,sanitation_facilities,භාවිතා කරන වැසිකිළි පහසුකම් වල ස්වභාවය පිළිබඳ තොරතුරු,வீட்டு அலகில் கழிப்பறை வசதிகளின் பாவனைத்  தன்மை பற்றிய தகவல்,Select and include the relevant item that accurately describes the nature of the sanitation facilities used in the house,නිවසේ භාවිත කරන වැසිකිලි පහසුකම්වල ස්වභායට අදාළ අයිතමය නිවැරදිව තෝරා ඇතුලත් කරන්න. ,"வீட்டில் பயன்படுத்தப்படும் கழிப்பறையின் சரியான வகையைத் தேர்ந்தெடுத்து, முன்னால் உள்ள பொத்தானைக் Click செய்யவும்.",Dropdown,,Inside the house -Separate usage,නිවස  ඇතුළත - තනි භාවිතය,வீட்டுக்குள் - தனியான பயன்பாடு
+,,,,,,,,,,Inside the house – shared with other family,නිවස ඇතුළත - වෙනත් පවුලක් සමඟ හවුලේ භාවිතය,வீட்டுக்குள் - மற்ற குடும்பத்துடன் பகிர்ந்துகொள்ளும்
+,,,,,,,,,,outside the house- Separate usage,නිවසින් පිටත - තනි භාවිතය,வீட்டுக்கு வெளியே - தனியான பயன்பாடு
+,,,,,,,,,,outside the house – shared with other family,නිවසින් පිටත -  වෙනත් පවුලක් සමඟ හවුලේ භාවිතය,வீட்டுக்கு வெளியே - மற்ற குடும்பத்துடன் பகிர்ந்துகொள்ளும்
+,,,,,,,,,,Share with Residents community,නිවාස සමූහයක් සමඟ හවුලේ භාවිතය,குடியிருப்பாளர்கள் சமூகத்துடன் பகிர்ந்து கொள்ளும்
+,Information regarding the type of toilet,toilet_type,වැසිකිළි වර්ගය පිළිබඳ තොරතුරු,கழிப்பறை வகையின் தன்மை பற்றிய தகவல்,Select the type of toilet used in the house accurately and click the button in front.,"
+නිවසේ භාවිත කරන වැසිකිලි වර්ගය නිවැරදිව තෝරා ඉදිරියේ ඇති බොත්තම Click කරන්න.","வீட்டில் பயன்படுத்தப்படும் கழிப்பறையின் சரியான வகையைத் தேர்ந்தெடுத்து, முன்னால் உள்ள பொத்தானைக் Click செய்யவும்.",Dropdown,,connected to water proof septic tank,ජල මුද්‍රිත සෙප්ටික් ටැංකියට සම්බන්ධ.,நீர் புகாத செப்டிக் தொட்டியுடன் இணைக்கப்பட்டுள்ளது
+,,,,,,,,,,connected to water proof pit,ජල මුද්‍රිත වළකට සම්බන්ධ ,நீர் புகாத குழியுடன் இணைக்கப்பட்டுள்ளது
+,,,,,,,,,,connected to water proof excretory system,ජල මුද්‍රිත බැහැර කිරීමේ පද්ධතියට ,நீர்கட்டி வெளியீட்டு முறைமைக்கு இணைக்கப்பட்டுள்ளது
+,,,,,,,,,,connected to water proof river or drainage,ජල මුද්‍රිත ගඟකට හෝ කාණුවකට සම්බන්ධ,நீர் ஆதார ஆறு அல்லது வடிகால்களுடன்  இணைக்கப்பட்டுள்ளது
+,,,,,,,,,,Non water proof pit toilet with lid,ජල මුද්‍රිත නොවන තට්ටුව සහිත වල වැසිකිලි,மூடியுடன் கூடிய நீர் புகாத குழி கழிப்பறை
+,,,,,,,,,,Non water proof pit toilet without lid,ජල මුද්‍රිත නොවන තට්ටුව රහිත විවෘත වල වැසිකිලි,மூடி இல்லாத நீர் புகாத குழி கழிப்பறை
+,,,,,,,,,,No facilities ( using the jungle or open area),පහසුකම් නොමැත (වනාන්තරය හෝ විවෘත ප්‍රදේශය භාවිතා කිරීම),வசதிகள் இல்லை (காடு அல்லது திறந்த பகுதிகளைப் பயன்படுத்துவது)
+,,,,,,,,,,other (without water proof),වෙනත් ( ජල මුද්‍රා වල නොමැතිව),வேறு (நீர் ஆதாரம் இல்லா)
+,Information regarding natural disasters,natural_disasters_affected,ස්වභාවික ආපදා පිළිබඳ තොරතුරු,இயற்கை பேரிடர்கள் பற்றிய தகவல்கள்,"what natural disasters have affected the house in the past 5 years? Please specify.
+",පසුගිය වසර 5 ක කාලය තුල නිවසට බලපෑ ස්වභාවික ආපදා මොනවාද? යන්න සඳහන් කරන්න.,கடந்த 5 ஆண்டுகளில் என்ன இயற்கை பேரழிவுகள் வீட்டை பாதித்தன? தயவுசெய்து குறிப்பிடவும்.,multiple choice,,Flood,ගංවතුර,வெள்ளம்
+,,,,,,,,,,Cyclone,සුළි සුළඟ,சூறாவளி
+,,,,,,,,,,Damage by wildlife,වන සත්ත්ව හානි,வனவிலங்குகளால் சேதம்
+,,,,,,,,,,Sea erosion,මුහුදු ඛාදනය,கடல் அரிப்பு
+,,,,,,,,,,Drought,නියඟය,வறட்சி
+,,,,,,,,,,Volcano eruption,ලැව් ගිනි,எரிமலை வெடிப்பு
+,,,,,,,,,,Land slides,නායයෑම්,நில சரிவுகள்
+,,,,,,,,,,Earthquake,භූමිකම්පාව,நிலநடுக்கம்
+,,,,,,,,,,Thunderstorm,අකුණු සැර,இடியுடன் கூடிய மழை
+,,,,,,,,,,Other,වෙනත්,வேறு
+,,,,,,,,,,Milling works,කළු ගල් කැණීම්,குழாய் வேலைகள்
+,,,,,,,,,,Excavation,කැණීම් ,மண் அகழ்வு
+,Information on the geographical location of the housing unit,latitude,නිවාස ඒකකයේ භූ පිහිටීම පිළිබඳ තොරතුරු,வீட்டு அலகின் புவியிடம் காட்டியின்  தகவல்,"Click on the  ""Get Location"" to obtain the location of the applicant's housing unit via GPS technology.
+The latitude and longitude of the applicant's home location should be acquired here.
+","""භූ පිහිටීම ලබාගන්න"" යන්න Click කර අයදුම්කරුගේ නිවාස ඒකකය පිහිටි ස්ථානය GPS තාක්ෂණය ඔස්සේ ලබාගන්න.
+අයදුම්කරුගේ නිවස පිහිටි ස්ථානයේ අක්ෂාංශ හා දේශාංශ ලබාගැනීම මෙහිදී සිදු කළ යුතුය.",ill ,Text,,,,
+,Information on the geographical location of the housing unit,longitude,,வீட்டு அலகின் புவியிடம் காட்டியின்  தகவல்,,,,,,,,
+,Taking Photos of the House,photo_of_house,නිවසේ ඡායාරූප ලබා ගැනීම,வீட்டின் புகைப்படங்களை எடுத்தல்,"Four photos should be taken: the front, back, side, and interior of the house.
+","අයදුම්කරු ජීවත්වන නිවසේ ඡායාරූපයක් ලබා ගැනීමට පහසුකම් සපයා ඇත.
+මෙහිදී නිවසේ ඉදිරිපස ඡායාරූපය, පිටුපස ඡායාරූපය, පැති ඡායාරූපය සහ ඇතුලත ඡායාරූපය ලෙස ඡායාරූප හතරක් ලබාගත යුතුය.
+ඒ සඳහා පළමුව පින්තූරයක් ලබා  ගන්න බොත්තම Click කරන්න.
+එවිට ඔබගේ ජංගම දුරකථනයේ කැමරාව ස්වයංක්‍රීයව සක්‍රීය වන අතර නිවසේ ඉදිරිපස පෙනුම ආවරණය වන ලෙස වහල, බිත්ති, ගෙබිම, දොර ජනේල හොදින් පෙනෙන ලෙස ඡායාරූප ගැනීම අත්‍යවශ්‍ය වේ.
+ඉන්පසු ඉදිරියට යන බොත්තම Click කර ඉතිරි ඡායාරූප ලබා ගන්න.
+""","விண்ணப்பதாரர் அவர்கள் வசிக்கும் வீட்டை புகைப்படம் எடுக்க வசதி செய்யப்பட்டுள்ளது. 
+நான்கு புகைப்படங்கள் எடுக்கப்பட வேண்டும்: வீட்டின் முன், பின், பக்க மற்றும் உட்புறம்.
+இதைச் செய்ய, முதலில் புகைப்படம் எடுக்கவும் பொத்தானைக் கிளிக் செய்யவும்.
+உங்கள் மொபைல் ஃபோனின் கேமரா தானாகவே செயல்படும். வீட்டின் கூரை, சுவர்கள், தரை, கதவுகள் மற்றும் ஜன்னல்கள் ஆகியவற்றை முன் புகைப்படம் தெளிவாகப் படம்பிடிப்பதை உறுதி செய்து கொள்ளுங்கள்",Img,,,,
+Bank Accountf,Information regarding bank account,bank_account,බැංකු ගිණුම,வங்கி கணக்கு தொடர்பான தகவல்கள் ,"Enter information about active bank accounts belonging to the applicant or a family member.
+After selecting the relevant bank, enter the bank branch name, account number, and account holder's name in the fields displayed below.
+Specify whether the account ownership belongs to the applicant, a family member, or a nominee.
+
+","	අයදුම්කරුට හෝ පවුලේ සාමාජිකයෙකුට අයත් සක්‍රීය බැංකු ගිණුම් පිළිබඳ තොරතුරු ඇතුළත් කරන්න.
+අදාල බැංකුව තෝරාගත් පසු ඊට යටින් දිස්වෙන කොටු තුල පිළිවෙලින් බැංකු ශාඛාවේ නම, ගිණුම් අංකය සහ ගිණුම් හිමියාගේ නම සඳහන් කරන්න.
+ගිණුමේ හිමිකාරිත්වය අයදුම්කරුට අයත් ද, පවුලේ සාමාජිකයකුට අයත් ද සහ නාමිකයකුට අයත්ද යන්න සදහන් කරන්න.","விண்ணப்பதாரர் அல்லது குடும்ப உறுப்பினரின் செயலில் உள்ள வங்கிக் கணக்குகள் பற்றிய தகவலை உள்ளிடவும்.
+தொடர்புடைய வங்கியைத் தேர்ந்தெடுத்த பிறகு, கீழே காட்டப்பட்டுள்ள புலங்களில் வங்கிக் கிளையின் பெயர், கணக்கு எண் மற்றும் கணக்கு வைத்திருப்பவரின் பெயரை உள்ளிடவும்.
+ கணக்கு உரிமை விண்ணப்பதாரர், குடும்ப உறுப்பினர் அல்லது பரிந்துரைக்கப்பட்டவருக்கு சொந்தமானதா என்பதைக் குறிப்பிடவும்",Text,,,,
+,Bank Title,bank_title,බැංකු මාතෘකාව,வங்கி தலைப்பு,,,,Text,,,,
+,Bank Branch,bank_branch,බැංකු ශාඛාව,வங்கி கிளை,,,,Text,,,,
+,Bank Name,bank_name,බැංකුවේ නම,வங்கி பெயர்,,,,Dropdown,,Bank of Ceylon,ලංකා බැංකුව,இலங்கை வங்கி
+,,,,,,,,,,People’s Bank,මහජන බැංකුව,மக்கள் வங்கி
+,,,,,,,,,,National Savings Bank,ජාතික ඉතිරිකිරීම් බැංකුව,தேசிய சேமிப்பு வங்கி
+,,,,,,,,,,RDB Bank,ග්‍රාමිය සංවර්ධන බැංකුව ( RDB),பிராந்திய அபிவிருத்தி வங்கி
+,,,,,,,,,,Sanasa Bank,සණස බැංකුව,சனச வங்கி
+,,,,,,,,,,Sampath Bank,සම්පත් බැංකුව,சம்பத் வங்கி
+,,,,,,,,,,HNB Bank,හැටන් නැෂනල් බැංකුව ( HNB),ஹட்டன் நேஷனல் வங்கி
+,,,,,,,,,,Commercial Bank,කොමර්ශල් බැංකුව,கொமர்சல்  வங்கி
+,,,,,,,,,,NTB Bank,එන්.ටී.බී. බැංකුව (NTB),என்.டி.பி.(NTB) வங்கி
+,,,,,,,,,,NDB Bank,එන්.ඩී.බී. බැංකුව (NDB),என்.டி.பி. (NDB) வங்கி
+,,,,,,,,,,DFCC Bank,ඩී.එෆ්.සී.සී. බැංකුව (DFCC),டி.எப்.சி.சி. (DFCC) வங்கி
+,,,,,,,,,,HSBC Bank,ඒච්.එස්.බී.සී. බැංකුව (HSBC),எச்.எஸ்.பி.சி. (HSBC) வங்கி 
+,,,,,,,,,,HDFC Bank,ඒච්.ඩී.එෆ්.සී. බැංකුව (HDFC),எச்.டி.எப்.சி. (HDFC) வங்கி
+,,,,,,,,,,PABC Bank                  ,පී.ඒ.බී.සී. බැංකුව (PABC),பி.ஏ.பி.சி. (PABC) வங்கி
+,,,,,,,,,,AMANA Bank,අමානා බැංකුව,அமானா வங்கி
+,Bank account nominee,bank_account_nominee,බැංකු ගිණුම් නාමයෝජිතයා,வங்கி கணக்கு பரிந்துரைக்கப்பட்டவர்,,,,Text,,,,
+,ownership,ownership,අයිතිය,வங்கி கணக்கு உரிமையாளர்,,,,Text,,,,

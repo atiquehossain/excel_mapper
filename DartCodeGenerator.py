@@ -4,9 +4,10 @@ import os
 from widgetTemp import DartWidgetGenerator
 from TemplateProvider import TemplateProvider 
 
-
 class DartCodeGenerator:
     """Generates Dart code for widgets, models, and localization."""
+    
+    # Mapping of data types to field types and Dart types
     DATA_TYPE_TO_FIELD_TYPE = {
         "Dropdown": "AppConstant.FieldType_dropdown",
         "Multiple choice": "AppConstant.FieldType_multiple_choice",
@@ -26,6 +27,7 @@ class DartCodeGenerator:
     }
 
     def __init__(self, class_name, df, output_folder='ui_and_languages'):
+        """Initializes the DartCodeGenerator instance with necessary parameters and folder setup."""
         self.class_name = class_name
         self.df = df
         self.localization_data = {"Tamil": {}, "Sinhala": {}, "English": {}}
@@ -44,18 +46,20 @@ class DartCodeGenerator:
         os.makedirs(self.output_folder, exist_ok=True)
 
     def _get_data_list_conditionally_const(self, field_type, model):
+        """Returns the corresponding data list or null based on the field type."""
         if field_type == 'AppConstant.FieldType_multiple_choice':
             return f"SetupConstant.{model}"
         elif field_type == 'AppConstant.FieldType_dropdown':
             return f"SetupConstant.{model}"
         elif field_type == 'AppConstant.FieldType_radio':
-            return f" SetupConstant.yes_no"
+            return f"SetupConstant.yes_no"
         else:
             return "null"  
-        
+
     def _get_data_list_conditionally_type_and_model(self, field_type, model):
+        """Returns the corresponding function to fetch the data list based on the field type."""
         if field_type == 'AppConstant.FieldType_multiple_choice':
-            return f"SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.{model})"
+            return f"SetupData.SetupData.getCheklistItems(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_dropdown':
             return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_radio':
@@ -71,7 +75,7 @@ class DartCodeGenerator:
         model = row.get('database', None)
 
         if not pd.notna(model) or str(model).strip() == "":
-         #   print(f"Skipping row due to missing or invalid 'database' field: {row}")
+            # Skip row if model is missing or empty
             return
 
         question_en = question_en if pd.notna(question_en) else "Missing value in excel"
@@ -79,12 +83,15 @@ class DartCodeGenerator:
         field_type = self.DATA_TYPE_TO_FIELD_TYPE.get(data_type, "AppConstant.FieldType_EditText")
         dart_type = self.DATA_TYPE_TO_DART_TYPE.get(data_type, "String")
 
+        # Clean and format the keys for localization
         question_key = re.sub(r'[^\w]+', '_', question_en.strip()).strip('_')
         label_key = re.sub(r'[^\w]+', '_', label_en.strip()).strip('_')
 
+        # Add localization data for English
         self.localization_data["English"][question_key] = question_en
         self.localization_data["English"][label_key] = label_en
 
+        # Add localization data for Tamil and Sinhala if available
         for lang in ["Tamil", "Sinhala"]:
             question_value = row.get(f"questions_in_{lang.lower()}", None)
             label_value = row.get(f"labels_in_{lang.lower()}", None)
@@ -93,26 +100,27 @@ class DartCodeGenerator:
             if pd.notna(label_value):
                 self.localization_data[lang][label_key] = label_value
 
+        # Append the widget code to the list for Dart widget generation
         self.dart_widgets.append(f"""
             /// Question number  = {row_number + 2}
             build{self.class_name}Question(
             number: {row_number + 2},
             condition: true, 
             widget: {self.class_name}UI(
-                label: {(f'"{label_en}"' if label_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{label_key}")},
-                question: {(f'"{question_en}"' if question_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{question_key}")},
+                label: {(f'"{label_en}"' if label_en == "Missing value in excel." else f"Languages.getText(context)!.{label_key}")},
+                question: {(f'"{question_en}"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")},
                 fieldType: {field_type},
                 model: {self.class_name.lower()}.{model},
                 dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
                 onChanged: (value) {{
                     {self.class_name.lower()}.{model} = value;
-                    selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel.Contact tuly apu" else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
+                    selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
                 }},
             ),
             ),
         """)
 
-
+        # Append model field definitions
         self.model_fields.append(f"final {dart_type} {model};")
         self.constructor_params.append(f"this.{model},")
         self.from_json.append(f"{model}: json['{model}'],")
@@ -121,44 +129,42 @@ class DartCodeGenerator:
 
     def generate_files(self):
         """Generates and saves Dart widget, model, and localization files."""
+        
+        # Generate the Dart widget code
         self.DART_WIDGET_TEMPLATE = DartWidgetGenerator.generate_widget_template(self.class_name, self.class_name.lower(), "\n".join(self.dart_widgets))
 
+        # Generate the Dart model code
         dart_model_code = TemplateProvider.get_model_template().format(
             class_name=self.class_name,
             fields="\n  ".join(self.model_fields),
             constructor_params="\n    ".join(self.constructor_params),
-            from_json="\n      ".join(
-        [
-            f"{field.strip()};" 
-            for field in self.from_json
-        ]
-    ),
+            from_json="\n      ".join([f"{field.strip()};" for field in self.from_json]),
             to_json="\n      ".join(self.to_json),
             to_string=", ".join(self.to_string)
         )
 
+        # Write the widget code to the file
         with open(os.path.join(self.output_folder, f"{self.class_name.lower()}_ui_widget.dart"), 'w', encoding='utf-8') as f:
             f.write(self.DART_WIDGET_TEMPLATE)
 
+        # Write the model code to the file
         with open(os.path.join(self.output_folder, f"{self.class_name.lower()}_model.dart"), 'w', encoding='utf-8') as f:
             f.write(dart_model_code)
 
+        # Write the localization files for each language
         for lang, translations in self.localization_data.items():
-            # Ensure missing values are replaced
             localization_fields = [
-                f'String get {key} => "{value if value else "target tuly di"}";'
+                f'String get {key} => "{value if value else "Missing value di"}";'
                 for key, value in translations.items()
             ]
             localization_code = TemplateProvider.get_localization_template().format(
                 fields="\n  ".join(localization_fields)
             )
-            output_file = os.path.join(
-                self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart"
-            )
+            output_file = os.path.join(self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart")
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(localization_code)
 
-        
+        # Write the keys file for localization
         for lang, translations in self.localization_data.items():
             localization_fields = [f'String get {key} ;' for key, value in translations.items()]
             localization_code = TemplateProvider.get_localization_template().format(fields="\n  ".join(localization_fields))
