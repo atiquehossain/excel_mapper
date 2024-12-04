@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AssetinfoScreen extends StatefulWidget {
 
@@ -6,7 +7,7 @@ class AssetinfoScreen extends StatefulWidget {
   final Map<String, dynamic>? peddingData;
 
   AssetinfoScreen({this.liveData, this.peddingData});
-   
+
   @override
   _AssetinfoScreenState createState() => _AssetinfoScreenState();
 }
@@ -54,7 +55,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_land = value;
-                    selectedOptions[Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -108,7 +109,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_cultivable_paddy_land = value;
-                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_cultivable_paddy_land_then_select_Yes_Otherwise_select_No] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_cultivable_paddy_land_then_select_Yes_Otherwise_select_No] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -144,7 +145,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_owns_vehicles = value;
-                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_owns_vehicles_for_transportation_select_Yes_or_otherwise_No] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_owns_vehicles_for_transportation_select_Yes_or_otherwise_No] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -180,7 +181,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_economic_machinery = value;
-                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_the_family_has_any_forms_of_machinery_related_to_economic_activity_select_Yes_otherwise_select_No] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_the_family_has_any_forms_of_machinery_related_to_economic_activity_select_Yes_otherwise_select_No] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -432,7 +433,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.has_other_house = value;
-                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_a_family_member_owns_another_house_or_building_select_yes_if_not_select_no] =  SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_a_family_member_owns_another_house_or_building_select_yes_if_not_select_no] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -519,7 +520,7 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
                 question: Languages.getText(context)!.what_natural_disasters_have_affected_the_house_in_the_past_5_years_Please_specify,
                 fieldType: AppConstant.FieldType_multiple_choice,
                 model: assetinfo.natural_disasters_affected,
-                dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.natural_disasters_affected),
+                dataList: SetupData.SetupData.getCheklistItems(context, SetupConstant.natural_disasters_affected),
                 onChanged: (value) {
                     assetinfo.natural_disasters_affected = value;
                     selectedOptions[Languages.getText(context)!.what_natural_disasters_have_affected_the_house_in_the_past_5_years_Please_specify] = SetupConstant.natural_disasters_affected + AppConstant.SEPERATOR + value;
@@ -805,14 +806,23 @@ class AssetinfoUI extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-            child: Text(
-              question,
-              style: TextStyle(
-                fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
-                letterSpacing: AppDimens.getTextLetterSpacing(),
-                color: appColor!.H1_Title_Text,
+          GestureDetector(
+            onLongPress: () {
+              // Copy the question to clipboard
+              Clipboard.setData(ClipboardData(text: question));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('⚡ “Expecto Patronum!” The question is now protected in your clipboard! ⚡')),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+              child: Text(
+                question,
+                style: TextStyle(
+                  fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
+                  letterSpacing: AppDimens.getTextLetterSpacing(),
+                  color: appColor!.H1_Title_Text,
+                ),
               ),
             ),
           ),
@@ -846,27 +856,27 @@ class AssetinfoUI extends StatelessWidget {
               },
             )
           else if (fieldType == AppConstant.FieldType_radio)
-          RadioGroupAAP(
-          radioGroupType: RadioGroupType.simple,
-          direction: Axis.vertical,
-          selectedOptionValue: model,
-          list: dataList,
-          borderColor: AppColor.border_color,
-          onChange: onChanged,
-    )
-     else if (fieldType ==  AppConstant.FieldType_multiple_choice)
-                 MultipleChoiceAAP(
-                  checkList: dataList,
-                  textColor: appColor?.H1_Title_Text,
-                  checkBoxColor: appColor?.Warning_Text,
-                  borderColor: appColor?.H1_Title_Text,
-                  backgroundColor: appColor?.Disabled_Background,
-                  appColor: appColor,
-                  selectedOptionValues: model,
-                  onChange: (value) => onChanged.call(value),
-                  fontSize: AppDimens.getTextSize(
-                      textSizeType: TextSizeType.normal),
-                )
+            RadioGroupAAP(
+              radioGroupType: RadioGroupType.simple,
+              direction: Axis.vertical,
+              selectedOptionValue: model,
+              list: dataList,
+              borderColor: AppColor.border_color,
+              onChange: onChanged,
+            )
+          else if (fieldType == AppConstant.FieldType_multiple_choice)
+            MultipleChoiceAAP(
+              checkList: dataList,
+              textColor: appColor?.H1_Title_Text,
+              checkBoxColor: appColor?.Warning_Text,
+              borderColor: appColor?.H1_Title_Text,
+              backgroundColor: appColor?.Disabled_Background,
+              appColor: appColor,
+              selectedOptionValues: model,
+              onChange: (value) => onChanged.call(value),
+              fontSize: AppDimens.getTextSize(
+                  textSizeType: TextSizeType.normal),
+            ),
         ],
       ),
     );
