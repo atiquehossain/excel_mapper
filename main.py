@@ -186,7 +186,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='atique.xlsx'
-        sheet_name='AssetInfo' 
+        sheet_name='IncomeInfo' 
         
         #column name
         data_type = 'data_type'

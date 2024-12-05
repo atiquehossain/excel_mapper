@@ -162,21 +162,29 @@ class {class_name}UI extends StatelessWidget {{
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-            child: Text(
-              label,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
-                letterSpacing: AppDimens.getTextLetterSpacing(),
-                color: appColor!.H1_Title_Text,
+          GestureDetector(
+            onLongPress: () {{
+             
+              Clipboard.setData(ClipboardData(text: label));
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('label copied to clipboard!')),
+              );
+            }},
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
+                  letterSpacing: AppDimens.getTextLetterSpacing(),
+                  color: appColor!.H1_Title_Text,
+                ),
               ),
             ),
           ),
           GestureDetector(
             onLongPress: () {{
-              // Copy the question to clipboard
+          
               Clipboard.setData(ClipboardData(text: question));
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Question copied to clipboard!')),
