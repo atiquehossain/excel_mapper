@@ -1,6 +1,7 @@
 class DartWidgetGenerator:
     @staticmethod
     def generate_widget_template(class_name, model_instance, widgets):
+        today_date = datetime.now().strftime('%Y-%m-%d')
         """
         Generates a Dart widget template for Flutter.
 
@@ -13,6 +14,7 @@ class DartWidgetGenerator:
             str: A formatted Dart widget template.
         """
         dart_widget_template = f"""
+      ///  localization file -  {today_date}
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -252,7 +254,35 @@ class {class_name}UI extends StatelessWidget {{
               onChange: (value) => onChanged.call(value),
               fontSize: AppDimens.getTextSize(
                   textSizeType: TextSizeType.normal),
-            ),
+            )
+            else if (fieldType ==  AppConstant.FieldType_Image)
+                  FilePickerGeneralAAP(
+                    appColor: appColor as AppColor,
+                    uploadType: UploadType.Base64,
+                    pickerType: PickerType.Image,
+                    field: model,
+                    borderColor: appColor!.H1_Title_Text,
+
+                    background: appColor!.Disabled_Background as Color,
+                    fileNameField: fileNameField,
+                    fileTypeField: fileTypeField,
+                    fileDateField: fileDateField,
+
+                    fileStoragePath: Operations.getFileStoragePath(userId: userId, photoType: photoType ),
+                    //fieldTitle: 'dbuivsahvfhsv bvgidsbvfi jgfty',
+                    //dialogSubtitle: "bjbscjvd",
+                    //dialogTitle: "eeeeeeee",
+                    dialogIconPath: "assets/images/papers.png",
+
+                    
+onChange: (filename, filePath, fileType, file, date) {{
+if(onChanged != null){{
+onChanged(filename, filePath, fileType, file, date);
+}}
+}},
+
+                    
+                  ),
         ],
       ),
     );

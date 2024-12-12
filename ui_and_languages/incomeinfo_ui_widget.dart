@@ -156,7 +156,7 @@ class _IncomeinfoScreenState extends State<IncomeinfoScreen> {
             number: 55,
             condition: true, 
             widget: IncomeinfoUI(
-                label: Languages.getText(context)!.Details_of_Samurdhi_beneficiaries,
+                label: Languages.getText(context)!.Details_of_Samrudhi_beneficiaries,
                 question: Languages.getText(context)!.Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: incomeinfo.samurdhi_beneficiary_type,
@@ -524,7 +524,35 @@ class IncomeinfoUI extends StatelessWidget {
               onChange: (value) => onChanged.call(value),
               fontSize: AppDimens.getTextSize(
                   textSizeType: TextSizeType.normal),
-            ),
+            )
+            else if (fieldType ==  AppConstant.FieldType_Image)
+                  FilePickerGeneralAAP(
+                    appColor: appColor as AppColor,
+                    uploadType: UploadType.Base64,
+                    pickerType: PickerType.Image,
+                    field: model,
+                    borderColor: appColor!.H1_Title_Text,
+
+                    background: appColor!.Disabled_Background as Color,
+                    fileNameField: fileNameField,
+                    fileTypeField: fileTypeField,
+                    fileDateField: fileDateField,
+
+                    fileStoragePath: Operations.getFileStoragePath(userId: userId, photoType: photoType ),
+                    //fieldTitle: 'dbuivsahvfhsv bvgidsbvfi jgfty',
+                    //dialogSubtitle: "bjbscjvd",
+                    //dialogTitle: "eeeeeeee",
+                    dialogIconPath: "assets/images/papers.png",
+
+                    
+onChange: (filename, filePath, fileType, file, date) {
+if(onChanged != null){
+onChanged(filename, filePath, fileType, file, date);
+}
+},
+
+                    
+                  ),
         ],
       ),
     );

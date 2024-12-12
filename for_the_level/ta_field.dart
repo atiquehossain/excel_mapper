@@ -1,6 +1,5 @@
-// Auto-generated localization file - 2024-12-05
+// IncomeInfo localization file -  2024-12-12
 
-class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_ => "NVQ 3 (G.C.E (O/L) (ஒற்றுமை நிலை)";
   String get nvq_3_g_c_e_a_l_conformity_status_ => "NVQ 3 (G.C.E (A/L) (ஒற்றுமை நிலை)";
   String get nvq_5_diploma_level_ => "NVQ 5 (டிப்ளோமா நிலை)";
@@ -76,4 +75,3 @@ class Languages {
   String get firewood => "விறகு";
   String get kerosene_oil => "மண்ணெண்ணெய்";
   String get gas => "கேஸ் (எரிவாயு )";
-}

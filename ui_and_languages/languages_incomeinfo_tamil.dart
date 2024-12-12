@@ -16,7 +16,7 @@ class Languages {
   String get Do_you_recieve_samurdhi => "நீங்கள் சமுர்த்தி பெறுகிறீர்களா?";
   String get Value_of_samurdhi_benefit => "சமுர்த்தி கொடுப்பனவு பற்றிய விவரங்கள்";
   String get Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect => "விண்ணப்பதாரரின் குடும்பம் முன்னர் சமுர்த்தி கொடுப்பனவு பெற்ற குடும்பமா? இல்லையா? என்பது குறித்த சரியான விடையைத் தேர்ந்தெடுக்கவும்.";
-  String get Details_of_Samurdhi_beneficiaries => "சமுர்த்தி பயனாளிகளின் விவரங்கள்";
+  String get Details_of_Samrudhi_beneficiaries => "சமுர்த்தி பயனாளிகளின் விவரங்கள்";
   String get Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories => "பின்வரும் செலவு வகைகளில் இருந்து அந்த குடும்பத்திற்கு பொருத்தமான வகையைத் தேர்ந்தெடுக்கவும்.";
   String get Details_of_monthly_expenses_of_the_family => "குடும்பத்தின் மாதச் செலவு விவரங்கள்";
   String get Is_the_aapplicant_is_an_electricity_consumer => "விண்ணப்பதாரர் மின்சாரம் பயன்பாட்டாளர் ஆவாரா?";

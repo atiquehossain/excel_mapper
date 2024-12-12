@@ -1,4 +1,4 @@
-// Auto-generated localization file - 2024-12-05
+// Auto-generated localization file - 2024-12-12
 
 class Languages {
   String get nvq_3_g_c_e_o_l_conformity_status_;

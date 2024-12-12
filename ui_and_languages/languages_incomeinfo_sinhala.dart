@@ -16,7 +16,7 @@ class Languages {
   String get Do_you_recieve_samurdhi => " ඉහත ප්‍රශ්නයට පිළිතුර ඔව් නම් ලැබූ සමෘද්ධි ප්‍රතිලාභයේ වටිනාකමට අදාල අයිතමය තෝරන්න.";
   String get Value_of_samurdhi_benefit => "සමෘද්ධි ප්‍රතිලාභයේ වටිනාකම";
   String get Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect => "අයදුම්කරුගේ පවුල මීට පෙර සමෘද්ධි දීමනාලාභී පවුලක්ද? නැද්ද? යන්න සම්බන්ධයෙන් නිවැරදි අයිතමය තෝරන්න.";
-  String get Details_of_Samurdhi_beneficiaries => "සමෘද්ධි ප්‍රතිලාභ පිළිබද විස්තර";
+  String get Details_of_Samrudhi_beneficiaries => "සමෘද්ධි ප්‍රතිලාභ පිළිබද විස්තර";
   String get Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories => "පහත වියදම් කාණ්ඩ අතරින් එම පවුලට අදාල කාණ්ඩය තෝරන්න.";
   String get Details_of_monthly_expenses_of_the_family => "පවුලේ මාසික වියදම් පිළිබද විස්තර";
   String get Is_the_aapplicant_is_an_electricity_consumer => "අයදුම්කරු විදුලි පාරිභෝගිකයෙක්ද?";

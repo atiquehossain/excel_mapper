@@ -16,7 +16,7 @@ class Languages {
   String get Do_you_recieve_samurdhi ;
   String get Value_of_samurdhi_benefit ;
   String get Is_the_applicant_s_family_previous_recipient_of_Samurdhi_grant_Or_not_Select_the_correct_item_in_that_respect ;
-  String get Details_of_Samurdhi_beneficiaries ;
+  String get Details_of_Samrudhi_beneficiaries ;
   String get Select_the_category_relevant_to_that_family_from_the_following_expenditure_categories ;
   String get Details_of_monthly_expenses_of_the_family ;
   String get Is_the_aapplicant_is_an_electricity_consumer ;

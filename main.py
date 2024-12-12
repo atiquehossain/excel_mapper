@@ -70,6 +70,7 @@ def process_combined_projects(file_path, sheet_name):
     print(f"Number of dropdown/multiple-choice columns: {count}")
     print("Columns identified as dropdown/multiple-choice:")
     print(columns)
+    root_sheet_name = sheet_name
 
         # Convert numbers to text in all columns
   #  for col in df.columns:
@@ -126,11 +127,9 @@ def process_combined_projects(file_path, sheet_name):
 
     # Generate localization files
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
-        content = f'// Auto-generated localization file - {today_date}\n\n'
-        content += 'class Languages {\n'
+        content = f'// {root_sheet_name} localization file -  {today_date}\n\n' 
         for key, value in localization_data[lang].items():
             content += f'  String get {key} => "{value}";\n'
-        content += '}\n'
         write_dart_file(file_path, content)
 
 
