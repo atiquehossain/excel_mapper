@@ -1,3 +1,4 @@
+from datetime import datetime
 class DartWidgetGenerator:
     @staticmethod
     def generate_widget_template(class_name, model_instance, widgets):
@@ -158,52 +159,54 @@ class {class_name}UI extends StatelessWidget {{
   @override
   Widget build(BuildContext context) {{
     appColor = AppColor();
+        bool isLabelValid = label != "Missing value in excel";
+    bool isQuestionValid = question != "Missing value in excel";
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GestureDetector(
-            onLongPress: () {{
-             
-              Clipboard.setData(ClipboardData(text: label));
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('label copied to clipboard!')),
-              );
-            }},
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-              child: Text(
-                label,
-                style: TextStyle(
-                  fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
-                  letterSpacing: AppDimens.getTextLetterSpacing(),
-                  color: appColor!.H1_Title_Text,
+           if (isLabelValid)
+            GestureDetector(
+              onLongPress: () {{
+                Clipboard.setData(ClipboardData(text: label));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Label copied to clipboard!')),
+                );
+              }},
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
+                    letterSpacing: AppDimens.getTextLetterSpacing(),
+                    color: appColor!.H1_Title_Text,
+                  ),
                 ),
               ),
             ),
-          ),
-          GestureDetector(
-            onLongPress: () {{
-          
-              Clipboard.setData(ClipboardData(text: question));
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Question copied to clipboard!')),
-              );
-            }},
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-              child: Text(
-                question,
-                style: TextStyle(
-                  fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
-                  letterSpacing: AppDimens.getTextLetterSpacing(),
-                  color: appColor!.H1_Title_Text,
+          if (isQuestionValid)
+            GestureDetector(
+              onLongPress: () {{
+                Clipboard.setData(ClipboardData(text: question));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Question copied to clipboard!')),
+                );
+              }},
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+                child: Text(
+                  question,
+                  style: TextStyle(
+                    fontSize: AppDimens.getTextSize(textSizeType: TextSizeType.normal),
+                    letterSpacing: AppDimens.getTextLetterSpacing(),
+                    color: appColor!.H1_Title_Text,
+                  ),
                 ),
               ),
             ),
-          ),
           if (fieldType == AppConstant.FieldType_dropdown)
             DropdownAAP(
               items: dataList,

@@ -127,18 +127,19 @@ def process_combined_projects(file_path, sheet_name):
 
     # Generate localization files
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
-        content = f'// {root_sheet_name} localization file -  {today_date}\n\n' 
+        content = f"/// {root_sheet_name} localization file -  {today_date}\n"
         for key, value in localization_data[lang].items():
-            content += f'  String get {key} => "{value}";\n'
+            content += f"  String get {key} => '{value}';\n"
+        content += f'/// {root_sheet_name} end here -  {today_date}\n'
         write_dart_file(file_path, content)
 
 
     for lang, file_path in {'English': 'field_keys.dart'}.items():
-        content = f'// Auto-generated localization file - {today_date}\n\n'
-        content += 'class Languages {\n'
+        
+        content = f"/// {root_sheet_name} localization file -  {today_date}\n"
         for key, value in localization_data[lang].items():
             content += f'  String get {key};\n'
-        content += '}\n'
+        content = f'/// {root_sheet_name} end -  {today_date}\n'
         write_dart_file(file_path, content)
 
 

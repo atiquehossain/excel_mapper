@@ -1,7 +1,7 @@
 
-class Languages {
-  static Languages? _instance;
-  static Languages getText(BuildContext context) => _instance ??= Languages();
+/// Incomeinfo localization file -  2024-12-12
+
+
 
   String get The_highest_professional_qualification_level_of_the_respective_member_select_the_relevant_item_and_click_on_its_button_If_it_doesn_t_know_about_it_click_on_the_Unknown_item => "The highest professional qualification level of the respective member, select the relevant item and click on its button. If it doesn’t know about it, click on the Unknown item.";
   String get Professional_level_attained_by_the_member => "Professional level attained by the member  
@@ -37,4 +37,4 @@ class Languages {
   String get Specify_the_main_fuel_used_for_cooking_food => "Specify the main fuel  used for cooking food.
 ";
   String get Fuel_used_during_cooking => "Fuel used during cooking";
-}
+/// Incomeinfo end 

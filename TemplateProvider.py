@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class TemplateProvider:
     """Provides templates for Dart models, widgets, and localization."""
 
@@ -31,12 +33,10 @@ class {class_name}Model {{
 """
 
     @staticmethod
-    def get_localization_template():
+    def get_localization_template(root_sheet_name, today_date):
         return """
-class Languages {{
-  static Languages? _instance;
-  static Languages getText(BuildContext context) => _instance ??= Languages();
+/// {root_sheet_name} localization file -  {today_date}\n\n
 
   {fields}
-}}
+/// {root_sheet_name} end 
 """

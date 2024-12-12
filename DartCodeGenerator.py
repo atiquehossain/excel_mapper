@@ -3,6 +3,8 @@ import re
 import os
 from widgetTemp import DartWidgetGenerator
 from TemplateProvider import TemplateProvider 
+from datetime import datetime
+
 
 class DartCodeGenerator:
     """Generates Dart code for widgets, models, and localization."""
@@ -152,12 +154,17 @@ class DartCodeGenerator:
             f.write(dart_model_code)
 
         # Write the localization files for each language
+        root_sheet_name = self.class_name
+        today_date = datetime.now().strftime('%Y-%m-%d')
+
         for lang, translations in self.localization_data.items():
             localization_fields = [
-                f'String get {key} => "{value if value else "Missing value di"}";'
+                f'String get {key} => "{value if value else "Missing value "}";'
                 for key, value in translations.items()
             ]
-            localization_code = TemplateProvider.get_localization_template().format(
+            localization_code = TemplateProvider.get_localization_template(root_sheet_name , today_date ).format(
+                root_sheet_name=root_sheet_name,
+    today_date=today_date,
                 fields="\n  ".join(localization_fields)
             )
             output_file = os.path.join(self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart")
@@ -167,7 +174,8 @@ class DartCodeGenerator:
         # Write the keys file for localization
         for lang, translations in self.localization_data.items():
             localization_fields = [f'String get {key} ;' for key, value in translations.items()]
-            localization_code = TemplateProvider.get_localization_template().format(fields="\n  ".join(localization_fields))
+            localization_code = TemplateProvider.get_localization_template(root_sheet_name , today_date).format(root_sheet_name=root_sheet_name,
+    today_date=today_date,fields="\n  ".join(localization_fields))
             with open(os.path.join(self.output_folder, f"keys.dart"), 'w', encoding='utf-8') as f:
                 f.write(localization_code)
 
