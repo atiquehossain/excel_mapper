@@ -186,7 +186,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='atique.xlsx'
-        sheet_name='IncomeInfo' 
+        sheet_name='AssetInfo' 
         
         #column name
         data_type = 'data_type'
@@ -216,12 +216,14 @@ if __name__ == "__main__":
         required_columns = ['questions_in_english', 'labels_in_english', 'data_type', 'database']
         df = processor.get_dataframe()
         # Validate columns and identify missing ones
-        missing_columns = [col for col in required_columns if col not in df.columns]
-        if missing_columns:
-            raise ValueError(f"Missing required columns in the sheet: {', '.join(missing_columns)}")
 
-        if not all(col in df.columns for col in required_columns):
-            raise ValueError(f"Missing required columns in the sheet.")
+        #missing 
+       # missing_columns = [col for col in required_columns if col not in df.columns]
+       # if missing_columns:
+        #    raise ValueError(f"Missing required columns in the sheet :::: {', '.join(missing_columns)}")
+
+#        if not all(col in df.columns for col in required_columns):
+ #           raise ValueError(f"Missing required columns in the sheet.")
 
         # Initialize Dart generator
         class_name = re.sub(r'[^\w]+', '_', processor.sheet_name).title().replace("_", "")

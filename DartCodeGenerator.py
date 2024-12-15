@@ -5,10 +5,9 @@ from widgetTemp import DartWidgetGenerator
 from TemplateProvider import TemplateProvider 
 from datetime import datetime
 
-
 class DartCodeGenerator:
     """Generates Dart code for widgets, models, and localization."""
-    
+
     # Mapping of data types to field types and Dart types
     DATA_TYPE_TO_FIELD_TYPE = {
         "Dropdown": "AppConstant.FieldType_dropdown",
@@ -47,6 +46,17 @@ class DartCodeGenerator:
         # Create output folder if it doesn't exist
         os.makedirs(self.output_folder, exist_ok=True)
 
+    def _sanitize_string(self, value):
+        """Sanitizes a string for Dart compatibility."""
+        if not pd.notna(value):
+            return "Missing value"
+        return (
+            value.replace('\n', '\\n')
+                 .replace('\t', '\\t')
+                 .replace('"', '\\"')  # Escape double quotes
+                 .strip()
+        )
+
     def _get_data_list_conditionally_const(self, field_type, model):
         """Returns the corresponding data list or null based on the field type."""
         if field_type == 'AppConstant.FieldType_multiple_choice':
@@ -80,8 +90,8 @@ class DartCodeGenerator:
             # Skip row if model is missing or empty
             return
 
-        question_en = question_en if pd.notna(question_en) else "Missing value in excel"
-        label_en = label_en if pd.notna(label_en) else "Missing value in excel"
+        question_en = self._sanitize_string(question_en if pd.notna(question_en) else "Missing value in excel")
+        label_en = self._sanitize_string(label_en if pd.notna(label_en) else "Missing value in excel")
         field_type = self.DATA_TYPE_TO_FIELD_TYPE.get(data_type, "AppConstant.FieldType_EditText")
         dart_type = self.DATA_TYPE_TO_DART_TYPE.get(data_type, "String")
 
@@ -98,9 +108,9 @@ class DartCodeGenerator:
             question_value = row.get(f"questions_in_{lang.lower()}", None)
             label_value = row.get(f"labels_in_{lang.lower()}", None)
             if pd.notna(question_value):
-                self.localization_data[lang][question_key] = question_value
+                self.localization_data[lang][question_key] = self._sanitize_string(question_value)
             if pd.notna(label_value):
-                self.localization_data[lang][label_key] = label_value
+                self.localization_data[lang][label_key] = self._sanitize_string(label_value)
 
         # Append the widget code to the list for Dart widget generation
         self.dart_widgets.append(f"""
@@ -109,14 +119,14 @@ class DartCodeGenerator:
             number: {row_number + 2},
             condition: true, 
             widget: {self.class_name}UI(
-                label: {(f'"{label_en}"' if label_en == "Missing value in excel." else f"Languages.getText(context)!.{label_key}")},
-                question: {(f'"{question_en}"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")},
+                label: {(f'\"{label_en}\"' if label_en == "Missing value in excel." else f"Languages.getText(context)!.{label_key}")},
+                question: {(f'\"{question_en}\"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")},
                 fieldType: {field_type},
                 model: {self.class_name.lower()}.{model},
                 dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
                 onChanged: (value) {{
                     {self.class_name.lower()}.{model} = value;
-                    selectedOptions[{(f'"{question_en}"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
+                    selectedOptions[{(f'\"{question_en}\"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
                 }},
             ),
             ),
@@ -131,9 +141,11 @@ class DartCodeGenerator:
 
     def generate_files(self):
         """Generates and saves Dart widget, model, and localization files."""
-        
+
         # Generate the Dart widget code
-        self.DART_WIDGET_TEMPLATE = DartWidgetGenerator.generate_widget_template(self.class_name, self.class_name.lower(), "\n".join(self.dart_widgets))
+        self.DART_WIDGET_TEMPLATE = DartWidgetGenerator.generate_widget_template(
+            self.class_name, self.class_name.lower(), "\n".join(self.dart_widgets)
+        )
 
         # Generate the Dart model code
         dart_model_code = TemplateProvider.get_model_template().format(
@@ -159,12 +171,12 @@ class DartCodeGenerator:
 
         for lang, translations in self.localization_data.items():
             localization_fields = [
-                f'String get {key} => "{value if value else "Missing value "}";'
+                f'String get {key} => "{self._sanitize_string(value)}";'
                 for key, value in translations.items()
             ]
-            localization_code = TemplateProvider.get_localization_template(root_sheet_name , today_date ).format(
+            localization_code = TemplateProvider.get_localization_template(root_sheet_name, today_date).format(
                 root_sheet_name=root_sheet_name,
-    today_date=today_date,
+                today_date=today_date,
                 fields="\n  ".join(localization_fields)
             )
             output_file = os.path.join(self.output_folder, f"languages_{self.class_name.lower()}_{lang.lower()}.dart")
@@ -174,8 +186,11 @@ class DartCodeGenerator:
         # Write the keys file for localization
         for lang, translations in self.localization_data.items():
             localization_fields = [f'String get {key} ;' for key, value in translations.items()]
-            localization_code = TemplateProvider.get_localization_template(root_sheet_name , today_date).format(root_sheet_name=root_sheet_name,
-    today_date=today_date,fields="\n  ".join(localization_fields))
+            localization_code = TemplateProvider.get_localization_template(root_sheet_name, today_date).format(
+                root_sheet_name=root_sheet_name,
+                today_date=today_date,
+                fields="\n  ".join(localization_fields)
+            )
             with open(os.path.join(self.output_folder, f"keys.dart"), 'w', encoding='utf-8') as f:
                 f.write(localization_code)
 

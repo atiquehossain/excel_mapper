@@ -1,112 +1,190 @@
-else if (modelName == SetupConstant.cooking_fuel_type) {
-  items.add(SetupModel(Languages.getText(context)!.firewood, "1"));
-  items.add(SetupModel(Languages.getText(context)!.kerosene_oil, "2"));
-  items.add(SetupModel(Languages.getText(context)!.gas, "3"));
-  items.add(SetupModel(Languages.getText(context)!.electricity, "4"));
-  items.add(SetupModel(Languages.getText(context)!.other, "5"));
+else if (modelName == SetupConstant.animal_husbandry_livestock_type) {
+  items.add(SetupModel(Languages.getText(context)!.cow_cows, "1"));
+  items.add(SetupModel(Languages.getText(context)!.goats, "2"));
+  items.add(SetupModel(Languages.getText(context)!.pigs, "3"));
+  items.add(SetupModel(Languages.getText(context)!.cock, "4"));
+  items.add(SetupModel(Languages.getText(context)!.duck, "5"));
+  items.add(SetupModel(Languages.getText(context)!.other, "6"));
 }
 
-else if (modelName == SetupConstant.department_of_job) {
-  items.add(SetupModel(Languages.getText(context)!.farming, "1"));
-  items.add(SetupModel(Languages.getText(context)!.fisheries, "2"));
-  items.add(SetupModel(Languages.getText(context)!.livestock, "3"));
-  items.add(SetupModel(Languages.getText(context)!.handicrafts, "4"));
-  items.add(SetupModel(Languages.getText(context)!.textile_industry, "5"));
-  items.add(SetupModel(Languages.getText(context)!.plantation, "6"));
-  items.add(SetupModel(Languages.getText(context)!.mining_and_excavation, "7"));
-  items.add(SetupModel(Languages.getText(context)!.labourer, "8"));
-  items.add(SetupModel(Languages.getText(context)!.minor_export_crops, "9"));
-  items.add(SetupModel(Languages.getText(context)!.construction, "10"));
-  items.add(SetupModel(Languages.getText(context)!.carpentry, "11"));
-  items.add(SetupModel(Languages.getText(context)!.trading, "12"));
-  items.add(SetupModel(Languages.getText(context)!.transport, "13"));
-  items.add(SetupModel(Languages.getText(context)!.technical, "14"));
-  items.add(SetupModel(Languages.getText(context)!.retired, "15"));
-  items.add(SetupModel(Languages.getText(context)!.government_employer, "16"));
-  items.add(SetupModel(Languages.getText(context)!.student, "17"));
-  items.add(SetupModel(Languages.getText(context)!.other, "18"));
-  items.add(SetupModel(Languages.getText(context)!.small_business, "19"));
+else if (modelName == SetupConstant.bank_name) {
+  items.add(SetupModel(Languages.getText(context)!.bank_of_ceylon, "1"));
+  items.add(SetupModel(Languages.getText(context)!.people_s_bank, "2"));
+  items.add(SetupModel(Languages.getText(context)!.national_savings_bank, "3"));
+  items.add(SetupModel(Languages.getText(context)!.rdb_bank, "4"));
+  items.add(SetupModel(Languages.getText(context)!.sanasa_bank, "5"));
+  items.add(SetupModel(Languages.getText(context)!.sampath_bank, "6"));
+  items.add(SetupModel(Languages.getText(context)!.hnb_bank, "7"));
+  items.add(SetupModel(Languages.getText(context)!.commercial_bank, "8"));
+  items.add(SetupModel(Languages.getText(context)!.ntb_bank, "9"));
+  items.add(SetupModel(Languages.getText(context)!.ndb_bank, "10"));
+  items.add(SetupModel(Languages.getText(context)!.dfcc_bank, "11"));
+  items.add(SetupModel(Languages.getText(context)!.hsbc_bank, "12"));
+  items.add(SetupModel(Languages.getText(context)!.hdfc_bank, "13"));
+  items.add(SetupModel(Languages.getText(context)!.pabc_bank, "14"));
+  items.add(SetupModel(Languages.getText(context)!.amana_bank, "15"));
 }
 
-else if (modelName == SetupConstant.expenses_category) {
-  items.add(SetupModel(Languages.getText(context)!.food_and_drinks, "1"));
-  items.add(SetupModel(Languages.getText(context)!.water, "2"));
-  items.add(SetupModel(Languages.getText(context)!.cloths, "3"));
-  items.add(SetupModel(Languages.getText(context)!.medicine_for_health, "4"));
-  items.add(SetupModel(Languages.getText(context)!.housing_if_stay_in_rented_house_, "5"));
-  items.add(SetupModel(Languages.getText(context)!.personal_needs, "6"));
-  items.add(SetupModel(Languages.getText(context)!.transport_travelling_expenses, "7"));
-  items.add(SetupModel(Languages.getText(context)!.electricity, "8"));
-  items.add(SetupModel(Languages.getText(context)!.fuel_including_gas_kerosene, "9"));
-  items.add(SetupModel(Languages.getText(context)!.telephone_mobile_and_fixed_line_expenses, "10"));
-  items.add(SetupModel(Languages.getText(context)!.education_expenses, "11"));
-  items.add(SetupModel(Languages.getText(context)!.for_sports, "12"));
-  items.add(SetupModel(Languages.getText(context)!.entertainment_and_religious_activities, "13"));
-  items.add(SetupModel(Languages.getText(context)!.other_expenses_including_loan_lease_mortgage_, "14"));
+else if (modelName == SetupConstant.crops_grown_land) {
+  items.add(SetupModel(Languages.getText(context)!.cocunut, "1"));
+  items.add(SetupModel(Languages.getText(context)!.tea, "2"));
+  items.add(SetupModel(Languages.getText(context)!.rubber, "3"));
+  items.add(SetupModel(Languages.getText(context)!.export_crops, "4"));
+  items.add(SetupModel(Languages.getText(context)!.vegetables, "5"));
+  items.add(SetupModel(Languages.getText(context)!.other_crops_used_for_food, "6"));
+  items.add(SetupModel(Languages.getText(context)!.other_crops, "7"));
 }
 
-else if (modelName == SetupConstant.loss_of_livelihood_type) {
-  items.add(SetupModel(Languages.getText(context)!.agriculture, "1"));
-  items.add(SetupModel(Languages.getText(context)!.fisheries, "2"));
-  items.add(SetupModel(Languages.getText(context)!.livestock, "3"));
-  items.add(SetupModel(Languages.getText(context)!.handicraft, "4"));
-  items.add(SetupModel(Languages.getText(context)!.textile_industry, "5"));
-  items.add(SetupModel(Languages.getText(context)!.plantation, "6"));
-  items.add(SetupModel(Languages.getText(context)!.mining_and_excavation, "7"));
-  items.add(SetupModel(Languages.getText(context)!.labourer, "8"));
-  items.add(SetupModel(Languages.getText(context)!.minot_export_crops, "9"));
-  items.add(SetupModel(Languages.getText(context)!.construction, "10"));
-  items.add(SetupModel(Languages.getText(context)!.carpentry_masonry, "11"));
-  items.add(SetupModel(Languages.getText(context)!.trade, "12"));
-  items.add(SetupModel(Languages.getText(context)!.transport, "13"));
-  items.add(SetupModel(Languages.getText(context)!.technical, "14"));
-  items.add(SetupModel(Languages.getText(context)!.service_sector, "15"));
-  items.add(SetupModel(Languages.getText(context)!.other, "16"));
+else if (modelName == SetupConstant.drinking_water_source) {
+  items.add(SetupModel(Languages.getText(context)!.protective_well, "1"));
+  items.add(SetupModel(Languages.getText(context)!.tubewell, "2"));
+  items.add(SetupModel(Languages.getText(context)!.pipewater_water_supply_borad_, "3"));
+  items.add(SetupModel(Languages.getText(context)!.pipewater_project_, "4"));
+  items.add(SetupModel(Languages.getText(context)!.pipewater_provincial_counsil_, "5"));
+  items.add(SetupModel(Languages.getText(context)!.pipewater_private_, "6"));
+  items.add(SetupModel(Languages.getText(context)!.bottled_water, "7"));
+  items.add(SetupModel(Languages.getText(context)!.ro_filter_water, "8"));
+  items.add(SetupModel(Languages.getText(context)!.non_ro_filter_water, "9"));
+  items.add(SetupModel(Languages.getText(context)!.tank_river_stream_pond_fountain, "10"));
+  items.add(SetupModel(Languages.getText(context)!.rain_water, "11"));
+  items.add(SetupModel(Languages.getText(context)!.unprotective_well_public_, "12"));
+  items.add(SetupModel(Languages.getText(context)!.other_unprotective_source, "13"));
 }
 
-else if (modelName == SetupConstant.nature_of_job) {
-  items.add(SetupModel(Languages.getText(context)!.no_economic_activities, "1"));
-  items.add(SetupModel(Languages.getText(context)!.government_employee, "2"));
-  items.add(SetupModel(Languages.getText(context)!.semi_government_employee, "3"));
-  items.add(SetupModel(Languages.getText(context)!.employer, "4"));
-  items.add(SetupModel(Languages.getText(context)!.engages_in_his_own_economic_activity, "5"));
-  items.add(SetupModel(Languages.getText(context)!.laborer, "6"));
-  items.add(SetupModel(Languages.getText(context)!.contributing_to_a_family_business, "7"));
-  items.add(SetupModel(Languages.getText(context)!.private_sector_employee, "8"));
-  items.add(SetupModel(Languages.getText(context)!.retired_employee, "9"));
-  items.add(SetupModel(Languages.getText(context)!.expecting_a_job, "10"));
-  items.add(SetupModel(Languages.getText(context)!.migrant_worker, "11"));
+else if (modelName == SetupConstant.have_cultivable_paddy_land) {
+  items.add(SetupModel(Languages.getText(context)!.no, "1"));
+  items.add(SetupModel(Languages.getText(context)!.yes_less_than_1_acre_or_less_than_160_perches_, "2"));
+  items.add(SetupModel(Languages.getText(context)!.yes_more_than_1_acre_or_more_than_160_perches_, "3"));
 }
 
-else if (modelName == SetupConstant.professional_level) {
-  items.add(SetupModel(Languages.getText(context)!.nvq_3_g_c_e_o_l_conformity_status_, "1"));
-  items.add(SetupModel(Languages.getText(context)!.nvq_3_g_c_e_a_l_conformity_status_, "2"));
-  items.add(SetupModel(Languages.getText(context)!.nvq_5_diploma_level_, "3"));
-  items.add(SetupModel(Languages.getText(context)!.nvq_6_higher_diploma_level_, "4"));
-  items.add(SetupModel(Languages.getText(context)!.nvq_7_degree_level_, "5"));
-  items.add(SetupModel(Languages.getText(context)!.non_nvq, "6"));
-  items.add(SetupModel(Languages.getText(context)!.unknown, "7"));
+else if (modelName == SetupConstant.house_floor_area) {
+  items.add(SetupModel(Languages.getText(context)!.less_than_500sq_feet, "1"));
+  items.add(SetupModel(Languages.getText(context)!.more_than_500sq_feet, "2"));
 }
 
-else if (modelName == SetupConstant.samurdhi_beneficiary_type) {
-  items.add(SetupModel(Languages.getText(context)!.420, "1"));
-  items.add(SetupModel(Languages.getText(context)!.1900, "2"));
-  items.add(SetupModel(Languages.getText(context)!.3200, "3"));
-  items.add(SetupModel(Languages.getText(context)!.4500, "4"));
+else if (modelName == SetupConstant.house_floor_type) {
+  items.add(SetupModel(Languages.getText(context)!.cement, "1"));
+  items.add(SetupModel(Languages.getText(context)!.terrazzo_tiles_wood, "2"));
+  items.add(SetupModel(Languages.getText(context)!.concrete, "3"));
+  items.add(SetupModel(Languages.getText(context)!.clay, "4"));
+  items.add(SetupModel(Languages.getText(context)!.plank, "5"));
+  items.add(SetupModel(Languages.getText(context)!.sand, "6"));
+  items.add(SetupModel(Languages.getText(context)!.other_poor_status, "7"));
 }
 
-else if (modelName == SetupConstant.walfare_type) {
-  items.add(SetupModel(Languages.getText(context)!.samurdhi, "1"));
-  items.add(SetupModel(Languages.getText(context)!.allowances_for_elders, "2"));
-  items.add(SetupModel(Languages.getText(context)!.allowances_for_disables, "3"));
-  items.add(SetupModel(Languages.getText(context)!.allowances_for_kidney, "4"));
-  items.add(SetupModel(Languages.getText(context)!.allowances_for_thalassemia_patients, "5"));
-  items.add(SetupModel(Languages.getText(context)!.allowances_for_cancer_patients, "6"));
-  items.add(SetupModel(Languages.getText(context)!.mahapola, "7"));
-  items.add(SetupModel(Languages.getText(context)!.scholarship_year_5_, "8"));
-  items.add(SetupModel(Languages.getText(context)!.public_aids, "9"));
+else if (modelName == SetupConstant.house_roof_type) {
+  items.add(SetupModel(Languages.getText(context)!.roof_tile, "1"));
+  items.add(SetupModel(Languages.getText(context)!.asbestos_sheet, "2"));
+  items.add(SetupModel(Languages.getText(context)!.concrete, "3"));
+  items.add(SetupModel(Languages.getText(context)!.alluminium_sheet_amano_, "4"));
+  items.add(SetupModel(Languages.getText(context)!.tin_sheet, "5"));
+  items.add(SetupModel(Languages.getText(context)!.coconut_leaf, "6"));
+  items.add(SetupModel(Languages.getText(context)!.palm_leaf, "7"));
+  items.add(SetupModel(Languages.getText(context)!.straw_etc_, "8"));
+}
+
+else if (modelName == SetupConstant.house_type) {
+  items.add(SetupModel(Languages.getText(context)!.house_single_story, "1"));
+  items.add(SetupModel(Languages.getText(context)!.single_house_2_story, "2"));
+  items.add(SetupModel(Languages.getText(context)!.single_house_more_than_2_story, "3"));
+  items.add(SetupModel(Languages.getText(context)!.adjoining_house_annex_house, "4"));
+  items.add(SetupModel(Languages.getText(context)!.luxury_house, "5"));
+  items.add(SetupModel(Languages.getText(context)!.flat_house, "6"));
+  items.add(SetupModel(Languages.getText(context)!.leased_house, "7"));
+  items.add(SetupModel(Languages.getText(context)!.line_house_line, "8"));
+  items.add(SetupModel(Languages.getText(context)!.shanty_house, "9"));
+  items.add(SetupModel(Languages.getText(context)!.slums_shanty, "10"));
+}
+
+else if (modelName == SetupConstant.house_wall_type) {
+  items.add(SetupModel(Languages.getText(context)!.bricks, "1"));
+  items.add(SetupModel(Languages.getText(context)!.shell_stone, "2"));
+  items.add(SetupModel(Languages.getText(context)!.cement_rubble, "3"));
+  items.add(SetupModel(Languages.getText(context)!.clay_block, "4"));
+  items.add(SetupModel(Languages.getText(context)!.clay, "5"));
+  items.add(SetupModel(Languages.getText(context)!.plank_tin_etc_, "6"));
+  items.add(SetupModel(Languages.getText(context)!.coconut_leaf_palm_leaf, "7"));
+  items.add(SetupModel(Languages.getText(context)!.other_poor_status, "8"));
+}
+
+else if (modelName == SetupConstant.light_source) {
+  items.add(SetupModel(Languages.getText(context)!.electricity, "1"));
+  items.add(SetupModel(Languages.getText(context)!.solar_power, "2"));
+  items.add(SetupModel(Languages.getText(context)!.by_generator_battery, "3"));
+  items.add(SetupModel(Languages.getText(context)!.biogas, "4"));
+  items.add(SetupModel(Languages.getText(context)!.kerosene, "5"));
+  items.add(SetupModel(Languages.getText(context)!.other_lighting_source, "6"));
+}
+
+else if (modelName == SetupConstant.machinery_type) {
+  items.add(SetupModel(Languages.getText(context)!.non_mechanized_fishing_vessels, "1"));
+  items.add(SetupModel(Languages.getText(context)!.combined_harvesterrs, "2"));
+  items.add(SetupModel(Languages.getText(context)!.cultivator_threshing_machines, "3"));
+  items.add(SetupModel(Languages.getText(context)!.other_fishing_agri_machineries, "4"));
+  items.add(SetupModel(Languages.getText(context)!.other_self_employed_machineries, "5"));
+}
+
+else if (modelName == SetupConstant.natural_disasters_affected) {
+  items.add(SetupModel(Languages.getText(context)!.flood, "1"));
+  items.add(SetupModel(Languages.getText(context)!.cyclone, "2"));
+  items.add(SetupModel(Languages.getText(context)!.damage_by_wildlife, "3"));
+  items.add(SetupModel(Languages.getText(context)!.sea_erosion, "4"));
+  items.add(SetupModel(Languages.getText(context)!.drought, "5"));
+  items.add(SetupModel(Languages.getText(context)!.volcano_eruption, "6"));
+  items.add(SetupModel(Languages.getText(context)!.land_slides, "7"));
+  items.add(SetupModel(Languages.getText(context)!.earthquake, "8"));
+  items.add(SetupModel(Languages.getText(context)!.thunderstorm, "9"));
   items.add(SetupModel(Languages.getText(context)!.other, "10"));
-  items.add(SetupModel(Languages.getText(context)!.aswesuma, "11"));
-  items.add(SetupModel(Languages.getText(context)!.non_govermental_assistance, "12"));
+  items.add(SetupModel(Languages.getText(context)!.milling_works, "11"));
+  items.add(SetupModel(Languages.getText(context)!.excavation, "12"));
+}
+
+else if (modelName == SetupConstant.residential_nature) {
+  items.add(SetupModel(Languages.getText(context)!.permanent, "1"));
+  items.add(SetupModel(Languages.getText(context)!.semi_permanent, "2"));
+  items.add(SetupModel(Languages.getText(context)!.temporary, "3"));
+}
+
+else if (modelName == SetupConstant.residential_ownership) {
+  items.add(SetupModel(Languages.getText(context)!.built_or_purchased_by_family_members, "1"));
+  items.add(SetupModel(Languages.getText(context)!.inherited_by_family_members, "2"));
+  items.add(SetupModel(Languages.getText(context)!.received_as_a_gift_or_free_of_charge, "3"));
+  items.add(SetupModel(Languages.getText(context)!.received_as_compensation, "4"));
+  items.add(SetupModel(Languages.getText(context)!.rented, "5"));
+  items.add(SetupModel(Languages.getText(context)!.unauthorized, "6"));
+  items.add(SetupModel(Languages.getText(context)!.without_rent_provided_by_employer_others_, "7"));
+  items.add(SetupModel(Languages.getText(context)!.concessional_rent_provided_by_employer_others_, "8"));
+  items.add(SetupModel(Languages.getText(context)!.no_ownership, "9"));
+  items.add(SetupModel(Languages.getText(context)!.living_with_others, "10"));
+  items.add(SetupModel(Languages.getText(context)!.leased, "11"));
+  items.add(SetupModel(Languages.getText(context)!.other_without_ownership_, "12"));
+}
+
+else if (modelName == SetupConstant.sanitation_facilities) {
+  items.add(SetupModel(Languages.getText(context)!.inside_the_house_separate_usage, "1"));
+  items.add(SetupModel(Languages.getText(context)!.inside_the_house_shared_with_other_family, "2"));
+  items.add(SetupModel(Languages.getText(context)!.outside_the_house_separate_usage, "3"));
+  items.add(SetupModel(Languages.getText(context)!.outside_the_house_shared_with_other_family, "4"));
+  items.add(SetupModel(Languages.getText(context)!.share_with_residents_community, "5"));
+}
+
+else if (modelName == SetupConstant.toilet_type) {
+  items.add(SetupModel(Languages.getText(context)!.connected_to_water_proof_septic_tank, "1"));
+  items.add(SetupModel(Languages.getText(context)!.connected_to_water_proof_pit, "2"));
+  items.add(SetupModel(Languages.getText(context)!.connected_to_water_proof_excretory_system, "3"));
+  items.add(SetupModel(Languages.getText(context)!.connected_to_water_proof_river_or_drainage, "4"));
+  items.add(SetupModel(Languages.getText(context)!.non_water_proof_pit_toilet_with_lid, "5"));
+  items.add(SetupModel(Languages.getText(context)!.non_water_proof_pit_toilet_without_lid, "6"));
+  items.add(SetupModel(Languages.getText(context)!.no_facilities_using_the_jungle_or_open_area_, "7"));
+  items.add(SetupModel(Languages.getText(context)!.other_without_water_proof_, "8"));
+}
+
+else if (modelName == SetupConstant.vehicles_type) {
+  items.add(SetupModel(Languages.getText(context)!.motor_bicycle_engine_capacity_125_or_more_than_, "1"));
+  items.add(SetupModel(Languages.getText(context)!.threewheeler, "2"));
+  items.add(SetupModel(Languages.getText(context)!.motor_vehicles, "3"));
+  items.add(SetupModel(Languages.getText(context)!.van_jeep, "4"));
+  items.add(SetupModel(Languages.getText(context)!.bus, "5"));
+  items.add(SetupModel(Languages.getText(context)!.lorry_tipper, "6"));
 }
 
