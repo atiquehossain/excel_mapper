@@ -1,4 +1,6 @@
 /// AssetInfo localization file -  2024-12-15
+
+class Localization {
   String get cocunut => 'தேங்காய்';
   String get tea => 'தேயிலை';
   String get rubber => 'ரப்பர்';
@@ -131,4 +133,5 @@
   String get hdfc_bank => 'எச்.டி.எப்.சி. (HDFC) வங்கி';
   String get pabc_bank => 'பி.ஏ.பி.சி. (PABC) வங்கி';
   String get amana_bank => 'அமானா வங்கி';
-/// AssetInfo end here -  2024-12-15
+}
+/// AssetInfo end here - 2024-12-15

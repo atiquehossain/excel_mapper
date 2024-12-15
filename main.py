@@ -125,22 +125,26 @@ def process_combined_projects(file_path, sheet_name):
         localization_data['Tamil'][sanitized_key] = tamil_name
         localization_data['Sinhala'][sanitized_key] = sinhala_name
 
-    # Generate localization files
+    # Generate localization files for each language
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
-        content = f"/// {root_sheet_name} localization file -  {today_date}\n"
+        content = f"/// {root_sheet_name} localization file -  {today_date}\n\n"
+        content += "class Localization {\n"
         for key, value in localization_data[lang].items():
             content += f"  String get {key} => '{value}';\n"
-        content += f'/// {root_sheet_name} end here -  {today_date}\n'
+        content += "}\n"
+        content += f"/// {root_sheet_name} end here - {today_date}\n"
         write_dart_file(file_path, content)
 
+    # Generate a keys file for fields
+    file_path = "field_keys.dart"
+    content = f"/// {root_sheet_name} keys file - {today_date}\n\n"
+    content += "class FieldKeys {\n"
+    for key in localization_data['English'].keys():  # Only keys are needed
+        content += f"  String get {key};\n"
+    content += "}\n"
+    content += f"/// {root_sheet_name} end - {today_date}\n"
+    write_dart_file(file_path, content)
 
-    for lang, file_path in {'English': 'field_keys.dart'}.items():
-        
-        content = f"/// {root_sheet_name} localization file -  {today_date}\n"
-        for key, value in localization_data[lang].items():
-            content += f'  String get {key};\n'
-        content = f'/// {root_sheet_name} end -  {today_date}\n'
-        write_dart_file(file_path, content)
 
 
         
