@@ -105,6 +105,7 @@ with open(key_file_path, 'w', encoding='utf-8') as key_file:
 dart_code = ""
 
 for database, fields in grouped_data.items():
+    print(f"Generating conditional logic for: {database}")  # Debug statement
     dart_code += f"if (modelName == '{database}') {{\n"
     for index, field in enumerate(fields, start=1):
         sanitized_field = sanitize_key(field)

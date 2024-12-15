@@ -50,12 +50,15 @@ class DartCodeGenerator:
         """Sanitizes a string for Dart compatibility."""
         if not pd.notna(value):
             return "Missing value"
+        
         return (
-            value.replace('\n', '\\n')
-                 .replace('\t', '\\t')
-                 .replace('"', '\\"')  # Escape double quotes
-                 .strip()
+            value.replace('\\', '\\\\')  # Escape backslashes first
+                .replace('\n', '\\n')   # Escape newlines
+                .replace('\t', '\\t')   # Escape tabs
+                .replace('"', '\\"')    # Escape double quotes
+                .strip()
         )
+
 
     def _get_data_list_conditionally_const(self, field_type, model):
         """Returns the corresponding data list or null based on the field type."""
@@ -185,7 +188,7 @@ class DartCodeGenerator:
 
         # Write the keys file for localization
         for lang, translations in self.localization_data.items():
-            localization_fields = [f'String get {key} ;' for key, value in translations.items()]
+            localization_fields = [f'String get {key};' for key, value in translations.items()]
             localization_code = TemplateProvider.get_localization_template(root_sheet_name, today_date).format(
                 root_sheet_name=root_sheet_name,
                 today_date=today_date,

@@ -155,6 +155,10 @@ def process_combined_projects(file_path, sheet_name):
     # Generate grouped data Dart code
     dart_code_project_2 = ""
     for database, fields in grouped_data.items():
+        dart_code_project_2 += f"static const String {database} = \"{database}\";\n"
+
+
+    for database, fields in grouped_data.items():
         dart_code_project_2 += f"else if (modelName == SetupConstant.{database}) {{\n"
         for index, field in enumerate(fields, start=1):
             sanitized_field = sanitize_key(field)
@@ -222,12 +226,12 @@ if __name__ == "__main__":
         # Validate columns and identify missing ones
 
         #missing 
-       # missing_columns = [col for col in required_columns if col not in df.columns]
-       # if missing_columns:
-        #    raise ValueError(f"Missing required columns in the sheet :::: {', '.join(missing_columns)}")
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            raise ValueError(f"Missing required columns in the sheet :::: {', '.join(missing_columns)}")
 
-#        if not all(col in df.columns for col in required_columns):
- #           raise ValueError(f"Missing required columns in the sheet.")
+        if not all(col in df.columns for col in required_columns):
+            raise ValueError(f"Missing required columns in the sheet.")
 
         # Initialize Dart generator
         class_name = re.sub(r'[^\w]+', '_', processor.sheet_name).title().replace("_", "")

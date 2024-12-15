@@ -1,3 +1,21 @@
+static const String animal_husbandry_livestock_type = "animal_husbandry_livestock_type";
+static const String bank_name = "bank_name";
+static const String crops_grown_land = "crops_grown_land";
+static const String drinking_water_source = "drinking_water_source";
+static const String have_cultivable_paddy_land = "have_cultivable_paddy_land";
+static const String house_floor_area = "house_floor_area";
+static const String house_floor_type = "house_floor_type";
+static const String house_roof_type = "house_roof_type";
+static const String house_type = "house_type";
+static const String house_wall_type = "house_wall_type";
+static const String light_source = "light_source";
+static const String machinery_type = "machinery_type";
+static const String natural_disasters_affected = "natural_disasters_affected";
+static const String residential_nature = "residential_nature";
+static const String residential_ownership = "residential_ownership";
+static const String sanitation_facilities = "sanitation_facilities";
+static const String toilet_type = "toilet_type";
+static const String vehicles_type = "vehicles_type";
 else if (modelName == SetupConstant.animal_husbandry_livestock_type) {
   items.add(SetupModel(Languages.getText(context)!.cow_cows, "1"));
   items.add(SetupModel(Languages.getText(context)!.goats, "2"));

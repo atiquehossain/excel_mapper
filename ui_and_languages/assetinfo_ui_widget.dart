@@ -50,13 +50,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_plot_of_lands_owned_to_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.have_land,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_land = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -68,13 +68,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_extent_of_dry_land_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Indicate_the_total_cultivable_land_in_acres_in_digits_for_the_applicant_and_family_members,
                 fieldType: AppConstant.FieldType_EditText,
                 model: assetinfo.total_cultivable_land,
                 dataList: null,
                 onChanged: (value) {
                     assetinfo.total_cultivable_land = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Indicate_the_total_cultivable_land_in_acres_in_digits_for_the_applicant_and_family_members] = null + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -86,13 +86,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Crops_grown_on_the_land,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_and_mark_the_items_about_the_crops_grown_on_the_land_owned_by_the_applicant,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.crops_grown_land,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.crops_grown_land),
                 onChanged: (value) {
                     assetinfo.crops_grown_land = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.crops_grown_land + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_and_mark_the_items_about_the_crops_grown_on_the_land_owned_by_the_applicant] = SetupConstant.crops_grown_land + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -104,13 +104,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_paddy_land_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_family_members_have_cultivable_paddy_land_then_select_Yes_Otherwise_select_No,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.have_cultivable_paddy_land,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.have_cultivable_paddy_land),
                 onChanged: (value) {
                     assetinfo.have_cultivable_paddy_land = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.have_cultivable_paddy_land + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_cultivable_paddy_land_then_select_Yes_Otherwise_select_No] = SetupConstant.have_cultivable_paddy_land + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -140,13 +140,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_vehicles_used_by_the_family_for_transportation_owned,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_family_owns_vehicles_for_transportation_select_Yes_or_otherwise_No,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.have_owns_vehicles,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_owns_vehicles = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_owns_vehicles_for_transportation_select_Yes_or_otherwise_No] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -158,13 +158,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_type_of_vehicle_and_number_of_vehicles_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_family_members_have_vehicles_click_in_front_of_the_respective_vehicle_types,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.vehicles_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.vehicles_type),
                 onChanged: (value) {
                     assetinfo.vehicles_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.vehicles_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_vehicles_click_in_front_of_the_respective_vehicle_types] = SetupConstant.vehicles_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -176,13 +176,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_machinery_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_the_family_has_any_forms_of_machinery_related_to_economic_activity_select_Yes_otherwise_select_No_n_n,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.have_economic_machinery,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_economic_machinery = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_the_family_has_any_forms_of_machinery_related_to_economic_activity_select_Yes_otherwise_select_No_n_n] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -194,13 +194,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_type_and_amount_of_machinery_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_family_members_have_machinery_select_the_type_of_machinery_the_family_member_own,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.machinery_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.machinery_type),
                 onChanged: (value) {
                     assetinfo.machinery_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.machinery_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_machinery_select_the_type_of_machinery_the_family_member_own] = SetupConstant.machinery_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -212,13 +212,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_family_owned_livestock,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_Yes_or_otherwise_No_if_the_applicant_or_family_members_are_involved_in_animal_husbandry,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.have_animal_husbandry_livestock,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.have_animal_husbandry_livestock = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_Yes_or_otherwise_No_if_the_applicant_or_family_members_are_involved_in_animal_husbandry] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -230,13 +230,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_type_and_amount_of_livestock_owned_by_the_family,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Write_down_the_number_of_the_livestock_the_family_owns,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.animal_husbandry_livestock_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.animal_husbandry_livestock_type),
                 onChanged: (value) {
                     assetinfo.animal_husbandry_livestock_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.animal_husbandry_livestock_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Write_down_the_number_of_the_livestock_the_family_owns] = SetupConstant.animal_husbandry_livestock_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -248,13 +248,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.The_nature_of_the_residential_house,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_the_nature_type_of_the_residence_where_the_applicant_and_family_live_from_the_colors_above_n,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.house_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.house_type),
                 onChanged: (value) {
                     assetinfo.house_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.house_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_the_nature_type_of_the_residence_where_the_applicant_and_family_live_from_the_colors_above_n] = SetupConstant.house_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -266,13 +266,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.The_nature_of_the_house_s_floor,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_floor_please_select_the_primary_material_used,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.house_floor_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.house_floor_type),
                 onChanged: (value) {
                     assetinfo.house_floor_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.house_floor_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_floor_please_select_the_primary_material_used] = SetupConstant.house_floor_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -302,13 +302,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Materials_used_for_the_roofing_of_the_house_n_n,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_roof_please_select_the_primary_material_used,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.house_roof_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.house_roof_type),
                 onChanged: (value) {
                     assetinfo.house_roof_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.house_roof_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_roof_please_select_the_primary_material_used] = SetupConstant.house_roof_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -320,13 +320,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Missing_value_in_excel,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Image_of_the_roof_of_the_house_n,
                 fieldType: AppConstant.FieldType_Image,
                 model: assetinfo.house_roof_img,
                 dataList: null,
                 onChanged: (value) {
                     assetinfo.house_roof_img = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Image_of_the_roof_of_the_house_n] = null + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -338,13 +338,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Main_materials_used_for_the_walls_of_the_house,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_walls_please_select_the_primary_material_used,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.house_wall_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.house_wall_type),
                 onChanged: (value) {
                     assetinfo.house_wall_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.house_wall_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_more_than_one_material_has_been_used_to_construct_the_walls_please_select_the_primary_material_used] = SetupConstant.house_wall_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -356,13 +356,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.The_square_footage_of_the_house_s_floor,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_the_number_of_the_square_foot_below,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.house_floor_area,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.house_floor_area),
                 onChanged: (value) {
                     assetinfo.house_floor_area = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.house_floor_area + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_the_number_of_the_square_foot_below] = SetupConstant.house_floor_area + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -374,13 +374,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_about_the_doors_and_windows_of_the_house,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_residence_where_the_applicant_lives_has_secure_doors_windows_select_yes_if_not_select_no,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.has_secure_door_windows,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.has_secure_door_windows = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_residence_where_the_applicant_lives_has_secure_doors_windows_select_yes_if_not_select_no] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -392,13 +392,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.The_nature_of_the_residential_house,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Write_down_below_in_the_text_field,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.residential_nature,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.residential_nature),
                 onChanged: (value) {
                     assetinfo.residential_nature = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.residential_nature + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Write_down_below_in_the_text_field] = SetupConstant.residential_nature + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -410,13 +410,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Ownership_of_the_residential_house,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_the_appropriate_answer_to_indicate_whether_the_residence_belongs_to_the_applicant_or_a_family_member_n_n_tSelect_the_relevant_item_from_the_options_provided_in_the_box_regarding_the_ownership_of_the_applicant_s_residence,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.residential_ownership,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.residential_ownership),
                 onChanged: (value) {
                     assetinfo.residential_ownership = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.residential_ownership + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_the_appropriate_answer_to_indicate_whether_the_residence_belongs_to_the_applicant_or_a_family_member_n_n_tSelect_the_relevant_item_from_the_options_provided_in_the_box_regarding_the_ownership_of_the_applicant_s_residence] = SetupConstant.residential_ownership + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -428,13 +428,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_ownership_of_any_other_house_or_building,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.If_the_applicant_or_a_family_member_owns_another_house_or_building_select_yes_if_not_select_no,
                 fieldType: AppConstant.FieldType_radio,
                 model: assetinfo.has_other_house,
                 dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
                 onChanged: (value) {
                     assetinfo.has_other_house = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.If_the_applicant_or_a_family_member_owns_another_house_or_building_select_yes_if_not_select_no] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -446,13 +446,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.The_main_source_of_light,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.click_infront_of_the_main_source_of_light_that_the_applicant_family_members_use_nIf_there_are_several_sources_of_light_for_the_house_include_only_the_main_source_that_is_primarily_used,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.light_source,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.light_source),
                 onChanged: (value) {
                     assetinfo.light_source = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.light_source + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.click_infront_of_the_main_source_of_light_that_the_applicant_family_members_use_nIf_there_are_several_sources_of_light_for_the_house_include_only_the_main_source_that_is_primarily_used] = SetupConstant.light_source + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -464,13 +464,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_the_main_source_of_drinking_water,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Click_in_front_of_the_main_source_of_drinking_water_that_the_applicant_family_members_use_nIf_there_are_several_sources_of_drinking_water_include_only_the_main_source_that_is_primarily_used,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.drinking_water_source,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.drinking_water_source),
                 onChanged: (value) {
                     assetinfo.drinking_water_source = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.drinking_water_source + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Click_in_front_of_the_main_source_of_drinking_water_that_the_applicant_family_members_use_nIf_there_are_several_sources_of_drinking_water_include_only_the_main_source_that_is_primarily_used] = SetupConstant.drinking_water_source + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -482,13 +482,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_the_nature_of_the_sanitation_facilities_used,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_and_include_the_relevant_item_that_accurately_describes_the_nature_of_the_sanitation_facilities_used_in_the_house,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.sanitation_facilities,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.sanitation_facilities),
                 onChanged: (value) {
                     assetinfo.sanitation_facilities = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.sanitation_facilities + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_and_include_the_relevant_item_that_accurately_describes_the_nature_of_the_sanitation_facilities_used_in_the_house] = SetupConstant.sanitation_facilities + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -500,13 +500,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_the_type_of_toilet,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Select_the_type_of_toilet_used_in_the_house_accurately_and_click_the_button_in_front,
                 fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.toilet_type,
                 dataList: SetupData.getDropDownItems(context, SetupConstant.toilet_type),
                 onChanged: (value) {
                     assetinfo.toilet_type = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.toilet_type + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Select_the_type_of_toilet_used_in_the_house_accurately_and_click_the_button_in_front] = SetupConstant.toilet_type + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -518,13 +518,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_natural_disasters,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.what_natural_disasters_have_affected_the_house_in_the_past_5_years_Please_specify_n,
                 fieldType: AppConstant.FieldType_multiple_choice,
                 model: assetinfo.natural_disasters_affected,
                 dataList: SetupData.SetupData.getCheklistItems(context, SetupConstant.natural_disasters_affected),
                 onChanged: (value) {
                     assetinfo.natural_disasters_affected = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = SetupConstant.natural_disasters_affected + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.what_natural_disasters_have_affected_the_house_in_the_past_5_years_Please_specify_n] = SetupConstant.natural_disasters_affected + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -536,13 +536,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_on_the_geographical_location_of_the_housing_unit,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Click_on_the_Get_Location_to_obtain_the_location_of_the_applicant_s_housing_unit_via_GPS_technology_nThe_latitude_and_longitude_of_the_applicant_s_home_location_should_be_acquired_here_n,
                 fieldType: AppConstant.FieldType_EditText,
                 model: assetinfo.latitude,
                 dataList: null,
                 onChanged: (value) {
                     assetinfo.latitude = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Click_on_the_Get_Location_to_obtain_the_location_of_the_applicant_s_housing_unit_via_GPS_technology_nThe_latitude_and_longitude_of_the_applicant_s_home_location_should_be_acquired_here_n] = null + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -572,13 +572,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Taking_Photos_of_the_House,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Four_photos_should_be_taken_the_front_back_side_and_interior_of_the_house_n,
                 fieldType: AppConstant.FieldType_Image,
                 model: assetinfo.photo_of_house,
                 dataList: null,
                 onChanged: (value) {
                     assetinfo.photo_of_house = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Four_photos_should_be_taken_the_front_back_side_and_interior_of_the_house_n] = null + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -590,13 +590,13 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             condition: true, 
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Information_regarding_bank_account,
-                question: Languages.getText(context)!.Missing_value_in_excel,
+                question: Languages.getText(context)!.Enter_information_about_active_bank_accounts_belonging_to_the_applicant_or_a_family_member_nAfter_selecting_the_relevant_bank_enter_the_bank_branch_name_account_number_and_account_holder_s_name_in_the_fields_displayed_below_nSpecify_whether_the_account_ownership_belongs_to_the_applicant_a_family_member_or_a_nominee_n_n,
                 fieldType: AppConstant.FieldType_EditText,
                 model: assetinfo.bank_account,
                 dataList: null,
                 onChanged: (value) {
                     assetinfo.bank_account = value;
-                    selectedOptions[Languages.getText(context)!.Missing_value_in_excel] = null + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Enter_information_about_active_bank_accounts_belonging_to_the_applicant_or_a_family_member_nAfter_selecting_the_relevant_bank_enter_the_bank_branch_name_account_number_and_account_holder_s_name_in_the_fields_displayed_below_nSpecify_whether_the_account_ownership_belongs_to_the_applicant_a_family_member_or_a_nominee_n_n] = null + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
