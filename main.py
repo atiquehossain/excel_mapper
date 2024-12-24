@@ -7,112 +7,89 @@ from datetime import datetime
 from num2words import num2words
 from openpyxl import load_workbook
 
-
+# Helper Functions
 def convert_number_to_text(value):
     """Convert numeric values to text."""
     try:
-        # Only convert numeric values
         if isinstance(value, (int, float)):
-            print(f" onverting done")
-
             return num2words(value)
-        return value  # Return non-numeric values as-is
+        return value
     except Exception as e:
         print(f"Error converting {value}: {e}")
         return value
 
-
-# Helper functions
 def clean_column_name(name):
     """Clean column names by replacing non-alphanumeric characters with underscores."""
     return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
-
-def clean_data_type(data_type):
-    """Clean data type names by replacing non-alphanumeric characters with underscores."""
-    if isinstance(data_type, str):
-        return re.sub(r'[^0-9a-zA-Z]+', '_', data_type.strip()).lower()
-    return data_type
 
 def sanitize_key(name):
     """Sanitize keys to ensure they are valid Dart identifiers."""
     return re.sub(r'[^0-9a-zA-Z]+', '_', str(name).strip()).lower()
 
 def write_dart_file(file_path, content):
-    folder_path = 'for_the_level'
     """Write Dart code to a file."""
-    os.makedirs(folder_path, exist_ok=True)  # Ensure the output folder exists
+    folder_path = 'for_the_level'
+    os.makedirs(folder_path, exist_ok=True)
     file_path = os.path.join(folder_path, file_path)
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
 
 def load_excel_skip_hidden_rows(file_path, sheet_name):
     """Load Excel file while skipping hidden rows."""
-    # Load the workbook and sheet
     workbook = load_workbook(file_path, data_only=True)
     sheet = workbook[sheet_name]
-
-    # Identify hidden rows
     hidden_rows = [row for row in sheet.row_dimensions if sheet.row_dimensions[row].hidden]
-
-    # Read the Excel file with pandas
     df = pd.read_excel(file_path, sheet_name=sheet_name)
-
-    # Drop hidden rows by their index (Excel row numbers are 1-based)
     df = df.drop(index=[row - 1 for row in hidden_rows if row <= len(df)])
-
     return df
 
-# Main processing
+def count_dropdown_and_multiple_choice_columns(df, threshold=10):
+    """Count the number of dropdown and multiple-choice columns in a DataFrame."""
+    dropdown_columns = [col for col in df.columns if df[col].nunique() <= threshold]
+    return len(dropdown_columns), dropdown_columns
+
+# Main Function
 def process_combined_projects(file_path, sheet_name):
-    # Load data into a single DataFrame
+    # Load data
     df = load_excel_skip_hidden_rows(file_path, sheet_name)
     count, columns = count_dropdown_and_multiple_choice_columns(df, threshold=10)
     print(f"Number of dropdown/multiple-choice columns: {count}")
-    print("Columns identified as dropdown/multiple-choice:")
-    print(columns)
-    root_sheet_name = sheet_name
-
-        # Convert numbers to text in all columns
-  #  for col in df.columns:
-   #     df[col] = df[col].apply(convert_number_to_text)
+    print("Columns identified as dropdown/multiple-choice:", columns)
 
     # Clean column names
     df.columns = [clean_column_name(col) for col in df.columns]
 
-    # Clean column names
-    df.columns = [clean_column_name(col) for col in df.columns]
+    # Ensure required columns for Project 2
+    required_columns = ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala', 'data_type', 'database']
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f"Missing columns for Project 2: {', '.join(missing_columns)}")
 
-
-
-    # -------------------- Project 2: Localization and Fields --------------------
-    required_columns_project_2 = [
-        'field_names_in_english',
-        'field_names_in_tamil',
-        'field_names_in_sinhala',
-        'data_type',
-        'database'
-    ]
-    missing_columns_2 = [col for col in required_columns_project_2 if col not in df.columns]
-    if missing_columns_2:
-        raise ValueError(f"Missing columns for Project 2: {', '.join(missing_columns_2)}")
-
-    # Fill missing data in `data_type` and `database`
+    # Fill missing data
     df['data_type'] = df['data_type'].ffill()
     df['database'] = df['database'].ffill()
 
-    # Filter rows for dropdown or multicheck data types
+    # Filter dropdown and multiple-choice rows
     filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple choice'])].copy()
-    print(filtered_data)
 
     # Ensure all relevant columns are strings and clean
     for col in ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala']:
         filtered_data[col] = filtered_data[col].apply(lambda x: str(x).strip() if not pd.isnull(x) else '')
 
     # Flatten field names in English
-    filtered_data['field_names_in_english'] = filtered_data['field_names_in_english'].apply(lambda x: [i.strip() for i in x.split(',')])
+    # No splitting of `field_names_in_english`
+    filtered_data['field_names_in_english'] = filtered_data['field_names_in_english'].apply(lambda x: str(x).strip() if not pd.isnull(x) else '')
+
+    # Sanitize key directly from the full row value
+    filtered_data['sanitized_key'] = filtered_data['field_names_in_english'].apply(sanitize_key)
+
+    #filtered_data['field_names_in_english'] = filtered_data['field_names_in_english'].apply(lambda x: [i.strip() for i in x.split(',')])
     flattened_data = filtered_data.explode('field_names_in_english').reset_index(drop=True)
 
+    # Group data by database
     grouped_data = flattened_data.groupby('database')['field_names_in_english'].apply(list).to_dict()
+
+    # Generate localization data
     localization_data = {lang: {} for lang in ['English', 'Tamil', 'Sinhala']}
     today_date = datetime.now().strftime('%Y-%m-%d')
 
@@ -125,75 +102,46 @@ def process_combined_projects(file_path, sheet_name):
         localization_data['Tamil'][sanitized_key] = tamil_name
         localization_data['Sinhala'][sanitized_key] = sinhala_name
 
-    # Generate localization files for each language
+    # Generate localization files
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
-        content = f"/// {root_sheet_name} localization file -  {today_date}\n\n"
-        content += "class Localization {\n"
+        content = f"/// {sheet_name} localization file - {today_date}\n\n"
+        content += "\n"
         for key, value in localization_data[lang].items():
             content += f"  String get {key} => '{value}';\n"
-        content += "}\n"
-        content += f"/// {root_sheet_name} end here - {today_date}\n"
+        content += f"///{sheet_name} localization file \n"
         write_dart_file(file_path, content)
 
-    # Generate a keys file for fields
+    # Generate keys file
     file_path = "field_keys.dart"
-    content = f"/// {root_sheet_name} keys file - {today_date}\n\n"
-    content += "class FieldKeys {\n"
-    for key in localization_data['English'].keys():  # Only keys are needed
+    content = f"/// {sheet_name} keys file - {today_date}\n\n"
+    content += "\n"
+    for key in localization_data['English'].keys():
         content += f"  String get {key};\n"
-    content += "}\n"
-    content += f"/// {root_sheet_name} end - {today_date}\n"
+    content += f"/// {sheet_name} enf keys \n"
     write_dart_file(file_path, content)
 
-
-
-        
-        
-
-
-
     # Generate grouped data Dart code
-    dart_code_project_2 = ""
+    dart_code = ""
     for database, fields in grouped_data.items():
-        dart_code_project_2 += f"static const String {database} = \"{database}\";\n"
-
+        dart_code += f"static const String {database} = \"{database}\";\n"
 
     for database, fields in grouped_data.items():
-        dart_code_project_2 += f"else if (modelName == SetupConstant.{database}) {{\n"
+        dart_code += f"else if (modelName == SetupConstant.{database}) {{\n"
         for index, field in enumerate(fields, start=1):
             sanitized_field = sanitize_key(field)
-            dart_code_project_2 += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
-        dart_code_project_2 += "}\n\n"
+            dart_code += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
+        dart_code += "}\n\n"
 
-    write_dart_file("setupData.dart", dart_code_project_2)
+    write_dart_file("setupData.dart", dart_code)
 
-    print("Both projects have been processed successfully!")
-    print("Files generated: project1_widgets.dart, en.dart, ta.dart, si.dart, project2_fields.dart")
-
-
-def count_dropdown_and_multiple_choice_columns(df, threshold=10):
-    """
-    Count the number of dropdown and multiple-choice columns in a DataFrame.
-    
-    Args:
-        df (pd.DataFrame): The DataFrame to analyze.
-        threshold (int): The maximum number of unique values to consider as dropdown/multiple-choice.
-    
-    Returns:
-        int: The number of dropdown/multiple-choice columns.
-    """
-    dropdown_columns = [
-        col for col in df.columns if df[col].nunique() <= threshold
-    ]
-    return len(dropdown_columns), dropdown_columns
-
-    
+    print("Processing completed successfully!")
+    print("Files generated: en_field.dart, ta_field.dart, si_field.dart, field_keys.dart, setupData.dart")  
 
 # Main execution
 if __name__ == "__main__":
     try:   
 
-        file_path='atique.xlsx'
+        file_path='u_find.xlsx'
         sheet_name='AssetInfo' 
         
         #column name

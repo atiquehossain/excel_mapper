@@ -1,6 +1,9 @@
-/// AssetInfo localization file -  2024-12-15
+/// AssetInfo localization file - 2024-12-23
 
-class Localization {
+
+  String get no => 'இல்லை';
+  String get yes_less_than_0_5_acres_less_than_80_perches_ => 'ஆம், 0.5 ஏக்கர் க்கும் குறைவாக (80 பேர்ச்க்கும்  குறைவாக)';
+  String get yes_equal_or_more_than_0_5_acres_equal_or_more_than_80_perches_ => 'ஆம், 0.5 ஏக்கர்க்கும் சமமாக அல்லது அதிகமாக (80 பேர்ச்க்கும் சமமாக அல்லது அதிகமாக)';
   String get cocunut => 'தேங்காய்';
   String get tea => 'தேயிலை';
   String get rubber => 'ரப்பர்';
@@ -8,7 +11,6 @@ class Localization {
   String get vegetables => 'காய்கறிகள்';
   String get other_crops_used_for_food => 'உணவுக்கு பயன்படுத்தப்படும் ஏனைய பயிர்கள்';
   String get other_crops => 'ஏனைய பயிர்கள்';
-  String get no => 'இல்லை';
   String get yes_less_than_1_acre_or_less_than_160_perches_ => 'ஆம் (1 ஏக்கருக்குக் குறைவானது அல்லது 160 பேர்ச்க்கும் குறைவானது)';
   String get yes_more_than_1_acre_or_more_than_160_perches_ => 'ஆம் (1 ஏக்கருக்கு மேலாக அல்லது 160 பேர்ச்க்கும் மேலாக)';
   String get motor_bicycle_engine_capacity_125_or_more_than_ => 'மோட்டார் சைக்கிள் (எஞ்சின் திறன் 125 அல்லது அதற்கு மேல்)';
@@ -49,9 +51,7 @@ class Localization {
   String get asbestos_sheet => 'அஸ்பெஸ்டாஸ் சீட்';
   String get alluminium_sheet_amano_ => 'அலுமினியம் சீட்  (அமனோ)';
   String get tin_sheet => 'தகரம்';
-  String get coconut_leaf => 'தென்னை ஓலை , பனை ஓலை, வைக்கோல் போன்றவை.';
-  String get palm_leaf => 'தென்னை ஓலை , பனை ஓலை, வைக்கோல் போன்றவை.';
-  String get straw_etc_ => 'தென்னை ஓலை , பனை ஓலை, வைக்கோல் போன்றவை.';
+  String get coconut_leaf_palm_leaf_straw_etc_ => 'தென்னை ஓலை , பனை ஓலை, வைக்கோல் போன்றவை.';
   String get bricks => 'செங்கற்கள்';
   String get shell_stone => 'பொட்டுகல்';
   String get cement_rubble => 'சிமெண்ட்/கருங்கல்';
@@ -71,8 +71,7 @@ class Localization {
   String get unauthorized => 'அங்கீகரிக்கப்படாதது';
   String get without_rent_provided_by_employer_others_ => 'கூலியின்றி (வேலைக்காரர்/மற்றவர்களால் வழங்கப்பட்டது)';
   String get concessional_rent_provided_by_employer_others_ => 'சலுகை கூலி (வேலைக்காரர்/மற்றவர்களால் வழங்கப்பட்டது)';
-  String get no_ownership => 'உரிமையின்றி, மற்றவர்களுடன் வாழ்கிறது';
-  String get living_with_others => 'உரிமையின்றி, மற்றவர்களுடன் வாழ்கிறது';
+  String get no_ownership_living_with_others => 'உரிமையின்றி, மற்றவர்களுடன் வாழ்கிறது';
   String get leased => 'குத்தகைக்கு பெற்றது';
   String get other_without_ownership_ => 'மற்றவை (உரிமையின்றி)';
   String get electricity => 'மின்சாரம்';
@@ -133,5 +132,4 @@ class Localization {
   String get hdfc_bank => 'எச்.டி.எப்.சி. (HDFC) வங்கி';
   String get pabc_bank => 'பி.ஏ.பி.சி. (PABC) வங்கி';
   String get amana_bank => 'அமானா வங்கி';
-}
-/// AssetInfo end here - 2024-12-15
+///AssetInfo localization file 

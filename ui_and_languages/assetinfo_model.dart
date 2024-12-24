@@ -1,6 +1,6 @@
 
 class AssetinfoModel {
-  final int have_land;
+  final String have_land;
   final double total_cultivable_land;
   final String crops_grown_land;
   final String have_cultivable_paddy_land;

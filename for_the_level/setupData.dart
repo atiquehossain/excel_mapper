@@ -3,6 +3,7 @@ static const String bank_name = "bank_name";
 static const String crops_grown_land = "crops_grown_land";
 static const String drinking_water_source = "drinking_water_source";
 static const String have_cultivable_paddy_land = "have_cultivable_paddy_land";
+static const String have_land = "have_land";
 static const String house_floor_area = "house_floor_area";
 static const String house_floor_type = "house_floor_type";
 static const String house_roof_type = "house_roof_type";
@@ -75,6 +76,12 @@ else if (modelName == SetupConstant.have_cultivable_paddy_land) {
   items.add(SetupModel(Languages.getText(context)!.yes_more_than_1_acre_or_more_than_160_perches_, "3"));
 }
 
+else if (modelName == SetupConstant.have_land) {
+  items.add(SetupModel(Languages.getText(context)!.no, "1"));
+  items.add(SetupModel(Languages.getText(context)!.yes_less_than_0_5_acres_less_than_80_perches_, "2"));
+  items.add(SetupModel(Languages.getText(context)!.yes_equal_or_more_than_0_5_acres_equal_or_more_than_80_perches_, "3"));
+}
+
 else if (modelName == SetupConstant.house_floor_area) {
   items.add(SetupModel(Languages.getText(context)!.less_than_500sq_feet, "1"));
   items.add(SetupModel(Languages.getText(context)!.more_than_500sq_feet, "2"));
@@ -96,9 +103,7 @@ else if (modelName == SetupConstant.house_roof_type) {
   items.add(SetupModel(Languages.getText(context)!.concrete, "3"));
   items.add(SetupModel(Languages.getText(context)!.alluminium_sheet_amano_, "4"));
   items.add(SetupModel(Languages.getText(context)!.tin_sheet, "5"));
-  items.add(SetupModel(Languages.getText(context)!.coconut_leaf, "6"));
-  items.add(SetupModel(Languages.getText(context)!.palm_leaf, "7"));
-  items.add(SetupModel(Languages.getText(context)!.straw_etc_, "8"));
+  items.add(SetupModel(Languages.getText(context)!.coconut_leaf_palm_leaf_straw_etc_, "6"));
 }
 
 else if (modelName == SetupConstant.house_type) {
@@ -172,10 +177,9 @@ else if (modelName == SetupConstant.residential_ownership) {
   items.add(SetupModel(Languages.getText(context)!.unauthorized, "6"));
   items.add(SetupModel(Languages.getText(context)!.without_rent_provided_by_employer_others_, "7"));
   items.add(SetupModel(Languages.getText(context)!.concessional_rent_provided_by_employer_others_, "8"));
-  items.add(SetupModel(Languages.getText(context)!.no_ownership, "9"));
-  items.add(SetupModel(Languages.getText(context)!.living_with_others, "10"));
-  items.add(SetupModel(Languages.getText(context)!.leased, "11"));
-  items.add(SetupModel(Languages.getText(context)!.other_without_ownership_, "12"));
+  items.add(SetupModel(Languages.getText(context)!.no_ownership_living_with_others, "9"));
+  items.add(SetupModel(Languages.getText(context)!.leased, "10"));
+  items.add(SetupModel(Languages.getText(context)!.other_without_ownership_, "11"));
 }
 
 else if (modelName == SetupConstant.sanitation_facilities) {

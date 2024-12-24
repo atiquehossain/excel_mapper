@@ -1,6 +1,9 @@
-/// AssetInfo localization file -  2024-12-15
+/// AssetInfo localization file - 2024-12-23
 
-class Localization {
+
+  String get no => 'නැත';
+  String get yes_less_than_0_5_acres_less_than_80_perches_ => 'ඔව්, අක්කර 0.5කට වඩා අඩු (80 පර්චස්  වලට වඩා අඩු)';
+  String get yes_equal_or_more_than_0_5_acres_equal_or_more_than_80_perches_ => 'ඔව්, අක්කර 0.5කට සමාන හෝ වඩා (80 පර්චස්  වලට සමාන හෝ වඩා)';
   String get cocunut => 'පොල්';
   String get tea => 'තේ';
   String get rubber => 'රබර්';
@@ -8,7 +11,6 @@ class Localization {
   String get vegetables => 'එළවළු';
   String get other_crops_used_for_food => 'ආහාර සඳහා භාවිතා කරන අනෙකුත් වගා';
   String get other_crops => 'අනෙකුත් වගා';
-  String get no => 'නැත';
   String get yes_less_than_1_acre_or_less_than_160_perches_ => 'ඔව් (අක්කර 1කට වඩා අඩු හෝ 160 පර්ච් වලට වඩා අඩු)';
   String get yes_more_than_1_acre_or_more_than_160_perches_ => 'ඔව් (අක්කර 1කට වඩා වැඩි හෝ 160 පර්ච් වලට වඩා)';
   String get motor_bicycle_engine_capacity_125_or_more_than_ => 'මෝටර් බයිසිකලය (එන්ජින් ධාරිතාව 125 හෝ ඊට වැඩි)';
@@ -49,9 +51,7 @@ class Localization {
   String get asbestos_sheet => 'ඇස්බැස්ටෝස්';
   String get alluminium_sheet_amano_ => 'ඇලූමිනියම් ශීට් (අමානෝ)';
   String get tin_sheet => 'ටකරන්';
-  String get coconut_leaf => 'පොල් අතු/ තල් අතු , පිදුරු ආදිය';
-  String get palm_leaf => 'පොල් අතු/ තල් අතු , පිදුරු ආදිය';
-  String get straw_etc_ => 'පොල් අතු/ තල් අතු , පිදුරු ආදිය';
+  String get coconut_leaf_palm_leaf_straw_etc_ => 'පොල් අතු/ තල් අතු , පිදුරු ආදිය';
   String get bricks => 'ගඩොල්';
   String get shell_stone => 'කබොක්';
   String get cement_rubble => 'සිමෙන්ති /කළුගල්';
@@ -71,8 +71,7 @@ class Localization {
   String get unauthorized => 'අනවසර';
   String get without_rent_provided_by_employer_others_ => 'කුලියක් නොමැතිව(සේවායෝජකයා/ වෙනත්)';
   String get concessional_rent_provided_by_employer_others_ => 'සහන කුලියට (සේවායෝජකයා/ වෙනත්)';
-  String get no_ownership => 'අයිති නැත අන් අය සමග ජීවත් වීම';
-  String get living_with_others => 'අයිති නැත අන් අය සමග ජීවත් වීම';
+  String get no_ownership_living_with_others => 'අයිති නැත අන් අය සමග ජීවත් වීම';
   String get leased => 'බද්දට';
   String get other_without_ownership_ => 'වෙනත් (අයිතියක් නැති)';
   String get electricity => 'විදුලිය';
@@ -133,5 +132,4 @@ class Localization {
   String get hdfc_bank => 'ඒච්.ඩී.එෆ්.සී. බැංකුව (HDFC)';
   String get pabc_bank => 'පී.ඒ.බී.සී. බැංකුව (PABC)';
   String get amana_bank => 'අමානා බැංකුව';
-}
-/// AssetInfo end here - 2024-12-15
+///AssetInfo localization file 

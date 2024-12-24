@@ -1,6 +1,9 @@
-/// AssetInfo localization file -  2024-12-15
+/// AssetInfo localization file - 2024-12-23
 
-class Localization {
+
+  String get no => 'No';
+  String get yes_less_than_0_5_acres_less_than_80_perches_ => 'Yes, Less than 0.5 Acres (less than 80 Perches)';
+  String get yes_equal_or_more_than_0_5_acres_equal_or_more_than_80_perches_ => 'Yes, equal or more than 0.5 Acres (equal or more than 80 Perches)';
   String get cocunut => 'Cocunut';
   String get tea => 'Tea';
   String get rubber => 'Rubber';
@@ -8,7 +11,6 @@ class Localization {
   String get vegetables => 'Vegetables';
   String get other_crops_used_for_food => 'Other crops used for food';
   String get other_crops => 'Other crops';
-  String get no => 'No';
   String get yes_less_than_1_acre_or_less_than_160_perches_ => 'Yes (Less than 1 Acre or less than 160 Perches)';
   String get yes_more_than_1_acre_or_more_than_160_perches_ => 'Yes (More than 1 Acre or More than 160 Perches)';
   String get motor_bicycle_engine_capacity_125_or_more_than_ => 'Motor bicycle (engine capacity 125 or more than)';
@@ -49,9 +51,7 @@ class Localization {
   String get asbestos_sheet => 'Asbestos Sheet';
   String get alluminium_sheet_amano_ => 'Alluminium sheet (Amano)';
   String get tin_sheet => 'Tin sheet';
-  String get coconut_leaf => 'Coconut Leaf';
-  String get palm_leaf => 'Palm leaf';
-  String get straw_etc_ => 'Straw etc.';
+  String get coconut_leaf_palm_leaf_straw_etc_ => 'Coconut Leaf,Palm leaf, Straw etc.';
   String get bricks => 'Bricks';
   String get shell_stone => 'Shell stone';
   String get cement_rubble => 'Cement/Rubble';
@@ -71,8 +71,7 @@ class Localization {
   String get unauthorized => 'Unauthorized';
   String get without_rent_provided_by_employer_others_ => 'Without rent (provided by employer/others)';
   String get concessional_rent_provided_by_employer_others_ => 'Concessional rent (provided by employer/others)';
-  String get no_ownership => 'No ownership';
-  String get living_with_others => 'living with others';
+  String get no_ownership_living_with_others => 'No ownership, living with others';
   String get leased => 'Leased';
   String get other_without_ownership_ => 'Other (without ownership)';
   String get electricity => 'Electricity';
@@ -133,5 +132,4 @@ class Localization {
   String get hdfc_bank => 'HDFC Bank';
   String get pabc_bank => 'PABC Bank';
   String get amana_bank => 'AMANA Bank';
-}
-/// AssetInfo end here - 2024-12-15
+///AssetInfo localization file 

@@ -1,6 +1,9 @@
-/// AssetInfo keys file - 2024-12-15
+/// AssetInfo keys file - 2024-12-23
 
-class FieldKeys {
+
+  String get no;
+  String get yes_less_than_0_5_acres_less_than_80_perches_;
+  String get yes_equal_or_more_than_0_5_acres_equal_or_more_than_80_perches_;
   String get cocunut;
   String get tea;
   String get rubber;
@@ -8,7 +11,6 @@ class FieldKeys {
   String get vegetables;
   String get other_crops_used_for_food;
   String get other_crops;
-  String get no;
   String get yes_less_than_1_acre_or_less_than_160_perches_;
   String get yes_more_than_1_acre_or_more_than_160_perches_;
   String get motor_bicycle_engine_capacity_125_or_more_than_;
@@ -49,9 +51,7 @@ class FieldKeys {
   String get asbestos_sheet;
   String get alluminium_sheet_amano_;
   String get tin_sheet;
-  String get coconut_leaf;
-  String get palm_leaf;
-  String get straw_etc_;
+  String get coconut_leaf_palm_leaf_straw_etc_;
   String get bricks;
   String get shell_stone;
   String get cement_rubble;
@@ -71,8 +71,7 @@ class FieldKeys {
   String get unauthorized;
   String get without_rent_provided_by_employer_others_;
   String get concessional_rent_provided_by_employer_others_;
-  String get no_ownership;
-  String get living_with_others;
+  String get no_ownership_living_with_others;
   String get leased;
   String get other_without_ownership_;
   String get electricity;
@@ -133,5 +132,4 @@ class FieldKeys {
   String get hdfc_bank;
   String get pabc_bank;
   String get amana_bank;
-}
-/// AssetInfo end - 2024-12-15
+/// AssetInfo enf keys 

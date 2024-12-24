@@ -1,5 +1,5 @@
 
-/// Assetinfo localization file -  2024-12-15
+/// Assetinfo localization file -  2024-12-23
 
 
 

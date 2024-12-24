@@ -1,4 +1,4 @@
-///  localization file -  2024-12-15
+///  localization file -  2024-12-23
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -51,12 +51,12 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_plot_of_lands_owned_to_the_family,
                 question: Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land,
-                fieldType: AppConstant.FieldType_radio,
+                fieldType: AppConstant.FieldType_dropdown,
                 model: assetinfo.have_land,
-                dataList: SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no),
+                dataList: SetupData.getDropDownItems(context, SetupConstant.have_land),
                 onChanged: (value) {
                     assetinfo.have_land = value;
-                    selectedOptions[Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land] = SetupConstant.yes_no + AppConstant.SEPERATOR + value;
+                    selectedOptions[Languages.getText(context)!.Is_there_land_owned_by_the_applicant_or_a_family_member_Does_the_applicant_or_a_family_member_have_any_plot_of_land] = SetupConstant.have_land + AppConstant.SEPERATOR + value;
                 },
             ),
             ),
@@ -159,9 +159,9 @@ class _AssetinfoScreenState extends State<AssetinfoScreen> {
             widget: AssetinfoUI(
                 label: Languages.getText(context)!.Details_of_the_type_of_vehicle_and_number_of_vehicles_owned_by_the_family,
                 question: Languages.getText(context)!.If_the_applicant_or_family_members_have_vehicles_click_in_front_of_the_respective_vehicle_types,
-                fieldType: AppConstant.FieldType_dropdown,
+                fieldType: AppConstant.FieldType_multiple_choice,
                 model: assetinfo.vehicles_type,
-                dataList: SetupData.getDropDownItems(context, SetupConstant.vehicles_type),
+                dataList: SetupData.SetupData.getCheklistItems(context, SetupConstant.vehicles_type),
                 onChanged: (value) {
                     assetinfo.vehicles_type = value;
                     selectedOptions[Languages.getText(context)!.If_the_applicant_or_family_members_have_vehicles_click_in_front_of_the_respective_vehicle_types] = SetupConstant.vehicles_type + AppConstant.SEPERATOR + value;
