@@ -58,6 +58,7 @@ def process_combined_projects(file_path, sheet_name):
 
     # Clean column names
     df.columns = [clean_column_name(col) for col in df.columns]
+    print(f"Cleaned columns: {df.columns}")
 
     # Ensure required columns for Project 2
     required_columns = ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala', 'data_type', 'database']
@@ -97,19 +98,23 @@ def process_combined_projects(file_path, sheet_name):
         english_name = row['field_names_in_english']
         tamil_name = row['field_names_in_tamil']
         sinhala_name = row['field_names_in_sinhala']
-        sanitized_key = sanitize_key(english_name)
+        database_name = sanitize_key(row['database'])  # Sanitize the database name
+        sanitized_key = f"{sanitize_key(english_name)}_{database_name}"  # Append database to the key
+
         localization_data['English'][sanitized_key] = english_name
         localization_data['Tamil'][sanitized_key] = tamil_name
         localization_data['Sinhala'][sanitized_key] = sinhala_name
 
+
     # Generate localization files
     for lang, file_path in {'English': 'en_field.dart', 'Tamil': 'ta_field.dart', 'Sinhala': 'si_field.dart'}.items():
         content = f"/// {sheet_name} localization file - {today_date}\n\n"
-        content += "\n"
+        content += "class Localization {\n"
         for key, value in localization_data[lang].items():
             content += f"  String get {key} => '{value}';\n"
-        content += f"///{sheet_name} localization file \n"
+        content += "}\n"
         write_dart_file(file_path, content)
+
 
     # Generate keys file
     file_path = "field_keys.dart"
@@ -129,8 +134,9 @@ def process_combined_projects(file_path, sheet_name):
         dart_code += f"else if (modelName == SetupConstant.{database}) {{\n"
         for index, field in enumerate(fields, start=1):
             sanitized_field = sanitize_key(field)
-            dart_code += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}, \"{index}\"));\n"
+            dart_code += f"  items.add(SetupModel(Languages.getText(context)!.{sanitized_field}_{database}, \"{index}\"));\n"
         dart_code += "}\n\n"
+
 
     write_dart_file("setupData.dart", dart_code)
 
@@ -142,7 +148,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='u_find.xlsx'
-        sheet_name='AssetInfo' 
+        sheet_name='IncomeInfo' 
         
         #column name
         data_type = 'data_type'
