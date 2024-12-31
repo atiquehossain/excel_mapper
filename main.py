@@ -148,7 +148,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='U_find_31_12_24.xlsx'
-        sheet_name='EducationInfo' 
+        sheet_name='FamilyInfo' 
         
         #column name
         data_type = 'data_type'

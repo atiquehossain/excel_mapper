@@ -1,19 +1,18 @@
-/// EducationInfo localization file - 2024-12-31
-  String get pre_school_current_education => 'முன்   பள்ளி';
-  String get school_current_education => 'பாடசாலை';
-  String get universities_current_education => 'பல்கலைக்கழகம்';
-  String get professional_technical_institutions_current_education => 'தொழில்முறை /தொழில் நுட்பம் பயிற்சி நிறுவனம்';
-  String get educational_institutions_for_special_needs_current_education => 'மாற்றுத்திறனாளர் கல்வி நிறுவனம்';
-  String get other_educational_institutions_current_education => 'வேறு கல்விநிறுவனம்';
-  String get not_having_education_current_education => 'படிக்கவில்லை';
-  String get education_for_special_needs_current_education => 'மாற்றுத்திறனாளர் கல்வி';
-  String get grade_1_pass_higher_education => 'தரம் 1 சித்தி';
-  String get grade_5_pass_higher_education => 'தரம் 5 சித்தி';
-  String get grade_8_pass_higher_education => 'தரம் 8 சித்தி';
-  String get grade_10_pass_higher_education => 'தரம் 10 சித்தி';
-  String get g_c_e_o_l_pass_higher_education => 'க.பொ.தா (சா.தர) சித்தி';
-  String get g_c_e_a_l_pass_higher_education => 'க.பொ.தா (உ.தர) சித்தி';
-  String get degree_higher_education => 'பட்டதாரி';
-  String get post_graduate_degree_higher_education => 'முதுகலை பட்டதாரி';
-  String get never_attended_school_higher_education => 'ஒருபோதும் பாடசாலை செல்லவில்லை v பின்னர் முன்னோக்கி என்ற பட்டனை';
+/// FamilyInfo localization file - 2024-12-31
+
+  String get the_head_of_household_is_widowed_or_family_with_parents_info => 'குடும்பத் தலைவர் விதவை, அல்லது';
+  String get his_her_spouse_is_divorced_or_legally_separated_or_family_with_parents_info => 'அவரது/அவளது  துணை விவாகரத்து பெற்றவர் அல்லது சட்டப்பூர்வமாகப் பிரிந்தவர், அல்லது';
+  String get not_legally_separated_but_lives_apart_with_no_connection_to_this_family_unit_or_family_with_parents_info => 'சட்டப்பூர்வமாக பிரிக்கப்படவில்லை, ஆனால் இந்த குடும்ப அலகுடன் எந்த தொடர்பும் இல்லாமல் பிரிந்து வாழ்கிறார், அல்லது';
+  String get a_family_unit_where_only_a_mother_or_father_lives_solely_with_their_own_children_is_considered_as_a_household_with_only_the_mother_or_father__family_with_parents_info => 'ஒரு தாய் அல்லது தந்தை மட்டுமே தங்கள் சொந்த குழந்தைகளுடன் வாழும் குடும்ப அலகு; தாய் அல்லது தந்தை மட்டுமே உள்ள குடும்பமாக கருதப்படுகிறது.';
+  String get only_the_mother_family_with_parents_info => 'தாய் மட்டும்';
+  String get only_the_father_family_with_parents_info => 'தந்தை மட்டும்';
+  String get only_the_guardian_family_with_parents_info => 'பாதுகாவலர் மட்டும்';
+  String get male_gender => 'ஆண்';
+  String get female_gender => 'பெண்';
+  String get other_gender => 'வேறு';
+  String get unmarried_marital_status => 'விவாகமாகாதவர்';
+  String get married_marital_status => 'விவாகமானவர்';
+  String get widow_marital_status => 'விதவை / தபுதாரர்';
+  String get divorced_marital_status => 'விவாகரத்தானவர்';
+  String get separated_marital_status => 'பிரிந்து வாழ்பவர்கள்';
 

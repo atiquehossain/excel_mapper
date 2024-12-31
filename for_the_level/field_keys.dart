@@ -1,21 +1,19 @@
-/// EducationInfo keys file - 2024-12-31
+/// FamilyInfo keys file - 2024-12-31
 
 
-  String get pre_school_current_education;
-  String get school_current_education;
-  String get universities_current_education;
-  String get professional_technical_institutions_current_education;
-  String get educational_institutions_for_special_needs_current_education;
-  String get other_educational_institutions_current_education;
-  String get not_having_education_current_education;
-  String get education_for_special_needs_current_education;
-  String get grade_1_pass_higher_education;
-  String get grade_5_pass_higher_education;
-  String get grade_8_pass_higher_education;
-  String get grade_10_pass_higher_education;
-  String get g_c_e_o_l_pass_higher_education;
-  String get g_c_e_a_l_pass_higher_education;
-  String get degree_higher_education;
-  String get post_graduate_degree_higher_education;
-  String get never_attended_school_higher_education;
-/// EducationInfo enf keys 
+  String get the_head_of_household_is_widowed_or_family_with_parents_info;
+  String get his_her_spouse_is_divorced_or_legally_separated_or_family_with_parents_info;
+  String get not_legally_separated_but_lives_apart_with_no_connection_to_this_family_unit_or_family_with_parents_info;
+  String get a_family_unit_where_only_a_mother_or_father_lives_solely_with_their_own_children_is_considered_as_a_household_with_only_the_mother_or_father__family_with_parents_info;
+  String get only_the_mother_family_with_parents_info;
+  String get only_the_father_family_with_parents_info;
+  String get only_the_guardian_family_with_parents_info;
+  String get male_gender;
+  String get female_gender;
+  String get other_gender;
+  String get unmarried_marital_status;
+  String get married_marital_status;
+  String get widow_marital_status;
+  String get divorced_marital_status;
+  String get separated_marital_status;
+/// FamilyInfo enf keys 

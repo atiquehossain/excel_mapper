@@ -1,27 +1,27 @@
-static const String current_education = "current_education";
-static const String higher_education = "higher_education";
-else if (modelName == SetupConstant.current_education) {
-  items.add(SetupModel(Languages.getText(context)!.pre_school_current_education, "1"));
-  items.add(SetupModel(Languages.getText(context)!.school_current_education, "2"));
-  items.add(SetupModel(Languages.getText(context)!.universities_current_education, "3"));
-  items.add(SetupModel(Languages.getText(context)!.professional_technical_institutions_current_education, "4"));
-  items.add(SetupModel(Languages.getText(context)!.educational_institutions_for_special_needs_current_education, "5"));
-  items.add(SetupModel(Languages.getText(context)!.other_educational_institutions_current_education, "6"));
-  items.add(SetupModel(Languages.getText(context)!.not_having_education_current_education, "7"));
-  items.add(SetupModel(Languages.getText(context)!.education_for_special_needs_current_education, "8"));
+static const String family_with_parents_info = "family_with_parents_info";
+static const String gender = "gender";
+static const String marital_status = "marital_status";
+else if (modelName == SetupConstant.family_with_parents_info) {
+  items.add(SetupModel(Languages.getText(context)!.the_head_of_household_is_widowed_or_family_with_parents_info, "1"));
+  items.add(SetupModel(Languages.getText(context)!.his_her_spouse_is_divorced_or_legally_separated_or_family_with_parents_info, "2"));
+  items.add(SetupModel(Languages.getText(context)!.not_legally_separated_but_lives_apart_with_no_connection_to_this_family_unit_or_family_with_parents_info, "3"));
+  items.add(SetupModel(Languages.getText(context)!.a_family_unit_where_only_a_mother_or_father_lives_solely_with_their_own_children_is_considered_as_a_household_with_only_the_mother_or_father__family_with_parents_info, "4"));
+  items.add(SetupModel(Languages.getText(context)!.only_the_mother_family_with_parents_info, "5"));
+  items.add(SetupModel(Languages.getText(context)!.only_the_father_family_with_parents_info, "6"));
+  items.add(SetupModel(Languages.getText(context)!.only_the_guardian_family_with_parents_info, "7"));
 }
 
-else if (modelName == SetupConstant.higher_education) {
-  items.add(SetupModel(Languages.getText(context)!.grade_1_pass_higher_education, "1"));
-  items.add(SetupModel(Languages.getText(context)!.grade_5_pass_higher_education, "2"));
-  items.add(SetupModel(Languages.getText(context)!.grade_8_pass_higher_education, "3"));
-  items.add(SetupModel(Languages.getText(context)!.grade_10_pass_higher_education, "4"));
-  items.add(SetupModel(Languages.getText(context)!.g_c_e_o_l_pass_higher_education, "5"));
-  items.add(SetupModel(Languages.getText(context)!.g_c_e_a_l_pass_higher_education, "6"));
-  items.add(SetupModel(Languages.getText(context)!.degree_higher_education, "7"));
-  items.add(SetupModel(Languages.getText(context)!.post_graduate_degree_higher_education, "8"));
-  items.add(SetupModel(Languages.getText(context)!.never_attended_school_higher_education, "9"));
+else if (modelName == SetupConstant.gender) {
+  items.add(SetupModel(Languages.getText(context)!.male_gender, "1"));
+  items.add(SetupModel(Languages.getText(context)!.female_gender, "2"));
+  items.add(SetupModel(Languages.getText(context)!.other_gender, "3"));
 }
 
-
+else if (modelName == SetupConstant.marital_status) {
+  items.add(SetupModel(Languages.getText(context)!.unmarried_marital_status, "1"));
+  items.add(SetupModel(Languages.getText(context)!.married_marital_status, "2"));
+  items.add(SetupModel(Languages.getText(context)!.widow_marital_status, "3"));
+  items.add(SetupModel(Languages.getText(context)!.divorced_marital_status, "4"));
+  items.add(SetupModel(Languages.getText(context)!.separated_marital_status, "5"));
+}
 
