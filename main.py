@@ -147,8 +147,8 @@ def process_combined_projects(file_path, sheet_name):
 if __name__ == "__main__":
     try:   
 
-        file_path='u_find.xlsx'
-        sheet_name='IncomeInfo' 
+        file_path='U_find_31_12_24.xlsx'
+        sheet_name='EducationInfo' 
         
         #column name
         data_type = 'data_type'
