@@ -7,7 +7,7 @@ class ExcelProcessor:
     DATA_TYPE_MAPPINGS = {
         "dropdown": "Dropdown",
         "multiple choice": "Multiple choice",
-        "yes/no": "YES/NO",
+        "radio": "radio",
         "number": "Number",
         "text": "Text",
         "image": "Image",

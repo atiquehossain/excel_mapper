@@ -12,7 +12,7 @@ class DartCodeGenerator:
     DATA_TYPE_TO_FIELD_TYPE = {
         "Dropdown": "AppConstant.FieldType_dropdown",
         "Multiple choice": "AppConstant.FieldType_multiple_choice",
-        "YES/NO": "AppConstant.FieldType_radio",
+        "radio": "AppConstant.FieldType_radio",
         "Number": "AppConstant.FieldType_EditText",
         "Text": "AppConstant.FieldType_EditText",
         "Image": "AppConstant.FieldType_Image"
@@ -21,7 +21,7 @@ class DartCodeGenerator:
     DATA_TYPE_TO_DART_TYPE = {
         "Dropdown": "String",
         "Multiple choice": "String",
-        "YES/NO": "int",
+        "radio": "int",
         "Number": "double",
         "Text": "String",
         "Image": "String",
@@ -53,21 +53,16 @@ class DartCodeGenerator:
         
         return (
             value.replace('\\', '\\\\')  # Escape backslashes first
-                .replace('\n', '\\n')   # Escape newlines
+                .replace('\n', '\n')   # Escape newlines
                 .replace('\t', '\\t')   # Escape tabs
                 .replace('"', '\\"')    # Escape double quotes
                 .strip()
         )
 
-
     def _get_data_list_conditionally_const(self, field_type, model):
         """Returns the corresponding data list or null based on the field type."""
-        if field_type == 'AppConstant.FieldType_multiple_choice':
+        if field_type in ['AppConstant.FieldType_multiple_choice', 'AppConstant.FieldType_dropdown', 'AppConstant.FieldType_radio']:
             return f"SetupConstant.{model}"
-        elif field_type == 'AppConstant.FieldType_dropdown':
-            return f"SetupConstant.{model}"
-        elif field_type == 'AppConstant.FieldType_radio':
-            return f"SetupConstant.yes_no"
         else:
             return "null"  
 
@@ -78,7 +73,7 @@ class DartCodeGenerator:
         elif field_type == 'AppConstant.FieldType_dropdown':
             return f"SetupData.getDropDownItems(context, SetupConstant.{model})"
         elif field_type == 'AppConstant.FieldType_radio':
-            return f"SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.yes_no)"
+            return f"SetupData.getCheklistItemsWithoutFuture(context, SetupConstant.{model})"
         else:
             return "null" 
 
@@ -88,19 +83,22 @@ class DartCodeGenerator:
         label_en = row.get('labels_in_english', None)
         data_type = clean_data_type(row.get('data_type', None))
         model = row.get('database', None)
+        print(f"Cleaned data type: {clean_data_type(row.get('data_type'))}")
+
 
         if not pd.notna(model) or str(model).strip() == "":
             # Skip row if model is missing or empty
             return
 
-        question_en = self._sanitize_string(question_en if pd.notna(question_en) else "Missing value in excel")
-        label_en = self._sanitize_string(label_en if pd.notna(label_en) else "Missing value in excel")
+        # Safely handle and sanitize strings
+        question_en = self._sanitize_string(str(question_en) if pd.notna(question_en) else "Missing value in excel")
+        label_en = self._sanitize_string(str(label_en) if pd.notna(label_en) else "Missing value in excel")
         field_type = self.DATA_TYPE_TO_FIELD_TYPE.get(data_type, "AppConstant.FieldType_EditText")
         dart_type = self.DATA_TYPE_TO_DART_TYPE.get(data_type, "String")
 
         # Clean and format the keys for localization
-        question_key = re.sub(r'[^\w]+', '_', question_en.strip()).strip('_')
-        label_key = re.sub(r'[^\w]+', '_', label_en.strip()).strip('_')
+        question_key = re.sub(r'[^\w]+', '_', str(question_en).strip()).strip('_')
+        label_key = re.sub(r'[^\w]+', '_', str(label_en).strip()).strip('_')
 
         # Add localization data for English
         self.localization_data["English"][question_key] = question_en
@@ -111,29 +109,45 @@ class DartCodeGenerator:
             question_value = row.get(f"questions_in_{lang.lower()}", None)
             label_value = row.get(f"labels_in_{lang.lower()}", None)
             if pd.notna(question_value):
-                self.localization_data[lang][question_key] = self._sanitize_string(question_value)
+                self.localization_data[lang][question_key] = self._sanitize_string(str(question_value))
             if pd.notna(label_value):
-                self.localization_data[lang][label_key] = self._sanitize_string(label_value)
+                self.localization_data[lang][label_key] = self._sanitize_string(str(label_value))
 
         # Append the widget code to the list for Dart widget generation
-        self.dart_widgets.append(f"""
-            /// Question number  = {row_number + 2}
-            build{self.class_name}Question(
-            number: {row_number + 2},
-            condition: true, 
-            widget: {self.class_name}UI(
-                label: {(f'\"{label_en}\"' if label_en == "Missing value in excel." else f"Languages.getText(context)!.{label_key}")},
-                question: {(f'\"{question_en}\"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")},
-                fieldType: {field_type},
-                model: {self.class_name.lower()}.{model},
-                dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
-                onChanged: (value) {{
-                    {self.class_name.lower()}.{model} = value;
-                    selectedOptions[{(f'\"{question_en}\"' if question_en == "Missing value in excel." else f"Languages.getText(context)!.{question_key}")}] = {self._get_data_list_conditionally_const(field_type, model)} + AppConstant.SEPERATOR + value;
-                }},
-            ),
-            ),
-        """)
+        self.dart_widgets.append(
+            f"""
+                    /// Question number  = {row_number + 2}
+                    build{self.class_name}Question(
+                    number: {row_number + 2},
+                    condition: true, 
+                    widget: {self.class_name}UI(
+                        label: {(
+                            f'"{label_en}"' 
+                            if label_en == "Missing value in excel" 
+                            else f"Languages.getText(context)!.{label_key}"
+                        )},
+                        question: {(
+                            f'"{question_en}"' 
+                            if question_en == "Missing value in excel" 
+                            else f"Languages.getText(context)!.{question_key}"
+                        )},
+                        fieldType: {field_type},
+                        model: {self.class_name.lower()}.{model},
+                        dataList: {self._get_data_list_conditionally_type_and_model(field_type, model)},
+                        onChanged: (value) {{
+                            {self.class_name.lower()}.{model} = value;
+                            selectedOptions[{(
+                                f'"{question_en}"' 
+                                if question_en == "Missing value in excel" 
+                                else f"Languages.getText(context)!.{question_key}"
+                            )}] = {self._get_data_list_conditionally_const(field_type, model)} 
+                                + AppConstant.SEPERATOR 
+                                + value;
+                        }},
+                    ),
+                    ),
+            """
+        )
 
         # Append model field definitions
         self.model_fields.append(f"final {dart_type} {model};")

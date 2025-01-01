@@ -71,7 +71,7 @@ def process_combined_projects(file_path, sheet_name):
     df['database'] = df['database'].ffill()
 
     # Filter dropdown and multiple-choice rows
-    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple choice'])].copy()
+    filtered_data = df[df['data_type'].str.strip().str.lower().isin(['dropdown', 'multiple choice', 'radio'])].copy()
 
     # Ensure all relevant columns are strings and clean
     for col in ['field_names_in_english', 'field_names_in_tamil', 'field_names_in_sinhala']:
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     try:   
 
         file_path='U_find_31_12_24.xlsx'
-        sheet_name='FamilyInfo' 
+        sheet_name='IncomeInfo' 
         
         #column name
         data_type = 'data_type'
