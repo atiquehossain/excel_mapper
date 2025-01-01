@@ -53,7 +53,7 @@ class DartCodeGenerator:
         
         return (
             value.replace('\\', '\\\\')  # Escape backslashes first
-                .replace('\n', '\n')   # Escape newlines
+                .replace('\n', '\\n')   # Escape newlines
                 .replace('\t', '\\t')   # Escape tabs
                 .replace('"', '\\"')    # Escape double quotes
                 .strip()
@@ -83,8 +83,7 @@ class DartCodeGenerator:
         label_en = row.get('labels_in_english', None)
         data_type = clean_data_type(row.get('data_type', None))
         model = row.get('database', None)
-        print(f"Cleaned data type: {clean_data_type(row.get('data_type'))}")
-
+        
 
         if not pd.notna(model) or str(model).strip() == "":
             # Skip row if model is missing or empty
